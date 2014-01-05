@@ -8,10 +8,8 @@ How to clone the repo
 
 How to deploy?
 --------------
-This is up to each individual, but this repo is structured in a way that allows for the
-GNU stow utility to be used. Stow allows for very easy creation and deletion of symbolic links.
-For example, if you want to grab use my vim configs you would just need to write `stow -v vim`, and after
-you get tired of my vim configs you just delete the symbolic links with `stow -v --delete vim`.
+This is up to each individual, but this repo is structured in a way that allows for the GNU stow utility to be used. Stow allows for very easy creation and deletion of symbolic links.
+For example, if you want to grab use my vim configs you would just need to write `stow -v vim`, and after you get tired of my vim configs you just delete the symbolic links with `stow -v --delete vim`.
 The deploy script on this repo is esentially just an alias for `stow -v --delete cower git mutt newsbeuter termite unclassified vim X xmonad youtube zsh`
 
 Dependencies
@@ -22,12 +20,8 @@ Vim specifics
 -------------
 
 ### Getting started
-My vimrc expects certain directories within the .vim folder, so let us create them
-`mkdir -p ~/.vim/{autoload,bundle,backup,swap}`
-Additionally, after installing pathogen as a submodule we will want to create a symbolic link
-to start it automatically
-`cd <dotfiles>/vim/.vim/autoload && ln -s ../bundle/pathogen/autoload/pathogen.vim`
-Where <dotfiles> is the folder where we cloned this repo to, e.g. ~/dotfiles
+My vimrc expects certain directories within the .vim folder, so let us create them `mkdir -p ~/.vim/{autoload,bundle,backup,swap}`
+Additionally, after installing pathogen as a submodule we will want to create a symbolic link to start it automatically `cd <dotfiles>/vim/.vim/autoload && ln -s ../bundle/pathogen/autoload/pathogen.vim` where <dotfiles> is the folder where we cloned this repo to, e.g. ~/dotfiles
 
 ### Plugins
 List of plugins I use:

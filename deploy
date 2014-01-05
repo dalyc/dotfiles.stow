@@ -14,6 +14,6 @@ elif [[ $1 == "--conclude " ]]; then
     stow -v --delete cower git mutt newsbeuter termite unclassified vim X xmonad youtube zsh
 else
     echo "The only two valig arguments at the moment are:"
-    echo "--deploy (to create the symlinks)"
-    echo "and --conclude (to delete the symlinks)"
+    echo -e "\t--deploy (to create the symlinks)"
+    echo -e "\t--conclude (to delete the symlinks)"
 fi
