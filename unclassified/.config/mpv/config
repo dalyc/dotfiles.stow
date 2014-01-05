@@ -1,0 +1,5 @@
+# Write your default config options here!
+autosub
+autosub-match=fuzzy
+no-cookies
+quiet

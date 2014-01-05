@@ -1,0 +1,29 @@
+[user]
+    name = ballmerpeak
+    email = xkcd.ballmer@gmail.com
+    editor = vim
+[merge]
+    tool = vimdiff
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    grep = yes
+[alias]
+    co = checkout
+    c = commit
+    p = push
+    s = status
+    d = diff
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative -n 15
+    ll = log -p --pretty=format:'%C(cyan reverse)%h%Creset (%ar - %C(black)%an%Creset), %s%C(cyan)%d%Creset%n'
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[github]
+	user = ballmerpeak
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.config/git/gitignore_global

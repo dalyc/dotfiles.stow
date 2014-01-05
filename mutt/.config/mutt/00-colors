@@ -1,0 +1,75 @@
+###
+# mutt colors file
+###
+
+# set default
+color normal     white         default
+
+# main colors
+color status     blue           default # status line
+color indicator  cyan           default # actual message
+color tree       blue           default # thread arrows
+color error      brightred      default # errors
+color message    brightyellow   default # info messages
+
+# message bodies
+color attachment brightblack    default     # MIME attachments
+color search     red            brightblack # search matches
+color signature  cyan           default     # signature
+color tilde      blue           default     # ~ at bottom of message
+color markers    red            default     # + at beginning of wrapped lines
+color quoted     cyan           default     # quoted text
+
+# quote blocks
+color quoted0 magenta   default
+color quoted1 red       default
+color quoted2 green     default
+color quoted3 yellow    default
+color quoted4 magenta   default
+color quoted5 red       default
+color quoted6 green     default
+color quoted7 yellow    default
+color quoted8 magenta   default
+color quoted9 red       default
+
+# color all ML mails
+color index      blue          default "~u"
+
+# uncolor certain messages
+uncolor index "~P"
+uncolor index "~N ~u"
+uncolor index "~N !~u"
+uncolor index "~T"
+uncolor index "~D"
+
+# and recolor them appropriately
+color index     color237        default "~C mutt" # messages to mutt...
+# color index     cyan            default "~N ~u" # new ML mail
+# color index     brightyellow    default "~N !~u" # new non-ML mail
+color index     brightgreen     default "~T"     # tagged messages
+color index     brightred       default "~D"     # deleted messages
+
+# set up the headers
+color header     blue           default "^date:"
+color header     yellow         default "^from:"
+color header     color236       default "^to:"
+color header     yellow         default "^cc:"
+color header     blue           default "^subject:"
+
+
+# urls
+color body       brightblue    default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+color body       brightblue    default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+
+# *bold*, _underline_, and /italic/
+color body       brightcyan    default "(^| )\\*[^ ]+\\*( |$)"
+color body       brightcyan    default "(^| )_[^ ]+_( |$)"
+color body       brightcyan    default "(^| )/[^ ]+/( |$)"
+
+color body yellow       default "^diff \-.*"
+color body yellow       default "^index [a-f0-9].*"
+color body yellow       default "^\-\-\- .*"
+color body yellow       default "^[\+]{3} .*"
+color body green        default "^[\+][^\+]+.*"
+color body red          default "^\-[^\-]+.*"
+color body brightblue   default "^@@ .*"

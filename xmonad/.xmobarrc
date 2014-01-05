@@ -1,0 +1,26 @@
+Config { font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
+        , bgColor = "#161616"
+        , fgColor = "#4d4d4d"
+        , border = NoBorder
+        , borderColor = "#000000"
+        , position = Top
+        , lowerOnStart = True --Send to the bottom of window stack initially
+        , hideOnStart = False
+        , persistent = True --Hiding or revealing is not possible
+        , allDesktops = True --Tell the WM to show xmobar in all desktops
+        , overrideRedirect = False --Make xmobar behave like a docked application
+        , commands = [ Run StdinReader
+                        -- #####################################################################################
+                        -- # --Low (-L) 10 --low #hex | --normal (-n)  #hex | --High (-H) 80 --high (-h) #hex ##
+                        -- #####################################################################################
+                        , Run CoreTemp ["-t", "Temp: <core0> <core1> <core2> <core3>","--ddigits", "0","-L","45","-n","#8dc18d","-H","55","-h","#E64040"] 10
+                        , Run Com "/usr/bin/bash" ["-c", "~/dev/xmobar/netstats"] "netstat" 600
+                        , Run MultiCpu ["-t","<fc=#7965ac><icon=/home/user/.config/icons/cpu.xbm/></fc> <autototal>","-L","50","-H","80","-n","#8dc18d","-h","#E64040"] 10
+                        , Run Memory ["-t", "<fc=#7965ac><icon=/home/user/.config/icons/mem.xbm/></fc> <usedratio>%","-L","50","-H","80","-n","#8dc18d","-h","#E64040"] 10
+                        , Run Com "/usr/bin/bash" ["-c", "~/dev/xmobar/disks"] "disks" 900
+                        , Run Date "%a %_d %b - %H:%M" "date" 10
+                        ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ [ %coretemp% %netstat%  %multicpu%  %memory% <fc=#7965ac>[</fc> %disks% <fc=#7965ac>]</fc> %date% ]"
+       }

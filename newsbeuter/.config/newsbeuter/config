@@ -1,0 +1,82 @@
+################################################################################
+### http://www.readwriteweb.com/archives/6_ways_to_filter_your_rss_feeds.php  ###
+#################################################################################
+feed-sort-order firsttag
+feedlist-format "%3i %n - %t"
+articlelist-format "%f %3i - %t"
+articlelist-title-format  "%N %V - Articles in feed %T (%u unread, %t total)"
+
+max-items 100
+browser "firefox"
+save-path ~/Archives/articles
+download-path ~/Downloads
+
+show-read-articles yes
+show-read-feeds yes
+display-article-progress no
+
+auto-reload no
+# auto-reload yes
+# reload-time 60
+suppress-first-reload yes
+
+#################################################################################
+### Keybinds                                                                  ###
+#################################################################################
+# {{{
+unbind-key ,
+unbind-key v
+unbind-key ^V
+unbind-key ^G
+unbind-key :
+unbind-key O
+unbind-key o
+unbind-key s
+unbind-key j
+unbind-key J
+unbind-key k
+unbind-key K
+unbind-key n
+unbind-key p
+unbind-key C
+unbind-key f
+unbind-key F
+unbind-key ^F
+unbind-key g
+unbind-key G
+unbind-key Q
+bind-key j next-unread
+bind-key k prev-unread
+bind-key S save
+bind-key o open-in-browser-and-mark-read
+bind-key \ cmdline
+bind-key ^Q quit
+# }}}
+
+#################################################################################
+### Ignore articles settings                                                  ###
+#################################################################################
+# {{{
+ignore-mode "download"
+ignore-article "*" "( title =~ \"emacs\" or title =~ \"Linux desktop\" )"
+ignore-article "http://lwn.net/headlines/newrss" "title =~ \"[$]\""
+ignore-article "http://feeds2.feedburner.com/braingle/all" "( title !# \"Vocabulary\" and title !# \"Memory\" )"
+ignore-article "http://www.linuxtoday.com/biglt.rss" "link !~ \"developer\""
+# }}}
+
+#################################################################################
+### Color settings                                                            ###
+#################################################################################
+highlight all "https?://[^ ]+" blue default
+highlight article "^(Feed|Title|Author|Link|Date):.+" black default
+highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default
+highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default
+highlight-article "link =~ \"reddit.com/r/(technology|linuxquestions|archlinux|opensource|linux4noobs|xmonad|learnprogramming|Privacy)/\"" color238 default
+color info cyan default
+color listnormal color244 default
+# color listnormal_unread color244 default
+color listfocus red default
+# color listfocus_unread red default
+# color background blue default
+# color article blue default
+search-highlight-colors black yellow bold

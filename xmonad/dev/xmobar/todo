@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# The todo program allows me to see in xmobar if I have completed a weekly task.
+# todo.py allows me to mark tasks as done or undone, or reset all tasks as undone.
+# The file containing all the tasks is todo.txt; it follows the format 'task_one=0'
+# where 0 means undone and 1 means done.
+#
+# Todo program consists of three files: todo.py, todo(bash script), and todo.txt.
+#
+# This script simply outputs all the tasks in todo.txt, outputting
+# a red x for when the task is undone, and an 'uncolored' x for when the
+# task is done. Output example:
+# com: <fc=#FBA4A8>x</fc> prog: <fc=#FBA4A8>x</fc> sov 26: <fc=#FBA4A8>x</fc>
+# On xmobar <fc=#FBA4A8>x</fc> gets replaced for a red x.
+
+dir_name=$(dirname "$0")
+file_with_tasks="$dir_name/todo.txt"
+tasks_array=();
+done_code="x"
+undone_code="<fc=#FBA4A8>x</fc>"
+
+while read line; do
+    tasks=$(echo "$line" | cut -d '=' -s -f 1)
+    tasks_status=$(echo "$line" | cut -d '=' -s -f 2)
+
+    if [[ $tasks_status == 0 ]]; then
+        tasks_status=$undone_code
+    else
+        tasks_status=$done_code
+    fi
+    tasks_array=("${tasks_array[@]}" "$tasks: $tasks_status");
+done < $file_with_tasks
+
+echo "${tasks_array[@]}"

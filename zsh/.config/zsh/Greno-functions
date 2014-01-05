@@ -1,0 +1,31 @@
+notes() {
+    if (($# > 1 )); then
+        echo "Invalid number of arguments were given"
+    elif (($# == 0)); then
+        vim ~/Archives/txt/NOTES
+    elif [[ $1 = "-o" ]]; then
+        cat ~/Archives/txt/NOTES
+    else
+        echo "Write notes to edit notes"
+        echo "Write notes -o to output notes"
+    fi
+}
+
+rss() {
+    if (($# == 0)); then
+        dtach -A $XDG_RUNTIME_DIR/newsbeuter \
+        newsbeuter
+    elif [[ $1 = "1" ]]; then
+        dtach -A $XDG_RUNTIME_DIR/newsbeuter-one \
+        newsbeuter \
+        -u ~/.config/newsbeuter/urls-one \
+        -c ~/.local/share/newsbeuter/cache-one.db
+    elif [[ $1 = "2" ]]; then
+        dtach -A $XDG_RUNTIME_DIR/newsbeuter-two \
+        newsbeuter \
+        -u ~/.config/newsbeuter/urls-two \
+        -c ~/.local/share/newsbeuter/cache-two.db
+    else
+        echo "Valid arguments are none, 1, and 2"
+    fi
+}

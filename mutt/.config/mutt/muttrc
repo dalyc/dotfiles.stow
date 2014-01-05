@@ -1,0 +1,64 @@
+# [Source the passwd file]
+source "gpg2 --textmode --quiet --decrypt $HOME/.config/mutt/my-pwds.gpg |"
+
+###############################################
+# Beginning of configuration for two accounts #
+###############################################
+# http://www.df7cb.de/blog/2010/Using_multiple_IMAP_accounts_with_Mutt.html
+# Set the mailbox type
+set mbox_type='Maildir'
+# Account 1: Gmail
+macro index <F9> '<sync-mailbox><enter-command>source $HOME/.config/mutt/settings-gmail<enter><change-folder>!<enter>'
+# Account 2: Personal
+macro index <F10> '<sync-mailbox><enter-command>source $HOME/.config/mutt/settings-personal<enter><change-folder>!<enter>'
+# Source the default account
+source $HOME/.config/mutt/settings-gmail
+# [Mailing lists]
+subscribe arch-dev-public arch-general
+#########################################
+# End of configuration for two accounts #
+#########################################
+
+# [external]
+set editor="vim -c \"set spell spelllang=en,es\""
+set ispell = "aspell -e -c" # use aspell as ispell
+set mailcap_path = $HOME/.config/mutt/mailcap # how to display html
+
+# [headers]
+ignore * # ignore all headers
+unignore from: to: cc: date: subject: # show only these
+hdr_order from: to: cc: date: subject: # and in this order
+
+set header_cache =~/.cache/mutt/headers
+set message_cachedir =~/.cache/mutt/bodies
+set certificate_file =$HOME/.config/mutt/certificates
+set imap_keepalive = 300
+set mail_check = 120
+set timeout = 30
+set beep_new            # bell on new mail
+set move = no           # stop asking to move read messages to mbox
+set sort = 'threads'    # sort by threads
+set sort_aux = 'date'   # sort threads by date
+set pager_stop          # don't go to next message automatically
+set tilde               # show tilde like in vim
+set include=ask-no      # do not include copy of original message in reply
+unset markers           # no ugly plus signs
+unset mark_old          # read/new is good enough for me
+unset sort_re           # always thread
+set smart_wrap
+set pager_index_lines = 8 # show emails list while viewing an email
+unset collapse_unread
+set index_format = "%2C %Z %{%b %d} %-15.15F (%4c) %?M?[%M] ?%s"
+set quote_regexp = "^([ \t]*[>])+"
+
+# [colors]
+source $HOME/.config/mutt/00-colors
+# [bindings]
+source $HOME/.config/mutt/00-keybindings
+# [macros]
+macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager gp "<change-folder>=peka<enter>" "Go to peka"
+macro index,pager gA "<change-folder>=Arch/Arch-dev<enter>" "Go to all arch-dev"
+macro index,pager ga "<change-folder>=Arch/Arch-general<enter>" "Go to arch-general"
+# Mark all messages in a mailbox as read by pressing esc+r
+macro index <Esc>r "T~N<enter>;WNT~O<enter>;WO\CT~A<enter>" "mark all messages read"

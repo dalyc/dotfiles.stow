@@ -1,0 +1,5 @@
+alias cdcs='cd ~/Archives/eLearn'
+alias cdnotes='cd ~/dev/notes'
+alias cdetc='cd ~/Archives/backup/etc'
+alias cd.dot='cd ~/.dotfiles'
+alias weechat='weechat --dir ~/.config/weechat'

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Do not proceed if stow is not installed
+if [[ ! -x /usr/bin/stow ]] || [[ ! -x /bin/stow ]]; then
+    echo "This script needs stow, please install it with your package manager of preference"
+    exit
+fi
+
+# if [[ $1 == "--deploy" ]] && [[ $2 == "popular" ]]; then
+if [[ $1 == "--deploy" ]]; then
+    stow -v cower git mutt newsbeuter termite unclassified vim X xmonad youtube zsh
+# elif [[ $1 == "--conclude " ]] && [[ $2 == "popular" ]]; then
+elif [[ $1 == "--conclude " ]]; then
+    stow -v --delete cower git mutt newsbeuter termite unclassified vim X xmonad youtube zsh
+else
+    echo "The only two valig arguments at the moment are:"
+    echo "--deploy (to create the symlinks)"
+    echo "and --conclude (to delete the symlinks)"
+fi

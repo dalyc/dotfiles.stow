@@ -1,0 +1,33 @@
+cd() {
+    builtin cd $@; ls
+}
+
+share() {
+    if (($# == 1)) && [[ -e $1 ]]; then
+        dir=${TMPDIR:-/tmp}/share-$$; mkdir "$dir" || error
+        cp "$1" $dir
+        pushd $dir && python -m http.server 8080; popd && rm -ri "$dir"
+    else
+        echo "Usage: share file-to-share"
+    fi
+}
+
+#sudo() {
+#    old=$(umask)
+#    # 775 dirs / 664 files
+#    umask 022
+#    command sudo "$@"
+#    umask $old
+#}
+
+re-dhcpcd() {
+    net_interface="eth0"
+    if [[ -n $(pgrep dhcp) ]]; then
+        echo "dhcpcd is running."
+        sudo dhcpcd -d -k $net_interface
+        sudo dhcpcd -d $net_interface
+    else
+        echo "dhcpcd is not running. Starting for IPv4..."
+        sudo dhcpcd --ipv4only --debug $net_interface
+    fi
+}

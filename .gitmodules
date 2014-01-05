@@ -1,0 +1,21 @@
+[submodule "vim/.vim/bundle/pathogen"]
+	path = vim/.vim/bundle/pathogen
+	url = git://github.com/tpope/vim-pathogen.git
+[submodule "vim/.vim/bundle/vim-commentary"]
+	path = vim/.vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "vim/.vim/bundle/ultisnips"]
+	path = vim/.vim/bundle/ultisnips
+	url = git://github.com/SirVer/ultisnips.git
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim/.vim/bundle/gist-vim"]
+	path = vim/.vim/bundle/gist-vim
+	url = git://github.com/mattn/gist-vim
+[submodule "vim/.vim/bundle/webapi-vim"]
+	path = vim/.vim/bundle/webapi-vim
+	url = git://github.com/mattn/webapi-vim
+[submodule "vim/.vim/bundle/tabular"]
+	path = vim/.vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git

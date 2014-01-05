@@ -1,0 +1,3 @@
+In order for newsbeuter to load these settings you will need to run:
+
+mkdir -p ~/.local/share/newsbeuter

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+red="#FBA4A8"
+yellow="#E2FC83"
+normal="#4d4d4d"
+root=$(df / |grep --only-matching --extended-regexp '[0-9]{1,2}%')
+root_level=""
+var=$(df /var |grep --only-matching --extended-regexp '[0-9]{1,2}%')
+var_level=""
+
+# Check how full root is
+if [[ -n $(grep -E '9[0-9]{1}%' <(echo $root)) ]]; then
+    root_level="$red"
+elif [[ -n $(grep -E '8[0-9]{1}%' <(echo $root)) ]]; then
+    root_level="$yellow"
+else
+    root_level="$normal"
+fi
+
+# Check how full var is
+if [[ -n $(grep -E '9[0-9]{1}%' <(echo $var)) ]]; then
+    var_level="$red"
+elif [[ -n $(grep -E '8[0-9]{1}%' <(echo $var)) ]]; then
+    var_level="$yellow"
+else
+    var_level="$normal"
+fi
+
+
+echo "root: <fc=$root_level>$root</fc> var: <fc=$var_level>$var</fc>"
