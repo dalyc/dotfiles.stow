@@ -6,7 +6,7 @@
 **/.zcompdump
 **/todo.txt
 
-00-UNTRACKED
+00-UNTRACKED/
 
 vim/.vim/.netrwhist
 vim/.vim/backup/*
