@@ -1,20 +1,25 @@
-# License
+License
+-------
 Feel free to use and modify anything on this repo as you wish.
 
-# How to clone the repo
+How to clone the repo
+---------------------
 `git clone https://github.com/ballmerpeak/dotfiles.git ~/.dotfiles`
 
-# How to create the symbolic links
+How to deploy?
+--------------
 This is up to each individual, but this repo is structured in a way that allows for the
 GNU stow utility to be used. Stow allows for very easy creation and deletion of symbolic links.
 For example, if you want to grab use my vim configs you would just need to write 'stow -v vim', and after
 you get tired of my vim configs you just delete the symbolic links with 'stow -v --delete vim'.
 The deploy script on this repo is esentially just an alias for 'stow -v --delete cower git mutt newsbeuter termite unclassified vim X xmonad youtube zsh`
 
-# Dependencies
+Dependencies
+------------
 - xmobar/dev/clipsync requires xclip and dmenu
 
-# Vim specifics
+Vim specifics
+-------------
 
 ### Getting started
 My vimrc expects certain directories within the .vim folder, so let us create them
