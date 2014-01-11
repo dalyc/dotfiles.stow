@@ -142,7 +142,7 @@ manageScratchPad = scratchpadManageHook (W.RationalRect (1/4) (1/4) (1/2) (1/2))
 
 --topics or workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = [ "web", "im", "dev", "doc", "5", "6", "7", "8", "9", "NSP"]
+myWorkspaces = [ "web", "dev", "doc", "term", "5", "6", "7", "8", "im", "NSP"]
 
 --layouts
 myLayout = customLayout
@@ -150,7 +150,6 @@ customLayout =  onWorkspace "web" fsLayout $
                 onWorkspace "dev" fsLayout $
                 onWorkspace "doc" fsLayout $
                 onWorkspace "8" fsLayout $
-                onWorkspace "9" fsLayout $
                 standardLayouts
     where
     standardLayouts = rmtiled ||| full ||| tiled
@@ -206,8 +205,8 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
     , ("M-a z", appendFilePrompt myXPConfig "/home/user01/Archives/txt/NOTES")
     , ("M-a w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
-    , ("M-a l", safeSpawn "xlock" ["-mode","blank","-geometry","1x1"])
-    , ("M-S-a l", safeSpawn "bash" ["-c", "systemctl suspend && xlock"])
+    , ("M-a l", safeSpawn "xlock" ["-mode","space"])
+    , ("M-S-a l", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
     , ("M-a x", safeSpawn "bash" ["/home/user01/dev/clipsync/dmenu.sh"])
     , ("M-S-a x", safeSpawn "python" ["/home/user01/dev/clipsync/sync.py"])
     --launching

@@ -11,14 +11,10 @@ if [[ -d $HOME/.config/startx ]]; then
                 # Start custom bind of keys
                 xmodmap $HOME/.config/xmodmap
                 shift ;;
-            *dbus)
-                # Start a D-Bus session
-                source /etc/X11/xinit/xinitrc.d/30-dbus
-                shift ;;
             *gkeyring)
-                # Start gnome-keyring
-                eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,gpg,ssh)
-                export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+                source /etc/X11/xinit/xinitrc.d/30-dbus
+                eval $(/usr/bin/gnome-keyring-daemon --start)
+                export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
                 shift ;;
             *udiskie)
                 # Let's start udiskie (udisks wrapper)

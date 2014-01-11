@@ -23,6 +23,7 @@ subscribe arch-dev-public arch-general
 set editor="vim -c \"set spell spelllang=en,es\""
 set ispell = "aspell -e -c" # use aspell as ispell
 set mailcap_path = $HOME/.config/mutt/mailcap # how to display html
+auto_view text/html # automatically view text/html
 
 # [headers]
 ignore * # ignore all headers
