@@ -88,6 +88,9 @@ nnoremap <F2> w
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
 inoremap <F9> <C-O><C-^>
 nnoremap <F9> <C-^>
+nmap <F11> :SCCompile<cr>
+"run the compiled program
+nmap <F12> :!./%:r<cr>
 
 " Mapleader
 "--------------------------

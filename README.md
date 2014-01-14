@@ -32,6 +32,7 @@ List of plugins I use:
 - [gist-vim](https://github.com/mattn/gist-vim)
 - [webapi-vim](https://github.com/mattn/webapi-vim)
 - [tabular](https://github.com/godlygeek/tabular.git)
+- [SingleCompile](https://github.com/xuhdev/SingleCompile)
 
 ### Install as git submodule
 ```
@@ -42,6 +43,7 @@ git submodule add git://github.com/scrooloose/nerdtree.git vim/.vim/bundle/nerdt
 git submodule add git://github.com/mattn/gist-vim vim/.vim/bundle/gist-vim
 git submodule add git://github.com/mattn/webapi-vim vim/.vim/bundle/webapi-vim
 git submodule add git://github.com/godlygeek/tabular.git vim/.vim/bundle/tabular
+git submodule add https://github.com/xuhdev/SingleCompile.git vim/.vim/bundle/single-compile
 ```
 
 ### Update all/single vim plugins
