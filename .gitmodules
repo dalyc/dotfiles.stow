@@ -19,3 +19,6 @@
 [submodule "vim/.vim/bundle/tabular"]
 	path = vim/.vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/.vim/bundle/single-compile"]
+	path = vim/.vim/bundle/single-compile
+	url = https://github.com/xuhdev/SingleCompile.git
