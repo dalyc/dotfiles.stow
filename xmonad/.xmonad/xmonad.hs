@@ -1,5 +1,5 @@
 -- haskell
-import Data.List -- (1)
+import Data.List -- For `isSuffixOf` (1)
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -122,7 +122,8 @@ myManageHook = (composeAll . concat $
             , className =? "Pavucontrol" --> insertPosition End Older <+> doShift "im" -- (6)
             , className =? "Okular"   --> doShift "doc"
             , className =? "MuPDF"   --> doShift "doc"
-            , fmap ("libreoffice" `isInfixOf`) className --> doShift "doc" -- (1)
+            -- , fmap ("libreoffice" `isPrefixOf`) className --> doShift "doc" -- (1)
+            , title =? "LibreOffice" --> doShift "doc"
             , className =? "mplayer2"    --> doShift "8"
             , className =? "mpv"    --> doShift "8"
             , className =? "Vlc"    --> doShift "8"
