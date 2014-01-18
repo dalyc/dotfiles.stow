@@ -18,19 +18,15 @@ set $mod Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose an xft font, such as:
-font xft:Terminus 12px
+#font xft:Terminus 12px
+# font for window titles. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-
-# kill focused window
-bindsym $mod+Shift+c kill
-
-# start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
 
 # change focus
 bindsym $mod+j focus left
@@ -110,7 +106,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -138,12 +134,40 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+################
+# Personalized #
+################
+# start dmenu (a program launcher)
+bindsym $mod+p exec dmenu_run
+# kill focused window
+bindsym $mod+Shift+q kill
+# Mode for new containers
+workspace_layout tabbed
+# Custom bindsyms
+bindsym $mod+Tab workspace back_and_forth
+# Windows rule
+assign [class="Chromium"]   → 1
+assign [instance="tmux"]    → 2
+assign [instance="htop"]    → 3
+# actions for certain windows
+for_window [class="urxvt"] border 1pixel
 for_window [class="mplayer2"] floating enable
 for_window [class="Firefox"] floating enable
 for_window [class="Firefox" instance="Navigator"] floating disable
+# border style for new windows
+new_window 1pixel
+# For hiding vertical borders adjacent to the screen edges
+hide_edge_borders vertical
+# Start always the the following programs on start-up
+# not when restarting i3
+exec chromium --incognito
+#######################
+# END of Personalized #
+#######################
 
 bar {
-        font -*terminus-*-*-*-*-*-*-*-*-*-iso10646-*
+        #font -*terminus-*-*-*-*-*-*-*-*-*-iso10646-*
         position bottom
         colors {
             background #3f3f3f
