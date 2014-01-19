@@ -110,7 +110,7 @@ precmd(){
     fi
 }
 
-PROMPT='%F{green}%n%F{blue} in [${PR_PWDCOLOR}%~$PR_RESET%F{blue}] %F{red}#$PR_RESET '
+PROMPT='%F{green}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
 # Only show an RPROMPT if our hostname is Greno
 if [[ $HOST == "Greno" ]]; then
     RPROMPT='$(prompt_git_info)$PR_RESET %F{black}[%T]$PR_RESET'
