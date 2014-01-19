@@ -22,9 +22,6 @@ set $mod Mod4
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -108,6 +105,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod+Shift
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -138,6 +137,8 @@ bindsym $mod+r mode "resize"
 ################
 # Personalized #
 ################
+# Always wrap, be aware of focus parent
+foce_focus_wrapping yes
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
 # kill focused window
@@ -145,7 +146,8 @@ bindsym $mod+Shift+q kill
 # Mode for new containers
 workspace_layout tabbed
 # Custom bindsyms
-bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab workspace back_and_forth
+bindsym $mod+Tab [class="urxvt" title="VIM"] focus
 # Windows rule
 assign [class="Chromium"]   → 1
 assign [instance="tmux"]    → 2
@@ -167,7 +169,7 @@ exec chromium --incognito
 #######################
 
 bar {
-        #font -*terminus-*-*-*-*-*-*-*-*-*-iso10646-*
+        font -*terminus-*-*-*-*-*-*-*-*-*-iso10646-*
         position bottom
         colors {
             background #3f3f3f
@@ -177,5 +179,5 @@ bar {
             inactive_workspace #dcdccc #1f1f1f
             urgent_workspace #dcdccc #cc9393
         }
-        status_command status
+        status_command i3status
 }
