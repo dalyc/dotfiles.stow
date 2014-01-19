@@ -138,7 +138,7 @@ bindsym $mod+r mode "resize"
 # Personalized #
 ################
 # Always wrap, be aware of focus parent
-foce_focus_wrapping yes
+force_focus_wrapping yes
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
 # kill focused window
