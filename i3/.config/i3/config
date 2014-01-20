@@ -147,7 +147,7 @@ bindsym $mod+Shift+q kill
 workspace_layout tabbed
 # Custom bindsyms
 bindsym $mod+Shift+Tab workspace back_and_forth
-bindsym $mod+Tab [class="urxvt" title="VIM"] focus
+bindsym $mod+Tab [class="URxvt" title="VIM"] focus
 # Windows rule
 assign [class="Chromium"]   → 1
 assign [instance="tmux"]    → 2
