@@ -20,8 +20,11 @@ Vim specifics
 -------------
 
 ### Getting started
-My vimrc expects certain directories within the .vim folder, so let us create them `mkdir -p ~/.vim/{autoload,bundle,backup,swap}`
-Additionally, after installing pathogen as a submodule we will want to create a symbolic link to start it automatically `cd <dotfiles>/vim/.vim/autoload && ln -s ../bundle/pathogen/autoload/pathogen.vim` where <dotfiles> is the folder where we cloned this repo to, e.g. ~/dotfiles
+My vimrc expects certain directories within the .vim folder, so let us create them with `mkdir -p ~/.vim/{autoload,bundle,backup,swap}`
+Note that .vim/autoload has a symlink to .vim/bundle/pathogen/autoload/pathogen.vim, if you start vim without installing pathogen first then vim will scream at you.
+
+Additionally, you can just run `./deploy --vim` and the required folders will be made for you. Also, this command will install the list of plugins mentioned bellow, and lastly
+the appropriate symlinks will be created with the help of stow. Note that you need to have stow installed in order for the deploy script to function properly.
 
 ### Plugins
 List of plugins I use:
