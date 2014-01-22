@@ -40,7 +40,3 @@ export GNUPGHOME=$HOME/.config/gnupg
 
 # Let us store mpv settings in $HOME/.config
 export MPV_HOME=$HOME/.config/mpv
-
-# Let us define some XDG dirs
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_DIRS="$HOME/.local/share"
