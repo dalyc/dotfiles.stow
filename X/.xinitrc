@@ -7,8 +7,7 @@ if [[ -d $HOME/.config/startx ]]; then
     for arguments in $(find $HOME/.config/startx/ -type f)
     do
         case $arguments in
-            *xmodmap)
-                # Start custom bind of keys
+            *xmodmap) # Start custom bind of keys
                 xmodmap $HOME/.config/xmodmap
                 shift ;;
             *gkeyring)
@@ -16,12 +15,10 @@ if [[ -d $HOME/.config/startx ]]; then
                 eval $(/usr/bin/gnome-keyring-daemon --start)
                 export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
                 shift ;;
-            *udiskie)
-                # Let's start udiskie (udisks wrapper)
+            *udiskie) # Let's start udiskie (udisks wrapper)
                 udiskie -s &
                 shift ;;
-            *xresources)
-                # Start custom settings for urxvt
+            *xresources) # Start custom settings for urxvt
                 xrdb -merge ~/.config/Xresources
                 shift ;;
             *bell) # Turn the bell off
@@ -29,9 +26,6 @@ if [[ -d $HOME/.config/startx ]]; then
                 shift ;;
             *fonts)
                 xset +dpms +fp /usr/share/fonts/local,/usr/share/fonts/artwiz-fonts
-                shift ;;
-            default)
-                echo "default case hit"
                 shift ;;
         esac
     done
@@ -46,6 +40,9 @@ ln -sfn $XDG_RUNTIME_DIR/adobe ~/.adobe
 ln -sfn $XDG_RUNTIME_DIR/macromedia ~/.macromedia
 
 # Which WM/DE to launch
-exec xmonad
-# exec i3
-# exec startxfce4
+if [[ $(hostname) == "Greno" ]] && [[ $HOME == "/home/user" ]]; then
+    exec xmonad
+else
+    exec i3
+    # exec startxfce4
+fi
