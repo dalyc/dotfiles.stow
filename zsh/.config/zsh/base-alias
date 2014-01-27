@@ -13,5 +13,5 @@ alias du='du -h'
 alias diff='colordiff'
 alias pacu='sudo pacman -Syu'
 alias pacs="pacman -Ss"
-alias myip='curl ifconfig.me/ip'
+alias myeip='curl ifconfig.me/ip'
 alias mutt='dtach -A $XDG_RUNTIME_DIR/mutt mutt -F $HOME/.config/mutt/muttrc'
