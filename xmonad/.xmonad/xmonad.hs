@@ -36,6 +36,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Named
 import XMonad.Layout.Reflect
+import XMonad.Layout.HintedGrid -- layout for gvim (hinting problem) (8)
 
 -- local libs
 import DynamicTopic -- (7)
@@ -149,18 +150,22 @@ myWorkspaces = [ "web", "dev", "doc", "term", "5", "6", "7", "8", "im", "NSP"]
 myLayout = customLayout
 customLayout =  onWorkspace "web" fsLayout $
                 onWorkspace "dev" fsLayout $
-                onWorkspace "doc" fsLayout $
+                onWorkspace "doc" docLayout $
                 onWorkspace "8" fsLayout $
                 standardLayouts
     where
     standardLayouts = rmtiled ||| full ||| tiled
 
     rt = ResizableTall 1 (2/100) (1/2) []
-    tiled = named "[]=" $ smartBorders rt
     mtiled = named "M[]=" $ smartBorders $ Mirror rt
+    grid = named "GR" $ GridRatio (4/3) False -- (8)
+
     rmtiled = named "RM[]=" $ smartBorders $ reflectVert mtiled
     full = named "[]" $ noBorders Full
+    tiled = named "[]=" $ smartBorders rt
     fsLayout = full ||| tiled
+    docLayout = grid ||| full
+
 
 --prompt theme
 myXPConfig = defaultXPConfig {  font = "terminus"
