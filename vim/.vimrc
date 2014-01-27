@@ -109,6 +109,13 @@ set listchars=tab:→\ ,trail:·\,eol:¬
 highlight NonText ctermfg=237
 highlight SpecialKey ctermfg=234
 
+" GUI Settings
+"--------------------------
+if has ('gui_running')
+    set guifont=DejaVu\ Sans\ Mono\ 11
+    set guioptions=acM
+endif
+
 " Gist settings
 "--------------------------
 let g:gist_detect_filetype = 1
