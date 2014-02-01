@@ -1,5 +1,5 @@
 -- haskell
-import Data.List -- For `isSuffixOf` (1)
+-- import Data.List -- For `isSuffixOf` (1)
 
 import XMonad
 import qualified XMonad.StackSet as W
@@ -124,7 +124,7 @@ myManageHook = (composeAll . concat $
             , className =? "Okular"   --> doShift "doc"
             , className =? "MuPDF"   --> doShift "doc"
             -- , fmap ("libreoffice" `isPrefixOf`) className --> doShift "doc" -- (1)
-            , title =? "LibreOffice" --> doShift "doc"
+            -- , title =? "LibreOffice" --> doShift "doc"
             , className =? "mplayer2"    --> doShift "8"
             , className =? "mpv"    --> doShift "8"
             , className =? "Vlc"    --> doShift "8"
@@ -136,7 +136,7 @@ myManageHook = (composeAll . concat $
             , className =? "Termite" --> insertPosition Below Newer -- (6)
             , className =? "Gtkdialog" --> doFloat
             , className =? "Gimp" --> doFloat
-            , fmap ("Call with" `isInfixOf`) title --> doFloat -- For skype (1)
+            -- , fmap ("Call with" `isInfixOf`) title --> doFloat -- For skype (1)
             ]]) <+> manageScratchPad
 
 manageScratchPad :: ManageHook
@@ -222,8 +222,8 @@ myKeys conf = mkKeymap conf $ [
     , ("M-f", safeSpawn "firefox" [])
     , ("M-S-f 0", safeSpawn "firefox" ["-P"])
     , ("M-S-f 1", safeSpawn "firefox" ["-P", "Primary"])
-    , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Secundary"])
-    , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Shared"])
+    , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Class"])
+    , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
     , ("M-S-f 4", safeSpawn "firefox" ["-P", "Locked"])
     , ("M-p", shellPrompt myXPConfig)
     --search the web
