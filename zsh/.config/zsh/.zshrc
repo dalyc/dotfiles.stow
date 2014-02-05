@@ -110,7 +110,15 @@ precmd(){
     fi
 }
 
-PROMPT='%F{green}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
+
+# Let us change PS1 if we are using an SSH connection
+if [[ -z "$SSH_CLIENT" ]]; then
+    PROMPT='%F{green}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
+# If we are indeed using an SSH connection
+else
+    PROMPT='%F{red}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
+fi
+
 # Only show an RPROMPT if our hostname is Greno
 if [[ $HOST == "Greno" ]]; then
     RPROMPT='$(prompt_git_info)$PR_RESET %F{black}[%T]$PR_RESET'
