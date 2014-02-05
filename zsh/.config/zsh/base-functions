@@ -6,7 +6,7 @@ share() {
     if (($# == 1)) && [[ -e $1 ]]; then
         dir=${TMPDIR:-/tmp}/share-$$; mkdir "$dir" || error
         cp "$1" $dir
-        pushd $dir && python -m http.server 8080; popd && rm -ri "$dir"
+        pushd $dir && python -m http.server; popd && rm -ri "$dir"
     else
         echo "Usage: share file-to-share"
     fi
