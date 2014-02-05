@@ -11,17 +11,25 @@ general {
         interval = 5
 }
 
-#order += "ipv6"
-#order += "disk /"
-order += "run_watch VPN"
+order += "disk /"
+order += "disk /var"
 order += "wireless wlp2s0"
 order += "ethernet enp3s0"
-order += "battery 0"
+order += "run_watch VPN"
 order += "load"
+order += "battery 0"
 order += "tztime local"
 
+disk "/" {
+    format = "root: %free"
+}
+
+disk "/var" {
+    format = "var: %free"
+}
+
 wireless wlp2s0 {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "W: %essid %quality (%ip)"
         format_down = "W: down"
 }
 
@@ -33,7 +41,10 @@ ethernet enp3s0 {
 }
 
 battery 0 {
-        format = "%status %percentage %remaining"
+        low_threshold = 30
+        last_full_capacity = true
+        integer_battery_capacity = true
+        format = "%status %percentage (%remaining %consumption)"
 }
 
 run_watch VPN {
