@@ -213,8 +213,8 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
     , ("M-a l", safeSpawn "xlock" ["-mode","space"])
     , ("M-S-a l", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
-    , ("M-a x", safeSpawn "bash" ["/home/user01/dev/clipsync/dmenu.sh"])
-    , ("M-S-a x", safeSpawn "python" ["/home/user01/dev/clipsync/sync.py"])
+    , ("M-a x", safeSpawn "bash" ["/home/user/dev/clipsync/dmenu.sh"])
+    , ("M-S-a x", safeSpawn "python" ["/home/user/dev/clipsync/sync.py"])
     --launching
     , ("M-<Return>", spawnShell) --Launch shell in topic (7)
     , ("M-S-<Backspace>", spawn myTerminal2) --Launch shell
