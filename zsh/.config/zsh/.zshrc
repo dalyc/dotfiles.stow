@@ -117,6 +117,8 @@ if [[ -z "$SSH_CLIENT" ]]; then
 # If we are indeed using an SSH connection
 else
     PROMPT='%F{red}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
+    # Also, let us export TERM
+    export TERM=xterm
 fi
 
 # Only show an RPROMPT if our hostname is Greno
