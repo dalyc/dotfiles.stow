@@ -15,3 +15,5 @@ vim/.vim/swap/*
 xmonad/.xmonad/*
 !xmonad/.xmonad/xmonad.hs
 !xmonad/.xmonad/lib/DynamicTopic.hs
+
+X/.config/gtk-3.0/bookmarks
