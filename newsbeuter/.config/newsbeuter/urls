@@ -1,10 +1,15 @@
+http://www.reddit.com/r/linuxquestions+linuxadmin+linuxprogramming/.rss "admin"
+http://www.reddit.com/r/linux+linux4noobs/.rss "admin"
+http://www.reddit.com/r/archlinux+xmonad/.rss "admin"
+http://www.reddit.com/r/bsd+freebsd+technology/.rss "admin"
+http://www.reddit.com/r/sysadmin/.rss "admin"
+
 http://www.tomshardware.com/feeds/rss2/tom-s-hardware-us-components,18-1-1.xml hardware
 http://www.osnews.com/files/recent.xml hardware
 http://www.xbitlabs.com/misc/rss/ hardware
 
 http://feeds.arstechnica.com/arstechnica/askars technology
 
-http://www.reddit.com/r/technology+linux+linuxquestions+linuxadmin+freebsd+bsd+archlinux+xmonad/.rss "open source"
 http://www.linuxtoday.com/biglt.rss "open source"
 http://lwn.net/headlines/newrss "open source"
 http://planet.archlinux.org/atom.xml "open source"
@@ -12,6 +17,6 @@ http://feeds.feedburner.com/TheGeekStuff "open source"
 http://www.ibm.com/developerworks/views/linux/rss/libraryview.jsp?site_id=1&contentarea_by=Linux&topic_by=&product_by=&type_by=Tutorials&search_by=&industry_by=&sort_by=Date&series_title_by= "open source"
 
 http://feeds.feedburner.com/darknethackers security
-http://www.reddit.com/r/netsec+computerforensics+blackhat+Privacy+sysadmin/.rss security
+http://www.reddit.com/r/netsec+computerforensics+blackhat+Privacy/.rss security
 
 http://e.meneame.net/rss2.php?meta=0 news

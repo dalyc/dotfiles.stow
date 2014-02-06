@@ -69,9 +69,11 @@ ignore-article "http://www.linuxtoday.com/biglt.rss" "link !~ \"developer\""
 #################################################################################
 highlight all "https?://[^ ]+" blue default
 highlight article "^(Feed|Title|Author|Link|Date):.+" black default
-highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default
 highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default
-highlight-article "link =~ \"reddit.com/r/(technology|linuxquestions|archlinux|opensource|linux4noobs|xmonad|learnprogramming|Privacy)/\"" color238 default
+highlight-article "link =~ \"reddit.com/r/Privacy\"" color028 default
+highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default
+highlight-article "link =~ \"reddit.com/r/(linuxprogramming|linux4noobs)/\"" color238 default
+highlight-article "link =~ \"reddit.com/r/(bsd|freebsd|opensource|xmonad|learnprogramming)/\"" color238 default
 color info cyan default
 color listnormal color244 default
 # color listnormal_unread color244 default
