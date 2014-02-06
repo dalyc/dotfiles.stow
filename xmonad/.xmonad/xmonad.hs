@@ -49,7 +49,7 @@ main = xmonad =<< statusBar cmd pp kb conf
     where
         uhook = withUrgencyHookC NoUrgencyHook urgentConfig
         --Command to launch the bar. Launch it on screen 0 and 1 (-x = --screen)
-        cmd = "bash -c \"tee >(xmobar -x0) | xmobar -x1\""
+        cmd = "bash -c \"tee >(xmobar -x0 /home/user/.config/xmobar/xmobarrc) | xmobar -x1 /home/user/.config/xmobar/xmobarrc\""
         --Custom pp, determines what is being written to the bar
         pp = myPP
         --Keybinding to toggle the gap for the bar
