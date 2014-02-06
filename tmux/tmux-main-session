@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Establish initial session
+new -s Main -d -s0 -nweechat 'exec weechat' #screen 0:0
+neww -d -nsyslog 'exec journalctl -afn100' #screen 0:1
+neww -d -nsshd 'exec journalctl -afn100 /usr/bin/sshd' #screen 0:2
+neww -d 'exec bash' #screen 0:3
