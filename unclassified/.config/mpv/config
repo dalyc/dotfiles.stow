@@ -3,3 +3,5 @@ autosub
 autosub-match=fuzzy
 no-cookies
 quiet
+# Use pulseaudio, with alsa as fallback
+# ao=pulse,alsa
