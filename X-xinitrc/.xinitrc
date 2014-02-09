@@ -42,6 +42,8 @@ ln -sfn $XDG_RUNTIME_DIR/macromedia ~/.macromedia
 # Which WM/DE to launch
 if [[ $(hostname) == "Greno" ]] && [[ $HOME == "/home/user" ]]; then
     exec xmonad
+elif [[ $(hostname) == "eee" ]]; then
+    exec openbox-session
 else
     exec i3
     # exec startxfce4

@@ -10,10 +10,10 @@ if [[ ! -x /usr/bin/stow ]] || [[ ! -x /bin/stow ]]; then
 
 # If stow is installed, then proceed with the following:
 elif [[ $1 == "--deploy" ]] && [[ $2 == "popular" ]]; then
-    stow -v cower git newsbeuter termite unclassified vim X xmonad youtube zsh
+    stow -v cower git newsbeuter termite unclassified vim X X-xinitrc xmonad youtube zsh
 
 elif [[ $1 == "--conclude" ]] && [[ $2 == "popular" ]]; then
-    stow -v --delete cower git newsbeuter termite unclassified vim X xmonad youtube zsh
+    stow -v --delete cower git newsbeuter termite unclassified vim X X-xinitrc xmonad youtube zsh
 
 # What to do for when we want to deploy vim
 elif [[ $1 == "--vim" ]]; then
