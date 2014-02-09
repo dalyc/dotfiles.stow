@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Establish initial session
-tmux new -s Main -d -s0 -nweechat 'exec weechat' #screen 0:0
-tmux neww -d -nsyslog 'exec journalctl -afn100' #screen 0:1
-tmux neww -d -nsshd 'exec journalctl -afn100 /usr/bin/sshd' #screen 0:2
-tmux neww -d -nwebcam 'exec v4l2-ctl -c exposure_auto=1 -c exposure_absolute=22' #screen 0:3
-tmux neww -d -nbash 'exec bash' #screen 0:4
+tmux new -s Main -d -s0 -nweechat 'exec weechat' #screen 0:1
+tmux neww -d -nsyslog 'exec journalctl -afn100' #screen 0:2
+tmux neww -d -nsshd 'exec journalctl -afn100 /usr/bin/sshd' #screen 0:3
+tmux neww -d -nwebcam 'exec v4l2-ctl -c exposure_auto=1 -c exposure_absolute=22' #screen 0:4
+tmux neww -d -nbash 'exec bash' #screen 0:5

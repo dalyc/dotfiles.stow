@@ -125,6 +125,8 @@ myManageHook = (composeAll . concat $
             , className =? "MuPDF"   --> doShift "doc"
             -- , fmap ("libreoffice" `isPrefixOf`) className --> doShift "doc" -- (1)
             -- , title =? "LibreOffice" --> doShift "doc"
+            , className =? "X2goclient"    --> doShift "7"
+            , className =? "X2GoAgent"    --> doShift "7"
             , className =? "mplayer2"    --> doShift "8"
             , className =? "mpv"    --> doShift "8"
             , className =? "Vlc"    --> doShift "8"
@@ -151,6 +153,7 @@ myLayout = customLayout
 customLayout =  onWorkspace "web" fsLayout $
                 onWorkspace "dev" fsLayout $
                 onWorkspace "doc" docLayout $
+                onWorkspace "7" fsLayout $
                 onWorkspace "8" fsLayout $
                 standardLayouts
     where
