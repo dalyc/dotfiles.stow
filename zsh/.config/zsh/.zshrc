@@ -35,6 +35,7 @@ fi
 # Load base aliases and functions
 source $HOME/.config/zsh/base-alias
 source $HOME/.config/zsh/base-functions
+source $HOME/.config/zsh/marks-function
 # Load completition settings
 source $HOME/.config/zsh/completition
 

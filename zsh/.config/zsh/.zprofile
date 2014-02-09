@@ -40,3 +40,6 @@ export GNUPGHOME=$HOME/.config/gnupg
 
 # Let us store mpv settings in $HOME/.config
 export MPV_HOME=$HOME/.config/mpv
+
+# Let us use human-readible formats
+export BLOCKSIZE=human-readable

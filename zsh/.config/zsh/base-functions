@@ -1,3 +1,11 @@
+#sudo() {
+#    old=$(umask)
+#    # 775 dirs / 664 files
+#    umask 022
+#    command sudo "$@"
+#    umask $old
+#}
+
 cd() {
     builtin cd $@; ls
 }
@@ -12,22 +20,10 @@ share() {
     fi
 }
 
-#sudo() {
-#    old=$(umask)
-#    # 775 dirs / 664 files
-#    umask 022
-#    command sudo "$@"
-#    umask $old
-#}
+say() {
+    mpv -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$*"| sed 's/ /+/3g' | sh 2>/dev/null;
+}
 
-re-dhcpcd() {
-    net_interface="eth0"
-    if [[ -n $(pgrep dhcp) ]]; then
-        echo "dhcpcd is running."
-        sudo dhcpcd -d -k $net_interface
-        sudo dhcpcd -d $net_interface
-    else
-        echo "dhcpcd is not running. Starting for IPv4..."
-        sudo dhcpcd --ipv4only --debug $net_interface
-    fi
+mkcd() {
+    mkdir "$1" && cd "$1"
 }
