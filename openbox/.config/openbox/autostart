@@ -1,0 +1,10 @@
+# Programs that will run after openbox has started
+
+# Xresources
+xrdb -merge ~/.config/Xresources
+
+# Start skype
+# skype &
+
+# Start pavucontrol
+# pavucontrol &
