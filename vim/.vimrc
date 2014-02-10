@@ -92,7 +92,7 @@ nnoremap <F9> <C-^>
 nmap <F10> :SCCompile -g -o %<<cr>
 nmap <F11> :SCCompile -o %<.out<cr>
 "run the compiled program
-nmap <F12> :!./%:r<cr>
+nmap <F12> :!./%:r.out<cr>
 
 " Mapleader
 "--------------------------

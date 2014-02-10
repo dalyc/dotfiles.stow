@@ -213,11 +213,15 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a k", killAllOtherCopies) --Kill all copied windows (4)
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
     , ("M-a z", appendFilePrompt myXPConfig "/home/user01/Archives/txt/NOTES")
-    , ("M-a w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
     , ("M-a l", safeSpawn "xlock" ["-mode","space"])
     , ("M-S-a l", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
     , ("M-a x", safeSpawn "bash" ["/home/user/dev/clipsync/dmenu.sh"])
     , ("M-S-a x", safeSpawn "python" ["/home/user/dev/clipsync/sync.py"])
+    --launching of random apps
+    , ("M-u 1", safeSpawn "chromium" ["--incognito"])
+    , ("M-u 2", safeSpawn "spice" ["-h", "127.0.0.1", "-p", "5930"])
+    , ("M-u 3", safeSpawn "x2goclient" [])
+    , ("M-u w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
     --launching
     , ("M-<Return>", spawnShell) --Launch shell in topic (7)
     , ("M-S-<Backspace>", spawn myTerminal2) --Launch shell
