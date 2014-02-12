@@ -167,7 +167,7 @@ hide_edge_borders vertical
 # Start always the the following programs on start-up
 # not when restarting i3
 # exec chromium --incognito
-# exec nm-applet
+exec nm-applet
 #######################
 # END of Personalized #
 #######################
