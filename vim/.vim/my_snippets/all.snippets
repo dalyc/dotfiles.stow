@@ -1,16 +1,24 @@
 # This file contains snippets that are always defined. I personally
 # have snippets for signatures and often needed texts
 
-snippet date
-`date +%Y-%m-%d`
-endsnippet
-
 snippet #!bash
 #!/usr/bin/env bash
 endsnippet
 
 snippet #!sh
 #!/usr/bin/env sh
+endsnippet
+
+snippet date
+`date +%Y-%m-%d`
+endsnippet
+
+snippet #date
+####################
+# date: `date +%Y-%m-%d` #
+####################
+
+$1
 endsnippet
 
 snippet header
@@ -21,6 +29,14 @@ snippet header
  * Desc: $4
  */
 $5
+endsnippet
+
+snippet ||->
+│─╼ $2
+endsnippet
+
+snippet |->
+└─╼ $1
 endsnippet
 
 ##########################

@@ -89,7 +89,7 @@ nnoremap <F3> :set hlsearch! hlsearch?<CR>
 inoremap <F9> <C-O><C-^>
 nnoremap <F9> <C-^>
 "compile the current program in buffer
-nmap <F10> :SCCompile -g -o %<<cr>
+nmap <F10> :SCCompile -g -o %<.out<cr>
 nmap <F11> :SCCompile -o %<.out<cr>
 "run the compiled program
 nmap <F12> :!./%:r.out<cr>
