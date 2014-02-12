@@ -1,4 +1,2 @@
 alias cdnotes='cd ~/dev/notes'
 alias cd.dot='cd ~/.dotfiles'
-alias cdcs='cd ~/dev/class/COP'
-alias cdtest='cd ~/dev/test'

@@ -1,5 +1,4 @@
-alias cdcs='cd ~/Multimedia/00-Elearn'
+alias cd.dot='cd ~/.dotfiles'
 alias cdnotes='cd ~/dev/notes'
 alias cdetc='cd ~/Archives/backup/etc'
-alias cd.dot='cd ~/.dotfiles'
 alias weechat='weechat --dir ~/.config/weechat'
