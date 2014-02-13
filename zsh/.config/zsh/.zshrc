@@ -2,6 +2,11 @@
 # Host specific and base bits
 #------------------------------
 if [[ $HOST == "Greno" ]]; then
+    # http://askql.wordpress.com/2011/01/11/zsh-writing-own-completion/
+    # http://stackoverflow.com/questions/9336058/how-to-copy-existing-completions-to-other-commands-in-zsh
+    # http://wikimatze.de/writing-zsh-completion-for-padrino.html
+    # http://blog.mavjs.org/2012/07/zsh-autocomplete-function-to-change-and.html
+    # http://superuser.com/questions/296256/whats-the-easiest-way-to-add-custom-filename-autocomplete-behavior-for-a-comman
     # Add custom completition and git scripts
     fpath=($HOME/.config/zsh/autocompletitions $HOME/.config/zsh/functions $fpath)
     autoload -U $HOME/.config/zsh/functions/*(:t)
