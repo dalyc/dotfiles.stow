@@ -230,8 +230,9 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-f 0", safeSpawn "firefox" ["-P"])
     , ("M-S-f 1", safeSpawn "firefox" ["-P", "Primary"])
     , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Class"])
-    , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
-    , ("M-S-f 4", safeSpawn "firefox" ["-P", "Locked"])
+    , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Social"])
+    , ("M-S-f 4", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
+    , ("M-S-f 5", safeSpawn "firefox" ["-P", "Locked"])
     , ("M-p", shellPrompt myXPConfig)
     --search the web
     , ("M-s", SM.submap $ searchEngineMap $ S.promptSearch myXPConfig)
