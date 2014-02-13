@@ -1,7 +1,17 @@
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.cache/marks
+
+function jj {
+    cd -P "$MARKPATH/.lastjump" 2>/dev/null
+}
+
 function jump {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+    if [[ -L "$MARKPATH/.lastjump" ]]; then
+        rm "$MARKPATH/.lastjump" && ln --symbolic "$MARKPATH/$1" "$MARKPATH/.lastjump"
+    else
+        ln --symbolic "$MARKPATH/$1" "$MARKPATH/.lastjump"
+    fi
 }
 
 function mark {
@@ -9,7 +19,11 @@ function mark {
 }
 
 function unmark {
-    rm -i "$MARKPATH/$1"
+    if [[ -z $1 ]]; then
+        echo "You have to give me an argument. Check output of marks"
+    else
+        rm -i "$MARKPATH/$1"
+    fi
 }
 
 function marks {
@@ -18,7 +32,7 @@ function marks {
 
 # Autocompletition for marks
 function _completemarks {
-  reply=($(ls $MARKPATH))
+    reply=($(ls $MARKPATH))
 }
 
 compctl -K _completemarks jump

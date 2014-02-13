@@ -1,4 +1,4 @@
 alias cd.dot='cd ~/.dotfiles'
-alias cdnotes='cd ~/dev/notes'
-alias cdetc='cd ~/Archives/backup/etc'
+alias cd.notes='cd ~/dev/notes'
+alias cd.bin='cd ~/dev/bin'
 alias weechat='weechat --dir ~/.config/weechat'

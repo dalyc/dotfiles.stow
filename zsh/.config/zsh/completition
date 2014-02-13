@@ -1,4 +1,6 @@
-# For more details: man zshoptions
+# For more details about completition read the following manpages:
+# zshoptions, zshcompsys, and zshcompctl.
+
 setopt autolist         # list choices on an ambiguous completion
 setopt auto_menu        # show completion menu on succesive tab press
 autoload -Uz compinit   # to enable auto completition (1)
