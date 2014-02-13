@@ -1,5 +1,5 @@
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-export MARKPATH=$HOME/.cache/marks
+export MARKPATH="$HOME/.cache/marks"
 
 function jj {
     cd -P "$MARKPATH/.lastjump" 2>/dev/null
@@ -15,7 +15,24 @@ function jump {
 }
 
 function mark {
-    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+    # If the symlink exists
+    if [[ -d $MARKPATH ]]; then
+        # Let us run ln only when no arguments are given. Because
+        # otherwise a symlink in our current $(pwd) will be created
+        # and this is undesired behavior.
+        if [[ -z $1 ]]; then
+            ln -s "$(pwd)" "$MARKPATH/"
+        else
+            # TODO: Expand this section so that we are able to specify
+            # the name for the symlink that we want.
+            echo "This function only accepts one argument. Try again."
+        fi
+    # If the symlink does NOT exist
+    else
+        echo '$MARKPATH does not exist, creating the directory.'
+        echo "Please try executing the command one more time."
+        mkdir -p "$MARKPATH"
+    fi
 }
 
 function unmark {
