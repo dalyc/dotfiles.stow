@@ -29,20 +29,63 @@ if has('autocmd')
       autocmd GUIEnter * set visualbell t_vb=
 endif
 
-" Theme settings
+" Theme settings/vim ui
 "-----------------------
+set title
+"Highlight screen line of the cursor with CursorLine
+set cursorline
+"Show partial command in the last line of the screen
+set showcmd
+"Avoid all the hit-enter prompts caused by file messages
+set shortmess=at
+"Show line and column number of the cursor position, separated by a comma
+set ruler
+"Precede each line with its line number
+set number
+"The value of this option influences when the last window will have a status
+"line. 0=never; 1=iff there are at least two windows; 2=always.
+set laststatus=1
+set scrolloff=3
+"When on, command-line-completition operates in an enhanced mode.
+set wildmenu wildmode=list:longest,full
+"A comma separated list of options for Insert Mode completition
+set completeopt=longest,menuone
+"Ask for confirmation when executing a command
+set confirm
+"All windows are automatically made the same size after splitting or closing.
+set equalalways
+"The screen will not be redrawn while executing macros, registers, and other
+"commands that have not been typed.
+set lazyredraw
 "Highlight unwanted spaces
 autocmd colorscheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 "Set colorscheme
 set t_Co=256
-colorscheme dc2
+colorscheme bpeakOwn
 syntax on
-set number
-set cursorline
-" set colorcolumn=80
-" highlight colorcolumn ctermbg=233
+"Highlight column. Code found on Internet.
+"If colorcolumn is off and textwidth is set the use colorcolumn=+1
+"If colorcolumn is off and textwidth is not set then use colorcolumn=80
+"If colorcolumn is on then turn it off
+"use: nmap <Leader>cc :call ColorColumn()<CR>
+function! ColorColumn()
+    if empty(&colorcolumn)
+        if empty(&textwidth)
+            echo "colorcolumn=80"
+            setlocal colorcolumn=80
+        else
+            echo "colorcolumn=+1 (" . (&textwidth + 1) . ")"
+            setlocal colorcolumn=+1
+        endif
+    else
+        echo "colorcolumn="
+        setlocal colorcolumn=
+    endif
+endfunction
+highlight colorcolumn ctermbg=232
+
 
 " Indentation
 "-----------------------
@@ -53,8 +96,7 @@ endif
 set tabstop=4
 "amount of whitespace to insert using
 "indent commands in normal mode
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=4 softtabstop=4
 "replace tabs for spaces
 set expandtab
 
@@ -70,39 +112,31 @@ endif
 " Mail
 "--------------------------
 autocmd FileType mail,human set formatoptions+=t textwidth=72
+autocmd FileType mail,human set spell spelllang=en,es
+
+
+" Markdown
+"--------------------------
+autocmd FileType rst,markdown set wrap linebreak nolist
+autocmd FileType rst,markdown set spell spelllang=en
+
+" C stuff
+"--------------------------
+let c_space_errors = 1
+autocmd FileType c set wrap linebreak nolist
+" Automatically remove unwanted whitespace when saving a file
+" this might be dangerous, since sometimes we desire this whitespaces.
+" Use with care!
+autocmd FileType c autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Python stuff
 "--------------------------
+let python_highlight_space_errors = 1
 autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_slow_sync = 1
-autocmd FileType python set expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python set completeopt=preview
 autocmd FileType python setl nosmartindent
-
-" Binds
-"--------------------------
-inoremap <F1> <C-O>b
-nnoremap <F1> b
-inoremap <F2> <C-O>w
-nnoremap <F2> w
-nnoremap <F3> :set hlsearch! hlsearch?<CR>
-inoremap <F9> <C-O><C-^>
-nnoremap <F9> <C-^>
-"compile the current program in buffer
-nmap <F10> :SCCompile -g -o %<.out<cr>
-nmap <F11> :SCCompile -o %<.out<cr>
-"run the compiled program
-nmap <F12> :!./%:r.out<cr>
-
-" Mapleader
-"--------------------------
-let mapleader = "`"
-map <leader>1 "+y
-map <leader>2 "+p
-nmap <leader>l :set list!<CR>
-nmap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>f :ls<CR>:b<space>
-nnoremap <leader>s :set nospell!<CR>
 
 " Invisible chars
 "--------------------------
@@ -135,3 +169,45 @@ let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories  = ["my_snippets"]
+
+" Binds
+"--------------------------
+inoremap <F1> <C-O>b
+nnoremap <F1> b
+inoremap <F2> <C-O>w
+nnoremap <F2> w
+nnoremap <F3> :set hlsearch! hlsearch?<CR>
+set pastetoggle=<F4>
+"compile the current program in buffer
+nmap <F10> :SCCompile -g -o %<.out<cr>
+nmap <F11> :SCCompile -o %<.out<cr>
+"run the compiled program
+nmap <F12> :!./%:r.out<cr>
+"toggle between last tabs
+let g:lasttab = 1
+au TabLeave * let g:lasttab = tabpagenr()
+map <c-\> :exe "tabn ".g:lasttab<CR>
+"toggle between buffers
+inoremap <F5> <C-O><C-^>
+nnoremap <F5> <C-^>
+
+" Mapleader
+"--------------------------
+let mapleader = '\'
+map <leader>1 1gt
+map <leader>2 2gt
+map <leader>3 3gt
+map <leader>4 4gt
+map <leader>5 5gt
+map <leader>6 6gt
+map <leader>7 7gt
+map <leader>8 8gt
+map <leader>9 9gt
+map <leader>t <Esc>:tabnew<CR>
+map <leader>y "+y
+map <leader>p "+p
+nmap <leader>l :set list!<CR>
+nmap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :ls<CR>:b<space>
+nnoremap <leader>s :set nospell!<CR>
+nnoremap <silent> <leader>cc :call ColorColumn()<CR>
