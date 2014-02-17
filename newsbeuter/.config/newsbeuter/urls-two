@@ -1,47 +1,25 @@
-http://feeds.feedburner.com/gaussianos A-feed science
-http://feeds.feedburner.com/ProblemasMatemticos A-feed science
-http://solumate.blogspot.com/feeds/posts/default A-feed science
-http://blogs.elpais.com/apuntes-cientificos-mit/atom.xml A-feed science
-http://feeds2.feedburner.com/CienciaKanija A-feed science
-http://vicente1064.blogspot.com/feeds/posts/default A-feed science
-http://feeds.feedburner.com/historiasdelaciencia A-feed science
-http://labellateoria.blogspot.com/feeds/posts/default A-feed science
-http://feeds.feedburner.com/eliatron A-feed science
-http://feeds.feedburner.com/naukas A-feed science
-http://www.quo.es/rss/feed/ciencia A-feed science
-http://blogs.eldiariomontanes.es/scientia-mater/feed/ A-feed science
-http://feeds2.feedburner.com/ElTamiz A-feed science
-http://www.lapizarradeyuri.com/feed/ A-feed science
+http://feeds.feedburner.com/gaussianos science
+http://feeds.feedburner.com/ProblemasMatemticos science
+http://solumate.blogspot.com/feeds/posts/default science
+http://blogs.elpais.com/apuntes-cientificos-mit/atom.xml science
+http://feeds2.feedburner.com/CienciaKanija science
+http://vicente1064.blogspot.com/feeds/posts/default science
+http://feeds.feedburner.com/historiasdelaciencia science
+http://labellateoria.blogspot.com/feeds/posts/default science
+http://feeds.feedburner.com/eliatron science
+http://feeds.feedburner.com/naukas science
+http://www.quo.es/rss/feed/ciencia science
+http://blogs.eldiariomontanes.es/scientia-mater/feed/ science
+http://feeds2.feedburner.com/ElTamiz science
+http://www.lapizarradeyuri.com/feed/ science
 
-http://serverfault.com/feeds/featured A-feed stackexchange
-http://superuser.com/feeds/month A-feed stachexchange
-http://unix.stackexchange.com/feeds/featured A-feed stackexchange
+http://aprendeinglessila.com/feed/ fun
+http://feeds2.feedburner.com/braingle/all fun
+http://gdata.youtube.com/feeds/base/users/minutephysics/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile fun
+http://mundowdg.com/blog/feed/ fun
+http://www.feedrinse.com/services/channel/?chanurl=c0db9795c12e142029a3d98109b9a5e4 fun
 
-http://aprendeinglessila.com/feed/ B-feed fun
-http://feeds2.feedburner.com/braingle/all B-feed fun
-http://gdata.youtube.com/feeds/base/users/minutephysics/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile B-feed fun
-http://mundowdg.com/blog/feed/ B-feed fun
-
-http://www.feedrinse.com/services/channel/?chanurl=c0db9795c12e142029a3d98109b9a5e4 B-feed courses
-
-http://feeds.feedburner.com/obamaworld B-feed "world news"
-http://feeds.arstechnica.com/arstechnica/tech-policy B-feed "world news"
-
-http://blog.pfsense.org/?feed=rss2 B-feed admin
-http://gallir.wordpress.com/feed/ B-feed admin
-http://feeds.feedburner.com/saynotomicrosoft B-feed admin
-http://linuxsuperuser07.blogspot.com/feeds/posts/default?alt=rss B-feed admin
-http://feeds.feedburner.com/arabesqueblog B-feed admin
-http://planet.freedesktop.org/atom.xml B-feed admin
-http://feeds.feedburner.com/linuxcommando B-feed admin
-
-https://hacks.mozilla.org/feed/ B-feed "dev news/blog"
-
-http://webstersprodigy.net/feed/ B-feed security
-http://www.devttys0.com/feed/ B-feed security
-http://www.schneier.com/blog/atom.xml B-feed security
-http://krebsonsecurity.com/feed/atom/ B-feed security
-
-http://feeds.feedburner.com/blogspot/laboro C-feed random
-http://historiasdelahistoria.com/feed C-feed random
-http://lowlevelhardware.blogspot.com/feeds/posts/default?alt=rss C-feed random
+http://feeds.feedburner.com/obamaworld random
+http://feeds.arstechnica.com/arstechnica/tech-policy random
+http://feeds.feedburner.com/blogspot/laboro random
+http://historiasdelahistoria.com/feed random

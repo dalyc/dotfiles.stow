@@ -1,12 +1,30 @@
-http://www.reddit.com/r/programming+compsci+learnprogramming+/.rss A-feed programming cs
-http://www.reddit.com/r/Python+C_Programming+c_language/.rss A-feed programming cs
-http://feeds.feedburner.com/catonmat A-feed programming cs
-http://terrytao.wordpress.com/feed/ A-feed programming cs
-http://blog.computationalcomplexity.org/feeds/posts/default?alt=rss A-feed programming cs
-http://feeds.feedburner.com/daniel-lemire/atom A-feed programming cs
-http://rjlipton.wordpress.com/feed/ A-feed programming cs
-http://lambda-the-ultimate.org/rss.xml A-feed programming cs
-http://cacm.acm.org/blogs/blog-cacm.rss A-feed programming cs
-http://feeds.feedburner.com/blogspot/gJZg A-feed programming cs
-http://math.stackexchange.com/feeds/month A-feed stackexchange
-http://cstheory.stackexchange.com/feeds/month A-feed stackexchange
+http://www.reddit.com/r/programming+compsci+learnprogramming+/.rss CS
+http://www.reddit.com/r/Python+C_Programming+c_language/.rss CS
+http://feeds.feedburner.com/catonmat CS
+http://terrytao.wordpress.com/feed/ CS
+http://blog.computationalcomplexity.org/feeds/posts/default?alt=rss CS
+http://feeds.feedburner.com/daniel-lemire/atom CS
+http://rjlipton.wordpress.com/feed/ CS
+http://lambda-the-ultimate.org/rss.xml CS
+http://cacm.acm.org/blogs/blog-cacm.rss CS
+http://feeds.feedburner.com/blogspot/gJZg CS
+http://math.stackexchange.com/feeds/month CS
+http://cstheory.stackexchange.com/feeds/month CS
+
+https://hacks.mozilla.org/feed/ development
+
+http://serverfault.com/feeds/featured sysadmin
+http://superuser.com/feeds/month sysadmin
+http://unix.stackexchange.com/feeds/featured sysadmin
+http://blog.pfsense.org/?feed=rss2 sysadmin
+http://gallir.wordpress.com/feed/ sysadmin
+http://linuxmantra.com/feed sysadmin
+http://linuxsuperuser07.blogspot.com/feeds/posts/default?alt=rss sysadmin
+http://feeds.feedburner.com/arabesqueblog sysadmin
+http://planet.freedesktop.org/atom.xml sysadmin
+http://feeds.feedburner.com/linuxcommando sysadmin
+http://webstersprodigy.net/feed/ sysadmin
+http://www.devttys0.com/feed/ sysadmin
+http://www.schneier.com/blog/atom.xml sysadmin
+http://krebsonsecurity.com/feed/atom/ sysadmin
+http://lowlevelhardware.blogspot.com/feeds/posts/default?alt=rss sysadmin
