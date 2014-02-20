@@ -10,6 +10,10 @@ cd() {
     builtin cd $@; ls
 }
 
+mkcd() {
+    mkdir "$1" && cd "$1"
+}
+
 share() {
     if (($# == 1)) && [[ -e $1 ]]; then
         dir=${TMPDIR:-/tmp}/share-$$; mkdir "$dir" || error
@@ -22,8 +26,4 @@ share() {
 
 say() {
     mpv -really-quiet "http://translate.google.com/translate_tts?tl=en&q=$*"| sed 's/ /+/3g' | sh 2>/dev/null;
-}
-
-mkcd() {
-    mkdir "$1" && cd "$1"
 }

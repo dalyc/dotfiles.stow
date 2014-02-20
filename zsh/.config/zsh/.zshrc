@@ -7,31 +7,21 @@ if [[ $HOST == "Greno" ]]; then
     # http://wikimatze.de/writing-zsh-completion-for-padrino.html
     # http://blog.mavjs.org/2012/07/zsh-autocomplete-function-to-change-and.html
     # http://superuser.com/questions/296256/whats-the-easiest-way-to-add-custom-filename-autocomplete-behavior-for-a-comman
-    # Add custom completition and git scripts
-    fpath=($HOME/.config/zsh/autocompletitions $HOME/.config/zsh/functions $fpath)
-    autoload -U $HOME/.config/zsh/functions/*(:t)
-    # Source of git prompt code:
-    # http://sebastiancelis.com/2009/11/16/zsh-prompt-git-users/
-    # Enable auto-execution of functions.
-    typeset -ga preexec_functions
-    typeset -ga precmd_functions
-    typeset -ga chpwd_functions
-    # Append git functions needed for prompt.
-    preexec_functions+='preexec_update_git_vars'
-    precmd_functions+='precmd_update_git_vars'
-    chpwd_functions+='chpwd_update_git_vars'
-
+    # Add custom completition
+    fpath=($HOME/.config/zsh/autocompletitions $fpath)
     # Source functions and aliases if our hostname is Greno
     source $HOME/.config/zsh/Greno-alias
     source $HOME/.config/zsh/Greno-functions
     # Don't store commands with sudo/cd/ls in the history
     function zshaddhistory() { [[ $1 != *(sudo|cd|ls)* ]] }
 else
-    # Load custom aliases and functions for our host
-    # if $HOME/.config/zsh/$HOST-(alias and/or function) exists
+    # Load custom aliases our host
+    # if $HOME/.config/zsh/$HOST-alias exists
     if [[ -f $HOME/.config/zsh/"$HOST"-alias ]]; then
         source $HOME/.config/zsh/"$HOST"-alias
     fi
+    # Load custom functions for our host
+    # if $HOME/.config/zsh/$HOST-functions exists
     if [[ -f $HOME/.config/zsh/"$HOST"-functions ]]; then
         source $HOME/.config/zsh/"$HOST"-functions
     fi
@@ -97,8 +87,6 @@ fi
 #------------------------------
 # set up colors
 autoload -U colors && colors
-# Allow for functions in the prompt
-setopt prompt_subst
 
 for COLOR in RED GREEN YELLOW WHITE BLACK CYAN BLUE PURPLE; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
@@ -107,8 +95,7 @@ done
 PR_RESET="%{${reset_color}%}";
 
 precmd(){
-
-    # lets change the color of the path if it's not writable
+    # Let us change the color of the path if it's not writable
     if [[ -w $PWD ]]; then
         PR_PWDCOLOR="%F{yellow}"
     else
@@ -117,17 +104,20 @@ precmd(){
 }
 
 
-# Let us change PS1 if we are using an SSH connection
+# If we are NOT using an SSH connection
 if [[ -z "$SSH_CLIENT" ]]; then
     PROMPT='%F{green}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
-# If we are indeed using an SSH connection
+# If we are using an SSH connection
 else
     PROMPT='%F{red}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
     # Also, let us export TERM
     export TERM=xterm
 fi
 
-# Only show an RPROMPT if our hostname is Greno
-if [[ $HOST == "Greno" ]]; then
-    RPROMPT='$(prompt_git_info)$PR_RESET %F{black}[%T]$PR_RESET'
+# Print a right prompt if our username is shivalva
+if [[ $(whoami) == "shivalva" ]]; then
+    # Print a right prompt with GIT info
+    # https://github.com/olivierverdier/zsh-git-prompt
+    source $HOME/.config/zsh/git-prompt/zshrc.sh
+    RPROMPT='$PR_RESET$(git_super_status)$PR_RESET'
 fi
