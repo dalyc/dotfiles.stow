@@ -178,9 +178,10 @@ inoremap <F2> <C-O>w
 nnoremap <F2> w
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
 set pastetoggle=<F4>
-"compile the current program in buffer
-nmap <F10> :SCCompile -g -o %<.out<cr>
-nmap <F11> :SCCompile -o %<.out<cr>
+"Compile the current C program in buffer
+"%<.c is used intentionally to output an error
+"when we try to compile a file that is not C.
+nmap <F11> :!gcc %<.c -g -o %<.out<cr>
 "run the compiled program
 nmap <F12> :!./%:r.out<cr>
 "toggle between last tabs
@@ -211,3 +212,6 @@ nmap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>f :ls<CR>:b<space>
 nnoremap <leader>s :set nospell!<CR>
 nnoremap <silent> <leader>cc :call ColorColumn()<CR>
+"Change between edited lines
+map <leader>i g,
+map <leader>o g;
