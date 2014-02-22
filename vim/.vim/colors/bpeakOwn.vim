@@ -87,7 +87,7 @@ hi VertSplit               ctermfg=65  ctermbg=235
 hi Visual                  ctermfg=210 ctermbg=235
 hi VisualNOS               ctermfg=10  ctermbg=235  cterm=bold
 hi WarningMsg              ctermfg=9
-hi WildMenu                ctermbg=0   ctermfg=104
+hi WildMenu                ctermbg=0    ctermfg=31
 
 " statusline
 hi StatusLine              ctermfg=7   ctermbg=0    cterm=none
@@ -106,7 +106,7 @@ hi SpellRare               ctermfg=0   ctermbg=13  cterm=underline
 
 " pmenu
 hi Pmenu                   ctermfg=7    ctermbg=0
-hi PmenuSel                ctermfg=none ctermbg=8
+hi PmenuSel                ctermfg=none ctermbg=1
 hi PmenuSbar               ctermfg=8    ctermbg=15
 
 " html

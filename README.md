@@ -54,6 +54,7 @@ List of plugins I use:
 - [NERDtree](https://github.com/vim-scripts/The-NERD-tree)
 - [gist-vim](https://github.com/mattn/gist-vim)
 - [webapi-vim](https://github.com/mattn/webapi-vim)
+- [easymotion](https://github.com/Lokaltog/vim-easymotion)
 - [tabular](https://github.com/godlygeek/tabular.git)
 - [SingleCompile](https://github.com/xuhdev/SingleCompile)
 
@@ -65,6 +66,7 @@ git submodule add git://github.com/SirVer/ultisnips.git vim/.vim/bundle/ultisnip
 git submodule add git://github.com/scrooloose/nerdtree.git vim/.vim/bundle/nerdtree
 git submodule add git://github.com/mattn/gist-vim vim/.vim/bundle/gist-vim
 git submodule add git://github.com/mattn/webapi-vim vim/.vim/bundle/webapi-vim
+git submodule add git://github.com/Lokaltog/vim-easymotion.git vim/.vim/bundle/easymotion
 git submodule add git://github.com/godlygeek/tabular.git vim/.vim/bundle/tabular
 git submodule add https://github.com/xuhdev/SingleCompile.git vim/.vim/bundle/single-compile
 ```

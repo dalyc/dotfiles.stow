@@ -91,6 +91,7 @@ highlight colorcolumn ctermbg=232
 "-----------------------
 if has("autocmd")
     filetype plugin indent on
+    set autoindent
 endif
 "how many spaces we want for tabs
 set tabstop=4
@@ -128,6 +129,9 @@ autocmd FileType c set wrap linebreak nolist
 " this might be dangerous, since sometimes we desire this whitespaces.
 " Use with care!
 autocmd FileType c autocmd BufWritePre <buffer> :%s/\s\+$//e
+"Use :cope to view a window with the errors
+"gcc program.c -g -o program.out
+autocmd FileType c set makeprg=gcc\ %<.c\ -g\ -o\ %<.out
 
 " Python stuff
 "--------------------------
@@ -136,7 +140,6 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python set completeopt=preview
-autocmd FileType python setl nosmartindent
 
 " Invisible chars
 "--------------------------
@@ -162,6 +165,7 @@ let g:gist_post_private    = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore    = ['\~$', '\.swp$', '\.o$', '\.hi$']
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeWinPos = "right"
 
 " Ultisnip settings
 "--------------------------
