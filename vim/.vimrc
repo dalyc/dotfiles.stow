@@ -174,6 +174,10 @@ let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories  = ["my_snippets"]
 
+" Easymotion settings
+"--------------------------
+let g:EasyMotion_leader_key = ','
+
 " Binds
 "--------------------------
 inoremap <F1> <C-O>b
