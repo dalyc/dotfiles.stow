@@ -49,7 +49,7 @@ main = xmonad =<< statusBar cmd pp kb conf
     where
         uhook = withUrgencyHookC NoUrgencyHook urgentConfig
         --Command to launch the bar. Launch it on screen 0 and 1 (-x = --screen)
-        cmd = "bash -c \"tee >(xmobar -x0 /home/user/.config/xmobar/xmobarrc) | xmobar -x1 /home/user/.config/xmobar/xmobarrc\""
+        cmd = "bash -c \"tee >(xmobar -x0 $HOME/.config/xmobar/xmobarrc) | xmobar -x1 $HOME/.config/xmobar/xmobarrc\""
         --Custom pp, determines what is being written to the bar
         pp = myPP
         --Keybinding to toggle the gap for the bar
@@ -212,11 +212,11 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a g", goToSelected defaultGSConfig { gs_cellwidth = 250 })
     , ("M-a k", killAllOtherCopies) --Kill all copied windows (4)
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
-    , ("M-a z", appendFilePrompt myXPConfig "/home/user01/Archives/txt/NOTES")
+    , ("M-a z", appendFilePrompt myXPConfig "Archives/txt/NOTES")
     , ("M-a l", safeSpawn "xlock" ["-mode","space"])
     , ("M-S-a l", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
-    , ("M-a x", safeSpawn "bash" ["/home/user/dev/clipsync/dmenu.sh"])
-    , ("M-S-a x", safeSpawn "python" ["/home/user/dev/clipsync/sync.py"])
+    , ("M-a x", safeSpawn "bash" ["dev/clipsync/dmenu.sh"])
+    , ("M-S-a x", safeSpawn "python" ["dev/clipsync/sync.py"])
     --launching of random apps
     , ("M-u 1", safeSpawn "chromium" ["--incognito"])
     , ("M-u 2", safeSpawn "spice" ["-h", "127.0.0.1", "-p", "5930"])
