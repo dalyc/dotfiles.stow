@@ -130,7 +130,6 @@ myManageHook = (composeAll . concat $
             , className =? "mplayer2"    --> doShift "8"
             , className =? "mpv"    --> doShift "8"
             , className =? "Vlc"    --> doShift "8"
-            , className =? "Skype" --> doShift "9"
             , className =? "Hamster-time-tracker" --> doShift "NSP"
             , className =? "Osmo" --> doShift "NSP"
             , className =? "trayer" --> doIgnore
