@@ -1,12 +1,4 @@
-**/.swp
-**/.pyc
-**/.hi
-**/.o
-**/.zcache
-**/.zcompdump
 **/todo.txt
-
-00-UNTRACKED/
 
 vim/.vim/.netrwhist
 vim/.vim/backup/*

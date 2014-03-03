@@ -5,6 +5,11 @@
 *.exe
 *.o
 *.so
+*.zcache
+*.zcompdump
+*.hi
+*.pyc
+*.swp
 
 ## Packages
 *.7z
