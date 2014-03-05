@@ -29,6 +29,7 @@ elif [[ $1 == "--xmonad" ]]; then
         exit
     fi
     cabal update && cabal install xmonad && cabal install xmonad-contrib
+    stow -v xmonad
     echo "You also need to add \$HOME/.cabal/bin to your \$PATH. Or deploy zsh"
     echo "Which already has \$PATH configured appropriately."
 
