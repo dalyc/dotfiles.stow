@@ -4,8 +4,8 @@ vim/.vim/.netrwhist
 vim/.vim/backup/*
 vim/.vim/swap/*
 
-xmonad/.xmonad/*
-!xmonad/.xmonad/xmonad.hs
-!xmonad/.xmonad/lib/DynamicTopic.hs
-
 X/.config/gtk-3.0/bookmarks
+
+xmonad/.xmonad/history
+xmonad/.xmonad/xmonad-x86_64-linux
+xmonad/.xmonad/xmonad.errors
