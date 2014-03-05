@@ -40,7 +40,7 @@ ln -sfn $XDG_RUNTIME_DIR/adobe ~/.adobe
 ln -sfn $XDG_RUNTIME_DIR/macromedia ~/.macromedia
 
 # Which WM/DE to launch
-if [[ $(hostname) == "Greno" ]] && [[ $HOME == "/home/user" ]]; then
+if [[ $(hostname) == "Greno" ]] || [[ $(hostname) == "Edinburgh" ]]; then
     exec xmonad
 elif [[ $(hostname) == "eee" ]]; then
     exec openbox-session

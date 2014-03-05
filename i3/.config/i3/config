@@ -153,6 +153,7 @@ bindsym $mod+Shift+Tab workspace back_and_forth
 bindsym $mod+Tab [class="URxvt" title="VIM"] focus
 # Windows rule
 assign [class="Chromium"]   → 1
+assign [instance="mpv"]     → 2
 assign [instance="tmux"]    → 2
 assign [instance="htop"]    → 3
 # actions for certain windows

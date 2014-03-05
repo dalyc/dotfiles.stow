@@ -22,6 +22,17 @@ elif [[ $1 == "--vim" ]]; then
     git submodule update
     stow -v vim
 
+# What to do for when we want to deploy xmonad
+elif [[ $1 == "--xmonad" ]]; then
+    if [[ ! -x /usr/bin/cabal ]] && [[ ! -x /usr/bin/ghc ]]; then
+        echo "This option needs cabal and ghc to be installed. Try doing that first"
+        exit
+    fi
+    cabal update && cabal install xmonad && cabal install xmonad-contrib
+    echo "You also need to add \$HOME/.cabal/bin to your \$PATH. Or deploy zsh"
+    echo "Which already has \$PATH configured appropriately."
+
+# Display the help
 else
     echo "The only two valig arguments at the moment are:"
     echo -e "\t--deploy popular (A basic alias for 'stow -v cower...etc')"
