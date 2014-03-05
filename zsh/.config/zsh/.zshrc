@@ -84,40 +84,47 @@ fi
 
 #------------------------------
 # Prompt
+# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 #------------------------------
-# set up colors
-autoload -U colors && colors
-
-for COLOR in RED GREEN YELLOW WHITE BLACK CYAN BLUE PURPLE; do
-    eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
-    eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
-done
-PR_RESET="%{${reset_color}%}";
-
-precmd(){
+precmd() {
     # Let us change the color of the path if it's not writable
-    if [[ -w $PWD ]]; then
-        PR_PWDCOLOR="%F{yellow}"
+    # %3c = Only show last 3 dirs on our PWD
+    # %d = Show full path to dir
+    if [[ -w "$PWD" ]]; then
+        eval PR_DIR='${PR_YELLOW}%3c${PR_NO_COLOR}'
     else
-        PR_PWDCOLOR="${PR_BRIGHT_RED}"
+        eval PR_DIR='${PR_RED}%d${PR_NO_COLOR}'
     fi
 }
 
+setprompt() {
+    # Required for colours
+    autoload -U colors zsh/terminfo
+    colors
+    # Load some modules
+    setopt prompt_subst
+    # Make some aliases for the colours (could use normal esq seq too)
+    for color in RED GREEN YELLOW BLUE MAGNETA CYAN WHITE; do
+        eval PR_$color='%{$fg[${(L)color}]%}'
+    done
+    PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-# If we are NOT using an SSH connection
-if [[ -z "$SSH_CLIENT" ]]; then
-    PROMPT='%F{green}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
-# If we are using an SSH connection
-else
-    PROMPT='%F{red}%n%F{blue} in [${PR_PWDCOLOR}%3c$PR_RESET%F{blue}] %F{red}#$PR_RESET '
-    # Also, let us export TERM
-    export TERM=xterm
-fi
 
-# Print a right prompt if our username is shivalva
-if [[ $(whoami) == "shivalva" ]]; then
+    # Let us change the color of our username (%n) if we are in SSH
+    if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+        eval PR_USER='${PR_RED}%n${PR_NO_COLOR}' #SSH
+        # Also, let us export TERM
+        export TERM=xterm
+    else
+        eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}' # no SSH
+    fi
+
+
+    PROMPT='${PR_USER}${PR_BLUE} in [${PR_DIR}${PR_BLUE}] ${PR_RED}#${PR_NO_COLOR} '
     # Print a right prompt with GIT info
     # https://github.com/olivierverdier/zsh-git-prompt
     source $HOME/.config/zsh/git-prompt/zshrc.sh
-    RPROMPT='$PR_RESET$(git_super_status)$PR_RESET'
-fi
+    RPROMPT='${PR_NO_COLOR}$(git_super_status)${PR_NO_COLOR}'
+}
+
+setprompt
