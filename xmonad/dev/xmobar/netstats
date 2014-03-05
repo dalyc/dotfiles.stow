@@ -19,9 +19,9 @@ for i in $net_interfaces; do
     if [[ -d $HOME/.config/icons ]]; then
         # The ${i##*/} is for substring removal.
         # I.e. eth0 instead of /sys/class/net/eth0
-        # echo -n "${i##*/}:<fc=#5d7caf> <icon=/home/user/.config/icons/net_down.xbm/> $(($received/1024/1024)) </fc>MiB"
-        echo -n "<fc=#5d7caf> <icon=/home/user/.config/icons/net_down.xbm/> $(($received/1024/1024)) </fc>MiB"
-        echo "<fc=#FBA4A8> <icon=/home/user/.config/icons/net_up.xbm/> $(($transferred/1024/1024)) </fc>MiB"
+        # echo -n "${i##*/}:<fc=#5d7caf> <icon=.config/icons/net_down.xbm/> $(($received/1024/1024)) </fc>MiB"
+        echo -n "<fc=#5d7caf> <icon=.config/icons/net_down.xbm/> $(($received/1024/1024)) </fc>MiB"
+        echo "<fc=#FBA4A8> <icon=.config/icons/net_up.xbm/> $(($transferred/1024/1024)) </fc>MiB"
     else
         # The ${i##*/} is for substring removal.
         # I.e. eth0 instead of /sys/class/net/eth0

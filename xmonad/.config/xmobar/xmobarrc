@@ -15,8 +15,8 @@ Config { font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
                         -- #####################################################################################
                         , Run CoreTemp ["-t", "Temp: <core0> <core1> <core2> <core3>","--ddigits", "0","-L","45","-n","#8dc18d","-H","55","-h","#E64040"] 10
                         , Run Com "/usr/bin/bash" ["-c", "~/dev/xmobar/netstats"] "netstat" 600
-                        , Run MultiCpu ["-t","<fc=#7965ac><icon=/home/user/.config/icons/cpu.xbm/></fc> <autototal>","-L","50","-H","80","-n","#8dc18d","-h","#E64040"] 10
-                        , Run Memory ["-t", "<fc=#7965ac><icon=/home/user/.config/icons/mem.xbm/></fc> <usedratio>%","-L","50","-H","80","-n","#8dc18d","-h","#E64040"] 10
+                        , Run MultiCpu ["-t","<fc=#7965ac><icon=.config/icons/cpu.xbm/></fc> <autototal>","-L","50","-H","80","-n","#8dc18d","-h","#E64040"] 10
+                        , Run Memory ["-t", "<fc=#7965ac><icon=.config/icons/mem.xbm/></fc> <usedratio>%","-L","50","-H","80","-n","#8dc18d","-h","#E64040"] 10
                         , Run Com "/usr/bin/bash" ["-c", "~/dev/xmobar/disks"] "disks" 900
                         , Run Date "%a %_d %b - %H:%M" "date" 10
                         ]
