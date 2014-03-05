@@ -39,4 +39,5 @@ else
     echo -e "\t--deploy popular (A basic alias for 'stow -v cower...etc')"
     echo -e "\t--conclude popular (A basic alias for 'stow -v --delete cower...etc')"
     echo -e "\t--vim (For creating the necessary folders, installation of plugins, and symlinking)"
+    echo -e "\t--xmonad (For creating the necessary folders, installation of packages, and symlinking)"
 fi
