@@ -16,10 +16,12 @@ hi TabLineFill      ctermfg=239    ctermbg=232         cterm=none
 hi TabLine          ctermfg=239    ctermbg=232         cterm=none
 hi TabLineSel       ctermfg=232    ctermbg=DarkBlue    cterm=none
 " Current line under the cursor
-hi CursorLine              ctermbg=none cterm=none      cterm=none
-hi CursorLineNr            ctermfg=DarkBlue    ctermbg=none    cterm=bold
+hi CursorLine       ctermbg=none    cterm=none          cterm=none
+hi CursorLineNr     ctermfg=DarkBlue    ctermbg=none    cterm=bold
 " Comments
-hi Comment                 ctermfg=8    ctermbg=none    cterm=italic
+hi Comment          ctermfg=8       ctermbg=none        cterm=italic
+" Column for syntastic
+hi SignColumn       ctermfg=none    ctermbg=none        cterm=none
 
 
 """""""""""""

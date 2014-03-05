@@ -57,6 +57,7 @@ List of plugins I use:
 - [easymotion](https://github.com/Lokaltog/vim-easymotion)
 - [tabular](https://github.com/godlygeek/tabular.git)
 - [SingleCompile](https://github.com/xuhdev/SingleCompile)
+- [Syntastic](https://github.com/scrooloose/syntastic)
 
 ### Install as git submodule
 ```
@@ -69,6 +70,7 @@ git submodule add git://github.com/mattn/webapi-vim vim/.vim/bundle/webapi-vim
 git submodule add git://github.com/Lokaltog/vim-easymotion.git vim/.vim/bundle/easymotion
 git submodule add git://github.com/godlygeek/tabular.git vim/.vim/bundle/tabular
 git submodule add https://github.com/xuhdev/SingleCompile.git vim/.vim/bundle/single-compile
+git submodule add https://github.com/scrooloose/syntastic.git vim/.vim/bundle/syntastic
 ```
 
 ### Update all/single vim plugins
