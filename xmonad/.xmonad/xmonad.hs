@@ -205,6 +205,8 @@ myKeys conf = mkKeymap conf $ [
     , ("<XF86AudioStop>", safeSpawn "ncmpcpp" ["stop"])
     , ("<XF86AudioNext>", safeSpawn "ncmpcpp" ["next"])
     , ("<XF86AudioPrev>", safeSpawn "ncmpcpp" ["prev"])
+    , ("M-=", safeSpawn "xbacklight" ["-inc", "10"])
+    , ("M--", safeSpawn "xbacklight" ["-dec", "10"])
     --actions/launching
     , ("M-a f", safeSpawn "pcmanfm" []) --Launch file manager
     , ("M-a u", focusUrgent) --Go to urgent window
@@ -231,7 +233,7 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Class"])
     , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Social"])
     , ("M-S-f 4", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
-    , ("M-S-f 5", safeSpawn "firefox" ["-P", "Locked"])
+    , ("M-S-f 9", safeSpawn "firefox" ["-P", "Locked"])
     , ("M-p", shellPrompt myXPConfig)
     --search the web
     , ("M-s", SM.submap $ searchEngineMap $ S.promptSearch myXPConfig)
