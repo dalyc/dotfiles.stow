@@ -31,3 +31,4 @@ Thumbs.db
 ## BTsync
 *.SyncID
 *.SyncIgnore
+*.SyncArchive
