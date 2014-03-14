@@ -26,3 +26,8 @@ Thumbs.db
 ## Misc
 *.IG
 *.gpg
+
+
+## BTsync
+*.SyncID
+*.SyncIgnore

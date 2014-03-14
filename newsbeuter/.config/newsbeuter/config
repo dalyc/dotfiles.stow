@@ -66,19 +66,20 @@ ignore-article "http://www.linuxtoday.com/biglt.rss" "link !~ \"developer\""
 
 #################################################################################
 ### Color settings                                                            ###
+# <fgcolor> <bgcolor> <attribute>                                             ###
 #################################################################################
-highlight all "https?://[^ ]+" blue default
-highlight article "^(Feed|Title|Author|Link|Date):.+" black default
-highlight-article "link =~ \"reddit.com/r/Privacy\"" color028 default
-highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default
-highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default
-highlight-article "link =~ \"reddit.com/r/(C_Programming|c_language|linuxprogramming|linux4noobs)/\"" color238 default
-highlight-article "link =~ \"reddit.com/r/(bsd|freebsd|opensource|xmonad)/\"" color238 default
-color info cyan default
-color listnormal color244 default
-# color listnormal_unread color244 default
-color listfocus red default
-# color listfocus_unread red default
-# color background blue default
-# color article blue default
+highlight all "https?://[^ ]+" blue default default
+highlight article "^(Feed|Title|Author|Link|Date):.+" black default default
+highlight-article "link =~ \"reddit.com/r/Privacy\"" color028 default default
+highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default default
+highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default default
+highlight-article "link =~ \"reddit.com/r/(C_Programming|c_language|linuxprogramming|linux4noobs)/\"" color238 default default
+highlight-article "link =~ \"reddit.com/r/(bsd|freebsd|opensource|xmonad)/\"" color238 default default
 search-highlight-colors black yellow bold
+color listnormal color243 default
+color listfocus red default
+color listnormal_unread default default
+color listfocus_unread red default
+color info cyan default
+color background blue default
+color article default default
