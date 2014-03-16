@@ -215,7 +215,8 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
     , ("M-a z", appendFilePrompt myXPConfig "Archives/txt/NOTES")
     , ("M-a l", safeSpawn "xlock" ["-mode","space"])
-    , ("M-S-a l", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
+    , ("M-a s", safeSpawn "bash" ["-c", "systemctl suspend"])
+    , ("M-S-a s", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
     , ("M-a x", safeSpawn "bash" ["dev/clipsync/dmenu.sh"])
     , ("M-S-a x", safeSpawn "python" ["dev/clipsync/sync.py"])
     --launching of random apps
