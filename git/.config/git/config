@@ -9,6 +9,7 @@
 [alias]
     c = commit
     cm = commit -m
+    cma = commit -a -m
     co = checkout
     p = push
     pom = push -u origin master
