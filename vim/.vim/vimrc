@@ -234,3 +234,5 @@ nnoremap <silent> <leader>cc :call ColorColumn()<CR>
 "Change between edited lines
 map <leader>i g,
 map <leader>o g;
+"Command sudow for when we open files we cannot write to
+cnoremap sudow w !sudo tee % >/dev/null
