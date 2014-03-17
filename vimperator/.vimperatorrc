@@ -1,4 +1,7 @@
-" Which elements to show
+" Keep ~ clean
+set runtimepath=~/.config/vimperator
+
+" Which  elements to show
 set toolbars=nonavigation,tabs
 
 " Hide scrollbars
