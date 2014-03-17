@@ -18,12 +18,12 @@ set showstatuslinks=1
 set nofocuscontent
 set smartcase
 set incsearch
-set history=1000
+set history=500
 
 " Use letters instead of numbers for hints
 :set hintchars=hjklasdfgyuiopqwertnmzxcvb
-:highlight Hint font-family:"Dina";font-size:110%;color:#FFDBB8;background-color:#777780;padding:2px;
-:highlight HintElem font-family:"Dina";font-size:100%;color:##FFDBB8;background-color:#1D1D1E;
+":highlight Hint font-family:"Dina";font-size:110%;color:#FFDBB8;background-color:#777780;padding:2px;
+":highlight HintElem font-family:"Dina";font-size:100%;color:##FFDBB8;background-color:#1D1D1E;
 
 
 "===[ Mappings ]========================================================

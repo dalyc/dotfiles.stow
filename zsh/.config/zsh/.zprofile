@@ -23,23 +23,20 @@ export GZIP=-9 \
   BZIP=-9 \
   XZ_OPT=-9
 
-# Set location of gtk2 gtkrc (also needed for Qt's gtk style)
-export GTK2_RC_FILES=$HOME/.config/gtk-2.0/gtkrc
-
-# Set location for kde4 files
-export KDEHOME=$HOME/.config/kde4
-
-# For the interactive python interpreter
-export PYTHONSTARTUP=$HOME/.config/pystartup
-
-# Let us store Gimp settings in $HOME/.config
-export GIMP2_DIRECTORY=$HOME/.config/gimp-2.8
-
-# Let us store GPG settings and misc in $HOME/.config
-export GNUPGHOME=$HOME/.config/gnupg
-
-# Let us store mpv settings in $HOME/.config
-export MPV_HOME=$HOME/.config/mpv
-
 # Let us use human-readible formats
 export BLOCKSIZE=human-readable
+
+# Why don't more apps use XDG base dir specification? :(
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_DATA_HOME="$HOME"/.local/share
+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export KDEHOME="$XDG_CONFIG_HOME"/kde4
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/pystartup
+export GIMP2_DIRECTORY="$XDG_CONFIG_HOME"/gimp-2.8
+export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
+export PERL_CPANM_HOME="$XDG_CONFIG_HOME"/cpanm
+export MPV_HOME="$XDG_CONFIG_HOME"/mpv
+export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME"/vimperator
+export PENTADACTYL_RUNTIME="$XDG_CONFIG_HOME"/pentadactyl
