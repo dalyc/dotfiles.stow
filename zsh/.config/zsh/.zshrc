@@ -34,6 +34,13 @@ source $HOME/.config/zsh/marks-function
 # Load completition settings
 source $HOME/.config/zsh/completition
 
+# Enable C-S-t in termite which opens a new
+# terminal in the same working directory
+if [[ -n $VTE_VERSION ]]; then
+    . /etc/profile.d/vte.sh
+    __vte_osc7
+fi
+
 #-----------------------------
 # Dircolors
 #-----------------------------
