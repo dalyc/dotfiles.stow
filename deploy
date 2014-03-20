@@ -19,13 +19,19 @@ EOF
 
 xmonad_wrapper() {
     if [[ ! -x /usr/bin/cabal ]] && [[ ! -x /usr/bin/ghc ]]; then
-        echo "This option needs cabal and ghc to be installed. Try doing that first"
+        echo "This option needs cabal and ghc to be installed. \
+            Come back after installing them."
+        echo "If you already have them installed, check the source code of \
+            this script to fix the path of their binaries"
         exit
     fi
-    cabal update && cabal install xmonad && cabal install xmonad-contrib
-    stow -v xmonad
-    echo "You also need to add \$HOME/.cabal/bin to your \$PATH. Or deploy zsh"
-    echo "Which already has \$PATH configured appropriately."
+    # Only run the cabal commands if we do not have $HOME/.cabal already
+    if [[ ! -d $HOME/.cabal ]]; then
+        cabal update && cabal install xmonad && cabal install xmonad-contrib
+    fi
+    mkdir $HOME/.xmonad && stow -v xmonad
+    echo "You also need to add \$HOME/.cabal/bin to your \$PATH. Or deploy zsh, \
+        which already has \$PATH configured appropriately."
 }
 
 vim_wrapper() {
