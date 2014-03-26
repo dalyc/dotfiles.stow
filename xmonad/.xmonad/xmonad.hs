@@ -49,7 +49,8 @@ main = xmonad =<< statusBar cmd pp kb conf
     where
         uhook = withUrgencyHookC NoUrgencyHook urgentConfig
         --Command to launch the bar. Launch it on screen 0 and 1 (-x = --screen)
-        cmd = "bash -c \"tee >(xmobar -x0 $HOME/.config/xmobar/xmobarrc) | xmobar -x1 $HOME/.config/xmobar/xmobarrc\""
+        -- cmd = "bash -c \"tee >(xmobar -x0 $HOME/.config/xmobar/xmobarrc) | xmobar -x1 $HOME/.config/xmobar/xmobarrc\""
+        cmd = "xmobar -x0 $HOME/.config/xmobar/xmobarrc"
         --Custom pp, determines what is being written to the bar
         pp = myPP
         --Keybinding to toggle the gap for the bar
@@ -205,8 +206,8 @@ myKeys conf = mkKeymap conf $ [
     , ("<XF86AudioStop>", safeSpawn "ncmpcpp" ["stop"])
     , ("<XF86AudioNext>", safeSpawn "ncmpcpp" ["next"])
     , ("<XF86AudioPrev>", safeSpawn "ncmpcpp" ["prev"])
-    , ("M-=", safeSpawn "xbacklight" ["-inc", "10"])
-    , ("M--", safeSpawn "xbacklight" ["-dec", "10"])
+    , ("M-=", safeSpawn "xbacklight" ["-inc", "5"])
+    , ("M--", safeSpawn "xbacklight" ["-dec", "5"])
     --actions/launching
     , ("M-a f", safeSpawn "pcmanfm" []) --Launch file manager
     , ("M-a u", focusUrgent) --Go to urgent window
