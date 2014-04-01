@@ -1,5 +1,5 @@
 [Unit]
-Description=Stuff for shivalva
+Description=Stuff for %u
 After=xorg.target
 
 [Install]

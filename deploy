@@ -10,8 +10,8 @@ For vim it initializes the git submodules so that all vim plugins are properly i
 For xmonad it installs xmonad and xmonad-contrib through cabal.
 
 Available arguments are:
-    --deploy popular (A basic alias for stow -v cower git... etc)
-    --conclude popular (A basic alias for stow  -v -D cower git... etc)
+    --deploy (Deploy only dotfiles for things I use, e.g. i3 willl not be deployed)
+    --conclude (Conclude only dotfiles for things I use, e.g. i3 will not be concluded)
     --vim (For creating the necessary folders, installation of plugins, and symlinking)
     --xmonad (For creating the necessary folders, installation of packages, and symlinking)
 EOF
@@ -47,12 +47,12 @@ if [[ ! -x /usr/bin/stow ]] || [[ ! -x /bin/stow ]]; then
     exit
 
 # If stow is installed, then proceed with the following:
-elif [[ $1 == "--deploy" ]] && [[ $2 == "popular" ]]; then
+elif [[ $1 == "--deploy" ]]; then
     stow -v cower git newsbeuter termite unclassified X X-xinitrc youtube zsh vimperator
     vim_wrapper
     xmonad_wrapper
 
-elif [[ $1 == "--conclude" ]] && [[ $2 == "popular" ]]; then
+elif [[ $1 == "--conclude" ]]; then
     stow -v --delete cower git newsbeuter termite unclassified X X-xinitrc youtube zsh vimperator xmonad vim
 
 # What to do for when we want to deploy vim

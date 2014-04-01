@@ -2,7 +2,6 @@
 Description=Bittorrent Sync Daemon
 
 [Service]
-User=%i
 PIDFile=%t/btsync.pid
 ExecStart=/usr/bin/btsync --config %h/.config/btsync/btsync.conf --nodaemon
 Restart=on-abort
