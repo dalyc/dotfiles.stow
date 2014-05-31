@@ -5,13 +5,13 @@
 ! clear mod2
 ! clear mod3
 !Clear mod4 to free Hyper_R, which we will later use for the right windows key
-! clear mod4
-! clear mod5
+clear mod4
+clear mod5
 
 !Change the right windows key to Hyper_R (just because Hyper_R was available)
 !And finally assign Hyper_R to mod4
-! keycode 134 = Hyper_R
-! add mod5 = Hyper_R
+keycode 134 = Hyper_R
+add mod5 = Hyper_R
 
 !Change Caps_Lock to Control_L
 ! keycode 66 = Control_L

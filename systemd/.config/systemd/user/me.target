@@ -1,5 +1,5 @@
 [Unit]
-Description="Stuff for me"
+Description=Stuff for my user
 After=xorg.target
 
 [Install]
