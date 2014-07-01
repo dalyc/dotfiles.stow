@@ -23,9 +23,8 @@ topics :: Map String FilePath
 topics = M.fromList
     [ ("web", "Downloads")
     , ("im", "Downloads")
-    , ("dev", "dev/academia")
+    , ("dev", "dev/UNI")
     , ("doc", "dev/00-Elearn")
-    , ("8", "Multimedia")
     ]
 
 data TopicDirs = TopicDirs { dirs :: Map String FilePath } deriving (Read, Show, Typeable)

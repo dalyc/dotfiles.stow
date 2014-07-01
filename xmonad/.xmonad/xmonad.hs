@@ -217,13 +217,12 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a z", appendFilePrompt myXPConfig "Archives/txt/NOTES")
     , ("M-a l", safeSpawn "xlock" ["-mode","space"])
     , ("M-a s", safeSpawn "bash" ["-c", "systemctl suspend"])
-    , ("M-S-a s", safeSpawn "bash" ["-c", "systemctl suspend && xlock -mode space"])
+    , ("M-S-a s", safeSpawn "bash" ["-c", "systemctl suspend || xlock"])
     , ("M-a x", safeSpawn "bash" ["dev/clipsync/dmenu.sh"])
     , ("M-S-a x", safeSpawn "python" ["dev/clipsync/sync.py"])
     --launching of random apps
     , ("M-u 1", safeSpawn "chromium" ["--incognito"])
-    , ("M-u 2", safeSpawn "spice" ["-h", "127.0.0.1", "-p", "5930"])
-    , ("M-u 3", safeSpawn "x2goclient" [])
+    , ("M-u 2", safeSpawn "spicec" ["-h", "127.0.0.1", "-p", "5930"])
     , ("M-u w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
     --launching
     , ("M-<Return>", spawnShell) --Launch shell in topic (7)
@@ -234,7 +233,7 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-f 1", safeSpawn "firefox" ["-P", "Primary"])
     , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Class"])
     , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Social"])
-    , ("M-S-f 4", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
+    , ("M-S-f 7", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
     , ("M-S-f 9", safeSpawn "firefox" ["--no-remote", "-P", "Locked"])
     , ("M-p", shellPrompt myXPConfig)
     --search the web
@@ -281,4 +280,9 @@ myKeys conf = mkKeymap conf $ [
     -- mod5-[1..9],         Switch to window N (5)
     ++ [(("M5-" ++ show k), focusNth i)
         | (i, k) <- zip [0 .. 8] [1..9]
+    --mod5-[w,e] switch to twinview screen 1/2
+    --mod5-shift-[w,e] move window to screen 1/2
+    -- ++ [(("M5-" ++ show k), screenWorkspace sc >>= flip whenJust (windows . f))
+    --     | (i, k) <- zip [w, e] [0..]
+    --     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ]

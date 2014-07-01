@@ -1,4 +1,4 @@
-Config { font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
+Config { font = "-*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*"
         , bgColor = "#161616"
         , fgColor = "#4d4d4d"
         , border = NoBorder
@@ -13,7 +13,7 @@ Config { font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
                         -- #####################################################################################
                         -- # --Low (-L) 10 --low #hex | --normal (-n)  #hex | --High (-H) 80 --high (-h) #hex ##
                         -- #####################################################################################
-                        , Run Battery ["-t","<timeleft> @ <watts>W"] 20
+                        , Run Battery ["-t","<acstatus> <left>%"] 20
                         , Run CoreTemp ["--ddigits", "0","-L","45","-n","#8dc18d","-H","55","-h","#E64040"] 10
                         , Run TopProc ["-t", "<fc=#7965ac><icon=.config/icons/cpu.xbm/></fc> <name1>"] 10
                         , Run TopMem ["-t", "<fc=#7965ac><icon=.config/icons/mem.xbm/></fc> <name1>"] 10
@@ -25,5 +25,5 @@ Config { font = "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
                         ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ [<fc=#7965ac>[</fc>%battery%<fc=#7965ac>]</fc> %coretemp%  %top% %topmem% %netstat%  %multicpu%  %memory% <fc=#7965ac>[</fc> %disks% <fc=#7965ac>]</fc> %date% ]"
+       , template = "%StdinReader% }{ [%coretemp%  %top% %topmem% %netstat%  %multicpu%  %memory% [ %battery% ] <fc=#7965ac>[</fc> %disks% <fc=#7965ac>]</fc> %date% ]"
        }
