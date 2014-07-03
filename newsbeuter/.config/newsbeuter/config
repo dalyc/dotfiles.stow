@@ -73,7 +73,7 @@ highlight article "^(Feed|Title|Author|Link|Date):.+" black default default
 highlight-article "link =~ \"reddit.com/r/Privacy\"" color028 default default
 highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default default
 highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default default
-highlight-article "link =~ \"reddit.com/r/(C_Programming|c_language|linuxprogramming|linux4noobs)/\"" color238 default default
+highlight-article "link =~ \"reddit.com/r/(C_Programming|c_language|linuxprogramming)/\"" color238 default default
 highlight-article "link =~ \"reddit.com/r/(bsd|freebsd|opensource|xmonad)/\"" color238 default default
 search-highlight-colors black yellow bold
 color listnormal color243 default

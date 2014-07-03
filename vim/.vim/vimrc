@@ -188,8 +188,8 @@ let g:syntastic_auto_jump = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 3
 " Only use active mode for C files
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['c'],'passive_filetypes': [] }
-
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['c'],'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " Binds
 "--------------------------
@@ -199,32 +199,25 @@ inoremap <F2> <C-O>w
 nnoremap <F2> w
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
 set pastetoggle=<F4>
+"toggle between buffers (with F5)
+inoremap <F5> <C-O><C-^>
+nnoremap <F5> <C-^>
+nnoremap <F6> :TagbarToggle<CR>
+nnoremap <F7> :SyntasticToggleMode<CR>
 "Compile the current C program in buffer
 "%<.c is used intentionally to output an error
 "when we try to compile a file that is not C.
 nmap <F11> :!gcc %<.c -g -o %<.out<cr>
 "run the compiled program
 nmap <F12> :!./%:r.out<cr>
-"toggle between last tabs
+"toggle between last tabs (with ctrl+\)
 let g:lasttab = 1
 au TabLeave * let g:lasttab = tabpagenr()
 map <c-\> :exe "tabn ".g:lasttab<CR>
-"toggle between buffers
-inoremap <F5> <C-O><C-^>
-nnoremap <F5> <C-^>
 
 " Mapleader
 "--------------------------
 let mapleader = '\'
-map <leader>1 1gt
-map <leader>2 2gt
-map <leader>3 3gt
-map <leader>4 4gt
-map <leader>5 5gt
-map <leader>6 6gt
-map <leader>7 7gt
-map <leader>8 8gt
-map <leader>9 9gt
 map <leader>t <Esc>:tabnew<CR>
 map <leader>y "+y
 map <leader>p "+p
@@ -234,7 +227,7 @@ nnoremap <leader>f :ls<CR>:b<space>
 nnoremap <leader>s :set nospell!<CR>
 nnoremap <silent> <leader>cc :call ColorColumn()<CR>
 "Change between edited lines
-map <leader>i g,
-map <leader>o g;
+map <leader>[ g,
+map <leader>] g;
 "Command sudow for when we open files we cannot write to
 cnoremap sudow w !sudo tee % >/dev/null

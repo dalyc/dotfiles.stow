@@ -118,7 +118,7 @@ myModMask = mod4Mask
 --hooks
 myManageHook :: ManageHook
 myManageHook = (composeAll . concat $
-            [[ className =? "Firefox"    --> doShift "web"
+            [[ className =? "Firefox"    --> insertPosition End Older <+> doShift "web" -- (6)
             , className =? "Firefox" <&&> resource =? "Download" --> doFloat
             , className =? "Chromium"   --> insertPosition End Older <+> doShift "web" -- (6)
             , className =? "Pavucontrol" --> insertPosition End Older <+> doShift "im" -- (6)
@@ -128,7 +128,6 @@ myManageHook = (composeAll . concat $
             -- , title =? "LibreOffice" --> doShift "doc"
             , className =? "X2goclient"    --> doShift "7"
             , className =? "X2GoAgent"    --> doShift "7"
-            , className =? "mplayer2"    --> doShift "8"
             , className =? "mpv"    --> doShift "8"
             , className =? "Vlc"    --> doShift "8"
             , className =? "Hamster-time-tracker" --> doShift "NSP"
@@ -138,7 +137,6 @@ myManageHook = (composeAll . concat $
             , className =? "Termite" --> insertPosition Below Newer -- (6)
             , className =? "Gtkdialog" --> doFloat
             , className =? "Gimp" --> doFloat
-            -- , fmap ("Call with" `isInfixOf`) title --> doFloat -- For skype (1)
             ]]) <+> manageScratchPad
 
 manageScratchPad :: ManageHook

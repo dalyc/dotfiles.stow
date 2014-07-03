@@ -71,6 +71,7 @@ git submodule add git://github.com/Lokaltog/vim-easymotion.git vim/.vim/bundle/e
 git submodule add git://github.com/godlygeek/tabular.git vim/.vim/bundle/tabular
 git submodule add https://github.com/xuhdev/SingleCompile.git vim/.vim/bundle/single-compile
 git submodule add https://github.com/scrooloose/syntastic.git vim/.vim/bundle/syntastic
+git submodule add https://github.com/majutsushi/tagbar.git vim/.vim/bundle/tagbar
 ```
 
 ### Update all/single vim plugins

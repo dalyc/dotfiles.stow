@@ -2,8 +2,8 @@
 # 1 #
 #####
 
-http://www.reddit.com/r/linuxquestions+linuxadmin+linuxprogramming/.rss 1 "admin"
-http://www.reddit.com/r/linux+linux4noobs/.rss 1 "admin"
+http://www.reddit.com/r/linuxquestions+linuxadmin/.rss 1 "admin"
+http://www.reddit.com/r/linux4noobs/.rss 1 "admin"
 http://www.reddit.com/r/archlinux+xmonad/.rss 1 "admin"
 http://www.reddit.com/r/bsd+openbsd+freebsd+freenas/.rss 1 "admin"
 http://www.reddit.com/r/sysadmin/.rss 1 "admin"
@@ -28,6 +28,7 @@ http://www.reddit.com/r/netsec+computerforensics+blackhat+Privacy/.rss 1 securit
 # 2 #
 #####
 
+http://www.reddit.com/r/programminghomework/.rss 2 CS
 http://www.reddit.com/r/programming+compsci+learnprogramming+/.rss 2 CS
 http://www.reddit.com/r/Python+C_Programming+c_language/.rss 2 CS
 http://feeds.feedburner.com/catonmat 2 CS

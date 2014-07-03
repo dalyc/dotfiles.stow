@@ -28,3 +28,6 @@
 [submodule "vim/.vim/bundle/syntastic"]
 	path = vim/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/.vim/bundle/tagbar"]
+	path = vim/.vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
