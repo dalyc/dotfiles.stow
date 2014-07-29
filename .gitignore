@@ -10,3 +10,5 @@ X/.config/gtk-2.0/gtkfilechooser.ini
 xmonad/.xmonad/history
 
 vimperator/.config/
+
+cgdb/.cgdb/readline_history.txt

@@ -133,6 +133,13 @@ autocmd FileType c autocmd BufWritePre <buffer> :%s/\s\+$//e
 "gcc program.c -g -o program.out
 autocmd FileType c set makeprg=gcc\ %<.c\ -g\ -o\ %<.out
 
+
+" C++ stuff
+"--------------------------
+autocmd FileType cpp set wrap linebreak nolist
+autocmd FileType cpp autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+
 " Python stuff
 "--------------------------
 let python_highlight_space_errors = 1

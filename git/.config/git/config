@@ -5,7 +5,9 @@
     email = xkcd.ballmer@gmail.com
     editor = vim
 [merge]
-    tool = vimdiff
+    ; tool = vimdiff
+    tool = kdiff3
+    conflictstyle = diff3
 [alias]
     c = commit
     cm = commit -m
@@ -20,6 +22,8 @@
     l = log --graph --pretty=format:'%Cblue%h%Creset -%C(red bold)%d%Creset %s - %C(green)(%cr)%Creset' --abbrev-commit --date=relative -n 15
     ll = log -p --pretty=format:'%C(cyan reverse)%h%Creset (%ar - %C(black)%an%Creset), %s%C(red bold)%d%Creset%n'
     ls = ls-files
+    undo = reset --soft HEAD^
+    uncomit = reset HEAD^
 [color]
     ui = auto
     branch = auto

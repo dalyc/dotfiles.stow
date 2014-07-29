@@ -2,11 +2,12 @@
 # 1 #
 #####
 
-http://www.reddit.com/r/linuxquestions+linuxadmin/.rss 1 "admin"
+http://www.reddit.com/r/sysadmin/.rss 1 "admin"
+http://www.reddit.com/r/linuxadmin.rss 1 "admin"
+http://www.reddit.com/r/linuxquestions.rss 1 "admin"
 http://www.reddit.com/r/linux4noobs/.rss 1 "admin"
 http://www.reddit.com/r/archlinux+xmonad/.rss 1 "admin"
 http://www.reddit.com/r/bsd+openbsd+freebsd+freenas/.rss 1 "admin"
-http://www.reddit.com/r/sysadmin/.rss 1 "admin"
 
 http://www.tomshardware.com/feeds/rss2/tom-s-hardware-us-components,18-1-1.xml 1 hardware
 http://www.osnews.com/files/recent.xml 1 hardware
@@ -65,23 +66,23 @@ http://lowlevelhardware.blogspot.com/feeds/posts/default?alt=rss 2 sysadmin
 # 3 #
 #####
 
-http://feeds.feedburner.com/gaussianos 3 science
-http://feeds.feedburner.com/ProblemasMatemticos 3 science
-http://solumate.blogspot.com/feeds/posts/default 3 science
-http://blogs.elpais.com/apuntes-cientificos-mit/atom.xml 3 science
-http://feeds2.feedburner.com/CienciaKanija 3 science
-http://vicente1064.blogspot.com/feeds/posts/default 3 science
-http://feeds.feedburner.com/historiasdelaciencia 3 science
-http://labellateoria.blogspot.com/feeds/posts/default 3 science
-http://feeds.feedburner.com/eliatron 3 science
-http://blogs.eldiariomontanes.es/scientia-mater/feed/ 3 science
-http://feeds2.feedburner.com/ElTamiz 3 science
-http://www.lapizarradeyuri.com/feed/ 3 science
+#http://feeds.feedburner.com/gaussianos 3 science
+#http://feeds.feedburner.com/ProblemasMatemticos 3 science
+#http://solumate.blogspot.com/feeds/posts/default 3 science
+#http://blogs.elpais.com/apuntes-cientificos-mit/atom.xml 3 science
+#http://feeds2.feedburner.com/CienciaKanija 3 science
+#http://vicente1064.blogspot.com/feeds/posts/default 3 science
+#http://feeds.feedburner.com/historiasdelaciencia 3 science
+#http://labellateoria.blogspot.com/feeds/posts/default 3 science
+#http://feeds.feedburner.com/eliatron 3 science
+#http://blogs.eldiariomontanes.es/scientia-mater/feed/ 3 science
+#http://feeds2.feedburner.com/ElTamiz 3 science
+#http://www.lapizarradeyuri.com/feed/ 3 science
 
 http://aprendeinglessila.com/feed/ 3 fun
 http://feeds2.feedburner.com/braingle/all 3 fun
 http://gdata.youtube.com/feeds/base/users/minutephysics/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile 3 fun
 http://mundowdg.com/blog/feed/ 3 fun
 
-http://feeds.feedburner.com/blogspot/laboro 3 random
-http://historiasdelahistoria.com/feed 3 random
+#http://feeds.feedburner.com/blogspot/laboro 3 random
+#http://historiasdelahistoria.com/feed 3 random

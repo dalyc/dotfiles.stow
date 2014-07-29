@@ -37,6 +37,8 @@ import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Named
 import XMonad.Layout.Reflect
 import XMonad.Layout.HintedGrid -- layout for gvim (hinting problem) (8)
+import XMonad.Layout.Tabbed -- Tabbed layout (9)
+-- import XMonad.Layout.TabBarDecoration -- Tabbed layout (9)
 
 -- local libs
 import DynamicTopic -- (7)
@@ -63,13 +65,6 @@ main = xmonad =<< statusBar cmd pp kb conf
 -------------------------------------------------------------------------------
 --Urgent notification
 urgentConfig = UrgencyConfig { suppressWhen = Focused, remindWhen = Dont }
---Looks settings
-myPP = xmobarPP { ppCurrent = xmobarColor colorBlueAlt ""
-                  , ppTitle =  shorten 50
-                  , ppSep =  " <fc=#a488d9>:</fc> "
-                  , ppUrgent = xmobarColor "" colorPink
-                  , ppSort = fmap (.scratchpadFilterOutWorkspace) getSortByIndex
-                }
 --Toggle key
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
@@ -142,6 +137,46 @@ myManageHook = (composeAll . concat $
 manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect (1/4) (1/4) (1/2) (1/2))
 
+
+-------------------------------------------------------------------------------
+--- Themes ---
+-------------------------------------------------------------------------------
+--Theme for: xmobar
+myPP = xmobarPP { ppCurrent = xmobarColor colorBlueAlt ""
+                  , ppTitle =  shorten 50
+                  , ppSep =  " <fc=#a488d9>:</fc> "
+                  , ppUrgent = xmobarColor "" colorPink
+                  , ppSort = fmap (.scratchpadFilterOutWorkspace) getSortByIndex
+                }
+--Theme for: prompt
+myXPConfig = defaultXPConfig {  font = "terminus"
+                                , fgColor           = colorDarkMagenta
+                                , bgColor           = colorDarkGray
+                                , bgHLight          = colorMagenta
+                                , fgHLight          = colorDarkGray
+                                , borderColor       = colorBlackAlt
+                                , promptBorderWidth = 1
+                                , height = 18
+                                , position = Bottom
+                                , historySize = 100
+                                , historyFilter = deleteConsecutive
+                             }
+--Theme for: Tabbed layout (9)
+myTabConfig = defaultTheme {  activeColor     = "#2d2d2d"
+                            , activeBorderColor   = "#2d2d2d"
+                            , activeTextColor     = "#ffffff"
+                            , inactiveColor   = "#444444"
+                            , inactiveBorderColor = "#444444"
+                            , inactiveTextColor   = "#9c9c9c"
+                            , decoHeight      = 24
+                            , decoWidth       = 350
+                            , fontName        = "terminus"
+                           }
+
+-------------------------------------------------------------------------------
+--- Layouts ---
+-------------------------------------------------------------------------------
+
 --topics or workspaces
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = [ "web", "dev", "doc", "term", "5", "6", "7", "8", "im", "NSP"]
@@ -155,7 +190,7 @@ customLayout =  onWorkspace "web" fsLayout $
                 onWorkspace "8" fsLayout $
                 standardLayouts
     where
-    standardLayouts = rmtiled ||| full ||| tiled
+    standardLayouts = rmtiled ||| full ||| tiled ||| myTab
 
     rt = ResizableTall 1 (2/100) (1/2) []
     mtiled = named "M[]=" $ smartBorders $ Mirror rt
@@ -164,23 +199,11 @@ customLayout =  onWorkspace "web" fsLayout $
     rmtiled = named "RM[]=" $ smartBorders $ reflectVert mtiled
     full = named "[]" $ noBorders Full
     tiled = named "[]=" $ smartBorders rt
+    myTab = named "T" $ tabbed shrinkText myTabConfig
+
     fsLayout = full ||| tiled
     docLayout = grid ||| full
 
-
---prompt theme
-myXPConfig = defaultXPConfig {  font = "terminus"
-                                , fgColor           = colorDarkMagenta
-                                , bgColor           = colorDarkGray
-                                , bgHLight          = colorMagenta
-                                , fgHLight          = colorDarkGray
-                                , borderColor       = colorBlackAlt
-                                , promptBorderWidth = 1
-                                , height = 18
-                                , position = Bottom
-                                , historySize = 100
-                                , historyFilter = deleteConsecutive
-                             }
 
 -------------------------------------------------------------------------------
 --- Keys ---

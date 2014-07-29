@@ -1,0 +1,21 @@
+###########################################################################
+#                            Personal Snippets                            #
+###########################################################################
+snippet skel
+#include <iostream>
+#include <stdlib.h> // EXIT_* macros
+
+using namespace std;
+
+$1
+
+int main(int argc, char** argv)
+{
+	$2
+	return EXIT_SUCCESS;
+}
+endsnippet
+
+snippet uint
+unsigned int $1
+endsnippet
