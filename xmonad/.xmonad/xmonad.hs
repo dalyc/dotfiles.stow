@@ -179,13 +179,13 @@ myTabConfig = defaultTheme {  activeColor     = "#2d2d2d"
 
 --topics or workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = [ "web", "dev", "doc", "term", "5", "6", "7", "8", "im", "NSP"]
+myWorkspaces = [ "web", "doc", "dev", "term", "5", "6", "7", "8", "im", "NSP"]
 
 --layouts
 myLayout = customLayout
 customLayout =  onWorkspace "web" fsLayout $
-                onWorkspace "dev" fsLayout $
                 onWorkspace "doc" docLayout $
+                onWorkspace "dev" devLayout $
                 onWorkspace "7" fsLayout $
                 onWorkspace "8" fsLayout $
                 standardLayouts
@@ -199,10 +199,11 @@ customLayout =  onWorkspace "web" fsLayout $
     rmtiled = named "RM[]=" $ smartBorders $ reflectVert mtiled
     full = named "[]" $ noBorders Full
     tiled = named "[]=" $ smartBorders rt
-    myTab = named "T" $ tabbed shrinkText myTabConfig
+    myTab = named "T" $ tabbed shrinkText myTabConfig -- (9)
 
-    fsLayout = full ||| tiled
+    fsLayout = full ||| myTab
     docLayout = grid ||| full
+    devLayout = full ||| tiled
 
 
 -------------------------------------------------------------------------------
