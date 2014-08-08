@@ -1,6 +1,7 @@
 " Notes: you are suggested to see
 "        http://vimdoc.sourceforge.net/htmldoc/options.html
 "        for more information.
+" [1] http://www.reddit.com/r/vim/comments/1yfzg2/does_anyone_actually_use_easymotion/
 
 "Call pathogen first
 call pathogen#infect()
@@ -28,6 +29,11 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
       autocmd GUIEnter * set visualbell t_vb=
 endif
+" [1] Use incsearch (turn off hlsearch)
+" (:h ranges) (:h holy-grail)
+" '?' for before current position
+" '/' for after current position
+set incsearch
 
 " Theme settings/vim ui
 "-----------------------
@@ -183,10 +189,6 @@ let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories  = ["my_snippets"]
 
-" Easymotion settings
-"--------------------------
-let g:EasyMotion_leader_key = ','
-
 " Syntastic settings
 "--------------------------
 let g:syntastic_error_symbol = '✗'
@@ -200,15 +202,19 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " Binds
 "--------------------------
+" I find myself entering ex mode by accident too frequently
+nnoremap Q <nop>
+" Assign functionality to F keys
 inoremap <F1> <C-O>b
 nnoremap <F1> b
 inoremap <F2> <C-O>w
 nnoremap <F2> w
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
 set pastetoggle=<F4>
-"toggle between buffers (with F5)
+" Toggle between buffers (with F5)
 inoremap <F5> <C-O><C-^>
 nnoremap <F5> <C-^>
+" Toggle some bars
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :SyntasticToggleMode<CR>
 "Compile the current C program in buffer
@@ -217,10 +223,6 @@ nnoremap <F7> :SyntasticToggleMode<CR>
 nmap <F11> :!gcc %<.c -g -o %<.out<cr>
 "run the compiled program
 nmap <F12> :!./%:r.out<cr>
-"toggle between last tabs (with ctrl+\)
-let g:lasttab = 1
-au TabLeave * let g:lasttab = tabpagenr()
-map <c-\> :exe "tabn ".g:lasttab<CR>
 
 " Mapleader
 "--------------------------
