@@ -36,9 +36,8 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Named
 import XMonad.Layout.Reflect
-import XMonad.Layout.HintedGrid -- layout for gvim (hinting problem) (8)
-import XMonad.Layout.Tabbed -- Tabbed layout (9)
--- import XMonad.Layout.TabBarDecoration -- Tabbed layout (9)
+import XMonad.Layout.Tabbed -- Tabbed layout (8)
+-- import XMonad.Layout.TabBarDecoration -- Tabbed layout (8)
 
 -- local libs
 import DynamicTopic -- (7)
@@ -161,7 +160,7 @@ myXPConfig = defaultXPConfig {  font = "terminus"
                                 , historySize = 100
                                 , historyFilter = deleteConsecutive
                              }
---Theme for: Tabbed layout (9)
+--Theme for: Tabbed layout (8)
 myTabConfig = defaultTheme {  activeColor     = "#2d2d2d"
                             , activeBorderColor   = "#2d2d2d"
                             , activeTextColor     = "#ffffff"
@@ -184,25 +183,21 @@ myWorkspaces = [ "web", "doc", "dev", "term", "5", "6", "7", "8", "im", "NSP"]
 --layouts
 myLayout = customLayout
 customLayout =  onWorkspace "web" fsLayout $
-                onWorkspace "doc" docLayout $
+                onWorkspace "doc" fsLayout $
                 onWorkspace "dev" devLayout $
-                onWorkspace "7" fsLayout $
-                onWorkspace "8" fsLayout $
                 standardLayouts
     where
-    standardLayouts = rmtiled ||| full ||| tiled ||| myTab
+    standardLayouts = myTab ||| rmtiled ||| full ||| tiled
 
     rt = ResizableTall 1 (2/100) (1/2) []
     mtiled = named "M[]=" $ smartBorders $ Mirror rt
-    grid = named "GR" $ GridRatio (4/3) False -- (8)
 
+    myTab = named "Tab" $ tabbed shrinkText myTabConfig -- (8)
     rmtiled = named "RM[]=" $ smartBorders $ reflectVert mtiled
     full = named "[]" $ noBorders Full
     tiled = named "[]=" $ smartBorders rt
-    myTab = named "T" $ tabbed shrinkText myTabConfig -- (9)
 
-    fsLayout = full ||| myTab
-    docLayout = grid ||| full
+    fsLayout = myTab ||| full
     devLayout = full ||| tiled
 
 

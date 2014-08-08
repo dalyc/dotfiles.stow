@@ -22,9 +22,9 @@ import qualified XMonad.Util.ExtensibleState as XS
 topics :: Map String FilePath
 topics = M.fromList
     [ ("web", "Downloads")
-    , ("im", "Downloads")
+    , ("doc", "dev/notes/prog")
     , ("dev", "dev/UNI")
-    , ("doc", "dev/00-Elearn")
+    , ("im", "Downloads")
     ]
 
 data TopicDirs = TopicDirs { dirs :: Map String FilePath } deriving (Read, Show, Typeable)
