@@ -1,0 +1,19 @@
+set guifont=DejaVu\ Sans\ Mono\ 11
+"m remove menu bar
+"r remove right-hand scrollbar
+"L remove left-hand scrollbar
+"T remove toolbar
+set guioptions-=mrL
+" set guioptions=agpi
+
+
+set guicursor=a:blinkon0
+set mousef
+
+"colorscheme molokai
+
+set lines=40
+set columns=90
+
+set mouses=i-r:beam,s:updown,sd:udsizing,vs:leftright,vd:lrsizing,m:no,ml:up-arrow,v:rightup-arrow
+set mousehide
