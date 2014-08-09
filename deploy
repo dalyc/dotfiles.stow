@@ -14,6 +14,7 @@ Available arguments are:
     --conclude (Conclude only dotfiles for things I use, e.g. i3 will not be concluded)
     --vim (For creating the necessary folders, installation of plugins, and symlinking)
     --xmonad (For creating the necessary folders, installation of packages, and symlinking)
+    --startx (For creating my commonly used startx empty files)
 EOF
 }
 
@@ -62,6 +63,14 @@ elif [[ $1 == "--vim" ]]; then
 # What to do for when we want to deploy xmonad
 elif [[ $1 == "--xmonad" ]]; then
     xmonad_wrapper
+
+# Create empty files that $HOME/.xinitrc will use to decide which
+# commands to execute
+elif [[ $1 == "--startx" ]]; then
+    pushd . && mkdir -p "$XDG_CONFIG_HOME"/startx
+    cd "$XDG_CONFIG_HOME"/startx && touch bell fonts gkeyring startx udiskie xmodmap xresources
+    popd
+    echo "Check $XDG_CONFIG_HOME/startx to confirm that the files were created"
 
 # Display the help
 else

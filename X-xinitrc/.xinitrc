@@ -7,25 +7,33 @@ if [[ -d $HOME/.config/startx ]]; then
     for arguments in $(find $HOME/.config/startx/ -type f)
     do
         case $arguments in
-            *xmodmap) # Start custom bind of keys
-                xmodmap $HOME/.config/xmodmap
+            *bell) # Turn the bell off
+                xset -b
+                shift ;;
+            *fonts)
+                xset +dpms +fp /usr/share/fonts/local,/usr/share/fonts/artwiz-fonts
                 shift ;;
             *gkeyring)
                 source /etc/X11/xinit/xinitrc.d/30-dbus
                 eval $(/usr/bin/gnome-keyring-daemon --start)
                 export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK SSH_AGENT_PID
                 shift ;;
+            *trayer)
+                sleep 10s && trayer --edge top --align right \
+                    --widthtype request --expand true --height 12 \
+                    --transparent true --alpha 0 --tint 0x1A1918 &
+                shift ;;
+            *nm-applet)
+                sleep 10s && nm-applet &
+                shift ;;
             *udiskie) # Let's start udiskie (udisks wrapper)
-                udiskie -s &
+                udiskie --use-udisks2 --no-tray &
+                shift ;;
+            *xmodmap) # Start custom bind of keys
+                xmodmap $HOME/.config/xmodmap
                 shift ;;
             *xresources) # Start custom settings for urxvt
                 xrdb -merge ~/.config/Xresources
-                shift ;;
-            *bell) # Turn the bell off
-                xset -b
-                shift ;;
-            *fonts)
-                xset +dpms +fp /usr/share/fonts/local,/usr/share/fonts/artwiz-fonts
                 shift ;;
         esac
     done

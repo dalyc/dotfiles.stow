@@ -23,12 +23,11 @@
 ## OS generated files
 Thumbs.db
 
-## Misc
-*.IG
-*.gpg
-
-
 ## BTsync
 *.SyncID
 *.SyncIgnore
 *.SyncArchive
+
+## Misc
+*.IG
+*.gpg

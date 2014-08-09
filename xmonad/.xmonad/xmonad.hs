@@ -183,7 +183,6 @@ myWorkspaces = [ "web", "doc", "dev", "term", "5", "6", "7", "8", "im", "NSP"]
 --layouts
 myLayout = customLayout
 customLayout =  onWorkspace "web" fsLayout $
-                onWorkspace "doc" fsLayout $
                 onWorkspace "dev" devLayout $
                 standardLayouts
     where
