@@ -3,14 +3,15 @@ set guifont=DejaVu\ Sans\ Mono\ 11
 "r remove right-hand scrollbar
 "L remove left-hand scrollbar
 "T remove toolbar
-set guioptions-=mrL
 " set guioptions=agpi
-
+set guioptions-=mrL
+aunmenu ToolBar.Help
+aunmenu ToolBar.FindHelp
+aunmenu ToolBar.RunScript
+aunmenu ToolBar.Print
 
 set guicursor=a:blinkon0
 set mousef
-
-"colorscheme molokai
 
 set lines=40
 set columns=90
