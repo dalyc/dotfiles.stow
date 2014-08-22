@@ -14,8 +14,19 @@ int main(int argc, char** argv)
 }
 endsnippet
 
+
+
+snippet includedebug
+#define DEBUG 1
+
+#include "libs/debugPrint.h"
+
+$1
+endsnippet
+
+
 snippet printfd
-printf("[debug] ${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+printf_debug("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
 endsnippet
 
 snippet uint

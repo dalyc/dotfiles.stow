@@ -38,6 +38,7 @@ import XMonad.Layout.Named
 import XMonad.Layout.Reflect
 import XMonad.Layout.Tabbed -- Tabbed layout (8)
 -- import XMonad.Layout.TabBarDecoration -- Tabbed layout (8)
+import XMonad.Layout.LayoutHints
 
 -- local libs
 import DynamicTopic -- (7)
@@ -197,7 +198,7 @@ customLayout =  onWorkspace "web" fsLayout $
     tiled = named "[]=" $ smartBorders rt
 
     fsLayout = myTab ||| full
-    devLayout = full ||| tiled
+    devLayout = layoutHints (full ||| tiled)
 
 
 -------------------------------------------------------------------------------

@@ -12,14 +12,5 @@ if [[ -f $HOME/.config/startx/startx ]]; then
             source $HOME/.ssh/.keychain/$HOST-sh-gpg
         fi
         exec startx
-    # If we log in from tty3, then start X and log output
-    elif [[ -z $DISPLAY && $(tty) = /dev/tty3 ]]; then
-        # What to do if the log output file exists
-        if [[ -f $HOME/xlog ]]; then
-            rm -i "$HOME"/xlog && exec startx &> ~/xlog
-        # If the file does not exist, startx and create the log file
-        else
-            exec startx &> ~/xlog
-        fi
     fi
 fi

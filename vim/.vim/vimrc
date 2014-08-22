@@ -160,13 +160,6 @@ set listchars=tab:→\ ,trail:·\,eol:¬
 highlight NonText ctermfg=237
 highlight SpecialKey ctermfg=234
 
-" GUI Settings
-"--------------------------
-" if has ('gui_running')
-    " set guifont=DejaVu\ Sans\ Mono\ 11
-    " set guioptions=acM
-" endif
-
 " Gist settings
 "--------------------------
 let g:gist_detect_filetype = 1
@@ -182,6 +175,10 @@ let g:NERDTreeIgnore    = ['\~$', '\.swp$', '\.o$', '\.hi$']
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinPos = "right"
 
+" SuperTab settings
+"--------------------------
+let g:SuperTabDefaultCompletionType = "context"
+
 " Ultisnip settings
 "--------------------------
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -196,9 +193,12 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_auto_jump = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 3
+let g:syntastic_mode_map = { 'mode': 'passive' }
 " Only use active mode for C files
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['c'],'passive_filetypes': [] }
-let g:syntastic_mode_map = { 'mode': 'passive' }
+
+
+
 
 " Binds
 "--------------------------
@@ -210,13 +210,13 @@ nnoremap <F1> b
 inoremap <F2> <C-O>w
 nnoremap <F2> w
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
-set pastetoggle=<F4>
 " Toggle between buffers (with F5)
 inoremap <F5> <C-O><C-^>
 nnoremap <F5> <C-^>
 " Toggle some bars
 nnoremap <F6> :TagbarToggle<CR>
 nnoremap <F7> :SyntasticToggleMode<CR>
+
 "Compile the current C program in buffer
 "%<.c is used intentionally to output an error
 "when we try to compile a file that is not C.
@@ -238,5 +238,5 @@ nnoremap <silent> <leader>cc :call ColorColumn()<CR>
 "Change between edited lines
 map <leader>[ g,
 map <leader>] g;
-"Command sudow for when we open files we cannot write to
+"Command «sudow» for when we open files we cannot write to
 cnoremap sudow w !sudo tee % >/dev/null

@@ -1,6 +1,5 @@
 # Write your default config options here!
-autosub
-autosub-match=fuzzy
+sub-auto=fuzzy
 no-cookies
 quiet
 # Use pulseaudio, with alsa as fallback

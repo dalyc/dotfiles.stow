@@ -62,15 +62,16 @@ List of plugins I use:
 ```
 git submodule add git://github.com/tpope/vim-pathogen.git vim/.vim/bundle/pathogen
 git submodule add git://github.com/tpope/vim-commentary.git vim/.vim/bundle/vim-commentary
-git submodule add git://github.com/SirVer/ultisnips.git vim/.vim/bundle/ultisnips
 git submodule add git://github.com/scrooloose/nerdtree.git vim/.vim/bundle/nerdtree
+git submodule add https://github.com/scrooloose/syntastic.git vim/.vim/bundle/syntastic
 git submodule add git://github.com/mattn/gist-vim vim/.vim/bundle/gist-vim
 git submodule add git://github.com/mattn/webapi-vim vim/.vim/bundle/webapi-vim
-git submodule add git://github.com/Lokaltog/vim-easymotion.git vim/.vim/bundle/easymotion
+
 git submodule add git://github.com/godlygeek/tabular.git vim/.vim/bundle/tabular
+git submodule add git://github.com/SirVer/ultisnips.git vim/.vim/bundle/ultisnips
 git submodule add https://github.com/xuhdev/SingleCompile.git vim/.vim/bundle/single-compile
-git submodule add https://github.com/scrooloose/syntastic.git vim/.vim/bundle/syntastic
 git submodule add https://github.com/majutsushi/tagbar.git vim/.vim/bundle/tagbar
+git submodule add https://github.com/ervandew/supertab vim/.vim/bundle/supertab
 ```
 
 ### Update all/single vim plugins
