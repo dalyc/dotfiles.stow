@@ -1,5 +1,5 @@
 [core]
-	excludesfile = ~/.config/git/ignore_global
+    excludesfile = ~/.config/git/ignore_global
 [user]
     name = ballmerpeak
     email = xkcd.ballmer@gmail.com
