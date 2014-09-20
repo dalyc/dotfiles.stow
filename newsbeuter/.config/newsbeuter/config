@@ -60,8 +60,9 @@ bind-key ^Q quit
 ignore-mode "download"
 ignore-article "*" "( title =~ \"emacs\" or title =~ \"Linux desktop\" )"
 ignore-article "http://lwn.net/headlines/newrss" "title =~ \"[$]\""
-ignore-article "http://feeds2.feedburner.com/braingle/all" "( title !# \"Vocabulary\" and title !# \"Memory\" )"
 ignore-article "http://www.linuxtoday.com/biglt.rss" "link !~ \"developer\""
+# ignore-article "http://feeds2.feedburner.com/braingle/all" "( title !# \"Vocabulary\" and title !# \"Memory\" )"
+ignore-article "http://feeds2.feedburner.com/braingle/all" "( title !# \"Memory\" )"
 # }}}
 
 #################################################################################
@@ -71,10 +72,10 @@ ignore-article "http://www.linuxtoday.com/biglt.rss" "link !~ \"developer\""
 highlight all "https?://[^ ]+" blue default default
 highlight article "^(Feed|Title|Author|Link|Date):.+" black default default
 highlight-article "link =~ \"reddit.com/r/Privacy\"" color028 default default
-highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default default
-highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default default
-highlight-article "link =~ \"reddit.com/r/(C_Programming|c_language|linuxprogramming)/\"" color238 default default
-highlight-article "link =~ \"reddit.com/r/(bsd|freebsd|opensource|xmonad)/\"" color238 default default
+# highlight-article "link =~ \"reddit.com/r/compsci\"" color030 default default
+# highlight-article "link =~ \"reddit.com/r/(programming|netsec)\"" blue default default
+# highlight-article "link =~ \"reddit.com/r/(C_Programming|c_language|linuxprogramming)/\"" color238 default default
+# highlight-article "link =~ \"reddit.com/r/(bsd|freebsd|opensource|xmonad)/\"" color238 default default
 search-highlight-colors black yellow bold
 color listnormal color243 default
 color listfocus red default

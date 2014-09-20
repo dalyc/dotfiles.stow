@@ -40,6 +40,6 @@
 [github]
 	user = ballmerpeak
 [push]
-    default = simple
-    ; default = upstream
+    ; default = simple
+    default = upstream
     ; default = current

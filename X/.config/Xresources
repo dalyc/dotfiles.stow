@@ -12,8 +12,7 @@ URxvt.scrollBar:false
 URxvt.saveLines:5000
 URxvt.dynamicColors: on
 URxvt.internalborder: 0
-URxvt.font: -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-URxvt.boldFont: -*-dina-bold-r-*-*-16-*-*-*-*-*-*-*
+URxvt.font: xft:terminus:pixelsize=16:antialias=false
 URxvt.cutchars: "()*,<>[]{}|'"
 URxvt.print-pipe: cat >$(mktemp $HOME/Archives/txt/urxvt.XXXXX)
 URxvt.visualBell: false

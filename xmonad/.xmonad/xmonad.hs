@@ -37,8 +37,8 @@ import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Named
 import XMonad.Layout.Reflect
 import XMonad.Layout.Tabbed -- Tabbed layout (8)
--- import XMonad.Layout.TabBarDecoration -- Tabbed layout (8)
 import XMonad.Layout.LayoutHints
+-- import XMonad.Layout.TabBarDecoration -- Tabbed layout (8)
 
 -- local libs
 import DynamicTopic -- (7)
@@ -223,28 +223,23 @@ myKeys conf = mkKeymap conf $ [
     , ("<XF86AudioStop>", safeSpawn "ncmpcpp" ["stop"])
     , ("<XF86AudioNext>", safeSpawn "ncmpcpp" ["next"])
     , ("<XF86AudioPrev>", safeSpawn "ncmpcpp" ["prev"])
-    , ("M-=", safeSpawn "xbacklight" ["-inc", "5"])
-    , ("M--", safeSpawn "xbacklight" ["-dec", "5"])
-    --actions/launching
-    , ("M-a f", safeSpawn "pcmanfm" []) --Launch file manager
+
+    --Actions
+    , ("M-=", safeSpawn "xbacklight" ["-inc", "5"]) --Increase screen brightness
+    , ("M--", safeSpawn "xbacklight" ["-dec", "5"]) --Decrease screen brightness
+    , ("M-a f", safeSpawn "rox" []) --Launch file manager
     , ("M-a u", focusUrgent) --Go to urgent window
     , ("M-a g", goToSelected defaultGSConfig { gs_cellwidth = 250 })
     , ("M-a k", killAllOtherCopies) --Kill all copied windows (4)
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
-    , ("M-a z", appendFilePrompt myXPConfig "Archives/txt/NOTES")
-    , ("M-a l", safeSpawn "xlock" ["-mode","space"])
-    , ("M-a s", safeSpawn "bash" ["-c", "systemctl suspend"])
-    , ("M-S-a s", safeSpawn "bash" ["-c", "systemctl suspend || xlock"])
+    , ("M-a z", appendFilePrompt myXPConfig "dev/UNI/NOTES")
+    , ("M-a l", safeSpawn "xlock" ["-mode","space"]) --Lock
+    , ("M-a s", safeSpawn "bash" ["-c", "systemctl suspend"]) --Suspend
+    , ("M-S-a s", safeSpawn "bash" ["-c", "systemctl suspend || xlock"]) --Suspend & Lock
     , ("M-a x", safeSpawn "bash" ["dev/clipsync/dmenu.sh"])
     , ("M-S-a x", safeSpawn "python" ["dev/clipsync/sync.py"])
-    --launching of random apps
-    , ("M-u 1", safeSpawn "chromium" ["--incognito"])
-    , ("M-u 2", safeSpawn "spicec" ["-h", "127.0.0.1", "-p", "5930"])
-    , ("M-u w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
-    --launching
-    , ("M-<Return>", spawnShell) --Launch shell in topic (7)
-    , ("M-S-<Backspace>", spawn myTerminal2) --Launch shell
-    , ("M-<Backspace>", scratchpadSpawnAction defaultConfig  {terminal = myTerminal2}) --Launch scratchpad
+
+    --Applications
     , ("M-f", safeSpawn "firefox" [])
     , ("M-S-f 0", safeSpawn "firefox" ["-P"])
     , ("M-S-f 1", safeSpawn "firefox" ["-P", "Primary"])
@@ -252,13 +247,23 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Social"])
     , ("M-S-f 7", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
     , ("M-S-f 9", safeSpawn "firefox" ["--no-remote", "-P", "Locked"])
+    , ("M-u c", safeSpawn "chromium" ["--incognito"])
+    , ("M-u s", safeSpawn "spicec" ["-h", "127.0.0.1", "-p", "5930"])
+    , ("M-u v", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
+
+    --Launching
+    , ("M-<Return>", spawnShell) --Launch shell in topic (7)
+    , ("M-S-<Backspace>", spawn myTerminal2) --Launch shell
+    , ("M-<Backspace>", scratchpadSpawnAction defaultConfig  {terminal = myTerminal2}) --Launch scratchpad
     , ("M-p", shellPrompt myXPConfig)
+    --Navigate through windows or workspaces
+    , ("M-q", toggleWS' ["NSP"]) --Toggle between workspaces (2)
+    , ("M-<Tab>", nextMatchWithThis History className) --Toggle between windows of same class (3)
+    , ("M-`", nextMatch History (className =? "Termite")) -- Toggle between terminals (3)
     --search the web
     , ("M-s", SM.submap $ searchEngineMap $ S.promptSearch myXPConfig)
     , ("M-S-s", SM.submap $ searchEngineMap $ S.selectSearch)
-    --navigation of windows/workspaces
-    , ("M-q", toggleWS' ["NSP"]) --Toggle between workspaces (2)
-    , ("M-<Tab>", nextMatch History (className =? "Termite")) -- Toggle between windows (3)
+
     --killing
     , ("M-S-q", kill)
     --layouts
@@ -287,7 +292,7 @@ myKeys conf = mkKeymap conf $ [
     ]
     -- mod-[1..9],          Switch to workspace N
     -- mod-shift-[1..9],    Move client to workspace N
-    -- mod5-shift-[1..9],   Copy windows to workspace N (7)
+    -- mod5-shift-[1..9],   Copy windows to workspace N (4)
     ++ [(m ++ k, windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) $ map show [1..9]
         , (f, m) <- [(W.greedyView, "M-"), (W.shift, "M-S-"), (copy, "M5-S-")]
