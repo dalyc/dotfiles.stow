@@ -13,7 +13,7 @@ http://planet.archlinux.org/atom.xml 1 "open source"
 http://www.ibm.com/developerworks/views/linux/rss/libraryview.jsp?site_id=1&contentarea_by=Linux&type_by=Tutorials&sort_by=Date 1 "open source"
 # Security
 http://feeds.feedburner.com/darknethackers 1 security
-http://www.reddit.com/r/netsec+computerforensics+blackhat+Privacy/.rss 1 security
+http://www.reddit.com/r/netsec+computerforensics+blackhat/.rss 1 security
 
 #####
 # 2 #
