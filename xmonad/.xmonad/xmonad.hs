@@ -16,8 +16,8 @@ import XMonad.Util.EZConfig --easy M-key like bindings
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS --toggleWS (2)
 import XMonad.Actions.GroupNavigation --toggle between windows (3)
-import XMonad.Actions.CopyWindow --copy win to workspaces (4)
 import XMonad.Actions.FocusNth --focus nth window in current workspace (5)
+import XMonad.Actions.PhysicalScreens --Change between screens (9)
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.AppendFile
@@ -227,10 +227,9 @@ myKeys conf = mkKeymap conf $ [
     --Actions
     , ("M-=", safeSpawn "xbacklight" ["-inc", "5"]) --Increase screen brightness
     , ("M--", safeSpawn "xbacklight" ["-dec", "5"]) --Decrease screen brightness
-    , ("M-a f", safeSpawn "rox" []) --Launch file manager
+    , ("M-a f", safeSpawn "pcmanfm" []) --Launch file manager
     , ("M-a u", focusUrgent) --Go to urgent window
     , ("M-a g", goToSelected defaultGSConfig { gs_cellwidth = 250 })
-    , ("M-a k", killAllOtherCopies) --Kill all copied windows (4)
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
     , ("M-a z", appendFilePrompt myXPConfig "dev/UNI/NOTES")
     , ("M-a l", safeSpawn "xlock" ["-mode","space"]) --Lock
@@ -248,7 +247,7 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-f 7", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
     , ("M-S-f 9", safeSpawn "firefox" ["--no-remote", "-P", "Locked"])
     , ("M-u c", safeSpawn "chromium" ["--incognito"])
-    , ("M-u s", safeSpawn "spicec" ["-h", "127.0.0.1", "-p", "5930"])
+    , ("M-u s", safeSpawn "spicec" ["--hotkeys", "toggle-fullscreen=shift+f12,release-cursor=win","-h", "127.0.0.1", "-p", "5930"])
     , ("M-u v", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
 
     --Launching
@@ -285,6 +284,9 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-l", sendMessage MirrorExpand) --Inc win size in master are --Inc win size in master areaa
     , ("M-S-,", sendMessage (IncMasterN 1)) --Inc win # in master area
     , ("M-S-.", sendMessage (IncMasterN (-1))) --Dec win # in master area
+    --change between screens
+    , ("M-<Left>", onPrevNeighbour W.view) -- Mod + <left key> (9)
+    , ("M-<Right>", onNextNeighbour W.view) -- Mod + <right key> (9)
     --quit, or restart
     , ("M-S-e", io (exitWith ExitSuccess)) --Exit X
     , ("M-S-r", restart "xmonad" True) --Restart WM
@@ -292,19 +294,7 @@ myKeys conf = mkKeymap conf $ [
     ]
     -- mod-[1..9],          Switch to workspace N
     -- mod-shift-[1..9],    Move client to workspace N
-    -- mod5-shift-[1..9],   Copy windows to workspace N (4)
     ++ [(m ++ k, windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) $ map show [1..9]
-        , (f, m) <- [(W.greedyView, "M-"), (W.shift, "M-S-"), (copy, "M5-S-")]
-    ]
-    --Making right windows key useful.
-    --Editing of ~/.config/xmodmap required
-    -- mod5-[1..9],         Switch to window N (5)
-    ++ [(("M5-" ++ show k), focusNth i)
-        | (i, k) <- zip [0 .. 8] [1..9]
-    --mod5-[w,e] switch to twinview screen 1/2
-    --mod5-shift-[w,e] move window to screen 1/2
-    -- ++ [(("M5-" ++ show k), screenWorkspace sc >>= flip whenJust (windows . f))
-    --     | (i, k) <- zip [w, e] [0..]
-    --     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.greedyView, "M-"), (W.shift, "M-S-")]
     ]
