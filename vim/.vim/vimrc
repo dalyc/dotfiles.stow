@@ -100,10 +100,10 @@ if has("autocmd")
     set autoindent
 endif
 "how many spaces we want for tabs
-set tabstop=4
+set tabstop=2
 "amount of whitespace to insert using
 "indent commands in normal mode
-set shiftwidth=4 softtabstop=4
+set shiftwidth=2 softtabstop=2
 "replace tabs for spaces
 set expandtab
 
@@ -138,6 +138,7 @@ autocmd FileType c autocmd BufWritePre <buffer> :%s/\s\+$//e
 "Use :cope to view a window with the errors
 "gcc program.c -g -o program.out
 autocmd FileType c set makeprg=gcc\ %<.c\ -g\ -o\ %<.out
+autocmd FileType c set tabstop=4 shiftwidth=4 softtabstop=4
 
 
 " C++ stuff
@@ -209,6 +210,7 @@ inoremap <F1> <C-O>b
 nnoremap <F1> b
 inoremap <F2> <C-O>w
 nnoremap <F2> w
+" Highlight search terms
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
 " Toggle between buffers (with F5)
 inoremap <F5> <C-O><C-^>
