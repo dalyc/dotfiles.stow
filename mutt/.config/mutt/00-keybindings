@@ -23,7 +23,7 @@ bind pager j next-line
 bind pager gg top
 bind pager G bottom
 
-bind index D delete-message
+bind index d delete-message
 bind index Q quit
 bind index k previous-thread    # In index, go to prev thread
 bind index j next-thread        # In index, go to next thread
@@ -36,6 +36,6 @@ bind index gg first-entry
 bind index G last-entry
 bind index / search-reverse
 bind index <Esc>/ search
-bind index <EsC>n toggle-new
+bind index <Esc>n toggle-new
 bind index n search-next
 bind index N search-opposite

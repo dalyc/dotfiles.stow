@@ -58,8 +58,9 @@ source $HOME/.config/mutt/00-keybindings
 
 # [macros]
 macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index,pager gp "<change-folder>=peka<enter>" "Go to peka"
-macro index,pager gA "<change-folder>=Arch/Arch-dev<enter>" "Go to all arch-dev"
-macro index,pager ga "<change-folder>=Arch/Arch-general<enter>" "Go to arch-general"
+macro index,pager gA "<change-folder>=Mailing lists/arch-dev-public<enter>" "Go to all arch-dev"
+macro index,pager ga "<change-folder>=Mailing lists/arch-general<enter>" "Go to arch-general"
 # Mark all messages in a mailbox as read by pressing esc+r
 macro index <Esc>r "T~N<enter>;WNT~O<enter>;WO\CT~A<enter>" "mark all messages read"
+# Delete all messages older than 30d in a mailbox by pressing esc+d
+macro index <Esc>d "D~d>30d<enter>" "delete all messages"

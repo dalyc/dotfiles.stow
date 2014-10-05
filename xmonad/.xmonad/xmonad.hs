@@ -246,6 +246,7 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-f 3", safeSpawn "firefox" ["--no-remote", "-P", "Social"])
     , ("M-S-f 7", safeSpawn "firefox" ["--no-remote", "-P", "Peks"])
     , ("M-S-f 9", safeSpawn "firefox" ["--no-remote", "-P", "Locked"])
+    , ("M-u o", safeSpawn "okular" [])
     , ("M-u c", safeSpawn "chromium" ["--incognito"])
     , ("M-u s", safeSpawn "spicec" ["--hotkeys", "toggle-fullscreen=shift+f12,release-cursor=win","-h", "127.0.0.1", "-p", "5930"])
     , ("M-u v", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
