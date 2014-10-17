@@ -41,39 +41,7 @@ Vim specifics
 
 ### Getting started
 My vimrc expects certain directories within the .vim folder, so let us create them with `mkdir -p ~/.vim/{autoload,bundle,backup,swap}`
-Note that .vim/autoload has a symlink to .vim/bundle/pathogen/autoload/pathogen.vim, if you start vim without installing pathogen first then vim will scream at you.
-
-Additionally, you can just run `./deploy --vim` and the required folders will be made for you. Also, this command will install the list of plugins mentioned bellow, and lastly
-the appropriate symlinks will be created with the help of stow. Note that you need to have stow installed in order for the deploy script to function properly.
+My vim config expects the Vundle vim plugin to be installed. If you start vim without installing Vundle first it will scream at you. The deploy script will do this automatically for you. The command would be: ./deploy --vim
 
 ### Plugins
-List of plugins I use:
-- [pathogen](https://github.com/tpope/vim-pathogen)
-- [commentary](https://github.com/tpope/vim-commentary)
-- [ultisnips](https://github.com/SirVer/ultisnips)
-- [NERDtree](https://github.com/vim-scripts/The-NERD-tree)
-- [gist-vim](https://github.com/mattn/gist-vim)
-- [webapi-vim](https://github.com/mattn/webapi-vim)
-- [tabular](https://github.com/godlygeek/tabular.git)
-- [SingleCompile](https://github.com/xuhdev/SingleCompile)
-- [Syntastic](https://github.com/scrooloose/syntastic)
-
-### Install as git submodule
-```
-git submodule add git://github.com/tpope/vim-pathogen.git vim/.vim/bundle/pathogen
-git submodule add git://github.com/tpope/vim-commentary.git vim/.vim/bundle/vim-commentary
-git submodule add git://github.com/scrooloose/nerdtree.git vim/.vim/bundle/nerdtree
-git submodule add https://github.com/scrooloose/syntastic.git vim/.vim/bundle/syntastic
-git submodule add git://github.com/mattn/gist-vim vim/.vim/bundle/gist-vim
-git submodule add git://github.com/mattn/webapi-vim vim/.vim/bundle/webapi-vim
-
-git submodule add git://github.com/godlygeek/tabular.git vim/.vim/bundle/tabular
-git submodule add git://github.com/SirVer/ultisnips.git vim/.vim/bundle/ultisnips
-git submodule add https://github.com/xuhdev/SingleCompile.git vim/.vim/bundle/single-compile
-git submodule add https://github.com/majutsushi/tagbar.git vim/.vim/bundle/tagbar
-git submodule add https://github.com/ervandew/supertab vim/.vim/bundle/supertab
-```
-
-### Update all/single vim plugins
-- git submodule foreach git pull origin master
-- cd .vim/bundle/example && git pull origin master
+For a list of all plugins I use check the lines that say Plugin in the vimrc file.
