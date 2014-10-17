@@ -203,6 +203,7 @@ let g:NERDTreeWinPos = "right"
 " SuperTab settings
 "--------------------------
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " Ultisnip settings
 "--------------------------

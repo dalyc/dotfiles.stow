@@ -49,7 +49,7 @@ if [[ ! -x /usr/bin/stow ]] || [[ ! -x /bin/stow ]]; then
 
 # If stow is installed, then proceed with the following:
 elif [[ $1 == "--deploy" ]]; then
-    stow -v cower git newsbeuter termite unclassified X X-xinitrc youtube zsh vimperator
+    stow -v cower git newsbeuter termite unclassified X X11 youtube zsh vimperator
     vim_wrapper
     xmonad_wrapper
 
