@@ -3,6 +3,7 @@
 vim/.vim/.netrwhist
 vim/.vim/backup/*
 vim/.vim/swap/*
+vim/.vim/bundle/*
 
 X/.config/gtk-3.0/bookmarks
 X/.config/gtk-2.0/gtkfilechooser.ini
