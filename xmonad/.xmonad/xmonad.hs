@@ -217,12 +217,15 @@ searchEngineMap method = M.fromList $
 myKeys conf = mkKeymap conf $ [
     --Making use of multimedia keys
       ("<XF86AudioMute>", safeSpawn "amixer" ["-q","set","Master","toggle"])
-    , ("<XF86AudioLowerVolume>", safeSpawn "amixer" ["-q","set","Master","15%-"])
-    , ("<XF86AudioRaiseVolume>", safeSpawn "amixer" ["-q","set","Master","15%+"])
+    , ("<XF86AudioLowerVolume>", safeSpawn "amixer" ["-q","set","Master","2%-"])
+    , ("<XF86AudioRaiseVolume>", safeSpawn "amixer" ["-q","set","Master","2%+"])
     , ("<XF86AudioPlay>", safeSpawn "ncmpcpp" ["toggle"])
     , ("<XF86AudioStop>", safeSpawn "ncmpcpp" ["stop"])
     , ("<XF86AudioNext>", safeSpawn "ncmpcpp" ["next"])
     , ("<XF86AudioPrev>", safeSpawn "ncmpcpp" ["prev"])
+    , ("<Pause>", safeSpawn "bash" ["-c", "systemctl suspend"]) --Suspend
+    , ("M-<Pause>", safeSpawn "bash" ["-c", "systemctl suspend || xlock"]) --Suspend & Lock
+    , ("<Scroll_lock>", safeSpawn "xlock" ["-mode","space"]) --Lock
 
     --Actions
     , ("M-=", safeSpawn "xbacklight" ["-inc", "5"]) --Increase screen brightness
@@ -232,14 +235,11 @@ myKeys conf = mkKeymap conf $ [
     , ("M-a g", goToSelected defaultGSConfig { gs_cellwidth = 250 })
     , ("M-a t", changeDir myXPConfig) --Change the dir of the topic (7)
     , ("M-a z", appendFilePrompt myXPConfig "dev/UNI/NOTES")
-    , ("M-a l", safeSpawn "xlock" ["-mode","space"]) --Lock
-    , ("M-a s", safeSpawn "bash" ["-c", "systemctl suspend"]) --Suspend
-    , ("M-S-a s", safeSpawn "bash" ["-c", "systemctl suspend || xlock"]) --Suspend & Lock
     , ("M-a x", safeSpawn "bash" ["dev/clipsync/dmenu.sh"])
     , ("M-S-a x", safeSpawn "python" ["dev/clipsync/sync.py"])
 
     --Applications
-    , ("M-f", safeSpawn "firefox" [])
+    , ("M-f", safeSpawn "/opt/firefox-36.0a1/firefox" [])
     , ("M-S-f 0", safeSpawn "firefox" ["-P"])
     , ("M-S-f 1", safeSpawn "firefox" ["-P", "Primary"])
     , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Class"])

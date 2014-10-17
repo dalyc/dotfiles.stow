@@ -72,6 +72,7 @@ setopt hist_ignore_dups     # Don't save same line in the history
 setopt hist_verify          # Verify when using history
 setopt hist_no_store        # Don't store the `history` command
 setopt hist_ignore_space    # Don't store commands starting with a space
+setopt no_bang_hist         # Never interpret !! in a special manner
 setopt NO_BEEP              # Don't beep
 setopt extendedglob         # Treat  the  `#',  `~' and `^' characters as part
                             # of patterns for filename generation, etc

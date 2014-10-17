@@ -3,8 +3,28 @@
 "        for more information.
 " [1] http://www.reddit.com/r/vim/comments/1yfzg2/does_anyone_actually_use_easymotion/
 
-"Call pathogen first
-call pathogen#infect()
+" Theme settings/vim ui
+"-----------------------
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" List of plugins handled by vundle
+Plugin 'tpope/vim-pathogen'
+Plugin 'tpope/vim-commentary'
+Plugin 'SirVer/ultisnips'
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'godlygeek/tabular.git'
+Plugin 'xuhdev/SingleCompile'
+Plugin 'scrooloose/syntastic'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" Settings
+"-----------------------
 "Set character encoding
 set encoding=utf-8
 "This option stops vim from behaving in a strong vi-compatible way.
@@ -34,6 +54,8 @@ endif
 " '?' for before current position
 " '/' for after current position
 set incsearch
+
+
 
 " Theme settings/vim ui
 "-----------------------
@@ -95,8 +117,7 @@ highlight colorcolumn ctermbg=232
 
 " Indentation
 "-----------------------
-if has("autocmd")
-    filetype plugin indent on
+if has('autocmd')
     set autoindent
 endif
 "how many spaces we want for tabs
