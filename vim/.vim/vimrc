@@ -3,8 +3,13 @@
 "        for more information.
 " [1] http://www.reddit.com/r/vim/comments/1yfzg2/does_anyone_actually_use_easymotion/
 
-" Theme settings/vim ui
-"-----------------------
+" Vundle and Plugins settings
+"----------------------------
+"This option stops vim from behaving in a strong vi-compatible way.
+"It should be at the start of any vimrc file as it can affect lots
+"of other options which you may want to override.
+set nocompatible "required
+filetype off "required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -18,6 +23,7 @@ Plugin 'mattn/webapi-vim'
 Plugin 'godlygeek/tabular.git'
 Plugin 'xuhdev/SingleCompile'
 Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -27,10 +33,7 @@ filetype plugin indent on    " required
 "-----------------------
 "Set character encoding
 set encoding=utf-8
-"This option stops vim from behaving in a strong vi-compatible way.
-"It should be at the start of any vimrc file as it can affect lots
-"of other options which you may want to override.
-set nocompatible
+"set nocompatible
 "The VIM software has had several remote vulnerabilities
 "discovered within VIM's modeline support.
 set nomodeline
