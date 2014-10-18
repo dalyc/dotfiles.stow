@@ -26,39 +26,3 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <minus> : "↭"
 <Multi_key> <m> <greater> : "↝"
 <Multi_key> <m> <bar> <underscore> : "⊥"
-
-# Quotes
-<Multi_key> <bracketleft> <apostrophe> : "｢"
-<Multi_key> <bracketright> <apostrophe> : "｣"
-
-# Easier grammar
-<Multi_key> <semicolon> <apostrophe> : "’"
-<Multi_key> <colon> <apostrophe> : "‘"
-
-# Misc
-<Multi_key> <colon> <bar> <bar> : "ಠ_ಠ"
-<Multi_key> <less> <3> : "❤"
-
-<Multi_key> <bar> <asciicircum> : "↑"
-<Multi_key> <bar> <v> : "↓"
-
-# IRC shortcuts
-<Multi_key> <v> <i> : "$EDITOR"
-
-# Fun with Paleotypography
-<Multi_key> <T> <H> : "Þ" # 'Th'e
-<Multi_key> <t> <h> : "þ"
-
-<Multi_key> <D> <H> : "Ð"
-<Multi_key> <d> <h> : "ð"
-
-<Multi_key> <W> <W> : "Ƿ" # 'W'hen
-<Multi_key> <w> <w> : "ƿ"
-
-<Multi_key> <s> <s> : "ſ" # 'S'ee
-
-<Multi_key> <Y> <Y> : "Ȝ" # 'Plo'ugh'
-<Multi_key> <y> <y> : "ȝ"
-
-<Multi_key> <N> <G> : "Ŋ" # Si'ng'
-<Multi_key> <n> <g> : "ŋ"

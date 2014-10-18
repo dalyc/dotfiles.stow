@@ -47,4 +47,9 @@ export VIMPERATOR_RUNTIME="$XDG_CONFIG_HOME"/vimperator
 export PENTADACTYL_RUNTIME="$XDG_CONFIG_HOME"/pentadactyl
 export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/xcompose
 
+
+# Xorg and XKB
+export GTK_IM_MODULE=xim
+export XAUTHORITY=$XDG_RUNTIME_DIR/X11/xauthority
+
 # export SDL_AUDIODRIVER=pulse
