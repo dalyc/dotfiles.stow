@@ -14,7 +14,7 @@ filetype off "required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " List of plugins handled by vundle
-Plugin 'tpope/vim-pathogen'
+Plugin 'gmarik/Vundle.vim' "Let vundle manage itself, required
 Plugin 'tpope/vim-commentary'
 Plugin 'SirVer/ultisnips'
 Plugin 'vim-scripts/The-NERD-tree'
