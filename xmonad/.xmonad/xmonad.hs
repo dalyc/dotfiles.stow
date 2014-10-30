@@ -239,7 +239,7 @@ myKeys conf = mkKeymap conf $ [
     , ("M-S-a x", safeSpawn "python" ["dev/clipsync/sync.py"])
 
     --Applications
-    , ("M-f", safeSpawn "/opt/firefox-36.0a1/firefox" [])
+    , ("M-f", safeSpawn "firefox" ["https://duckduckgo.com"])
     , ("M-S-f 0", safeSpawn "firefox" ["-P"])
     , ("M-S-f 1", safeSpawn "firefox" ["-P", "Primary"])
     , ("M-S-f 2", safeSpawn "firefox" ["--no-remote", "-P", "Class"])

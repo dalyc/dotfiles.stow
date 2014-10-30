@@ -51,3 +51,6 @@ if [[ -r $HOME/dev/bin/startx ]]; then
 fi
 
 # export SDL_AUDIODRIVER=pulse
+
+# Chromium
+export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=15.0.0.189'

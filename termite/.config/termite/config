@@ -1,6 +1,7 @@
 [options]
 #font = DejaVuSansMono 11
-font = Inconsolata 12
+# font = Inconsolata 12
+font = Inconsolata 10
 
 resize_grip = false
 scroll_on_output = false
