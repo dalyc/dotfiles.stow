@@ -50,7 +50,7 @@ if [[ -r $HOME/dev/bin/startx ]]; then
   export XAUTHORITY=$XDG_RUNTIME_DIR/X11/xauthority
 fi
 
-# export SDL_AUDIODRIVER=pulse
-
 # Chromium
 export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=15.0.0.189'
+
+export SDL_AUDIODRIVER=pulse

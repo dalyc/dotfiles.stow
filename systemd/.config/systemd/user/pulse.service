@@ -3,11 +3,11 @@ Description=PulseAudio Server
 Requires=dbus.socket
 
 [Service]
-ExecStart=/usr/bin/pulseaudio --start
+ExecStart=/usr/bin/pulseaudio
 ExecStop=/usr/bin/pulseaudio --kill
 
 BusName=org.pulseaudio.Server
 Restart=on-failure
 
 [Install]
-WantedBy=me.target
+WantedBy=default.target

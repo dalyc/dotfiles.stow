@@ -37,8 +37,7 @@ import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Named
 import XMonad.Layout.Reflect
 import XMonad.Layout.Tabbed -- Tabbed layout (8)
-import XMonad.Layout.LayoutHints
--- import XMonad.Layout.TabBarDecoration -- Tabbed layout (8)
+import XMonad.Layout.LayoutCombinators hiding ( (|||) ) -- Combine layouts (10)
 
 -- local libs
 import DynamicTopic -- (7)
@@ -116,7 +115,7 @@ myManageHook = (composeAll . concat $
             [[ className =? "Firefox"    --> insertPosition End Older <+> doShift "web" -- (6)
             , className =? "Firefox" <&&> resource =? "Download" --> doFloat
             , className =? "Chromium"   --> insertPosition End Older <+> doShift "web" -- (6)
-            , className =? "Pavucontrol" --> insertPosition End Older <+> doShift "im" -- (6)
+            , className =? "Pavucontrol" --> insertPosition End Older -- (6)
             , className =? "Okular"   --> doShift "doc"
             , className =? "MuPDF"   --> doShift "doc"
             -- , fmap ("libreoffice" `isPrefixOf`) className --> doShift "doc" -- (1)
@@ -124,12 +123,10 @@ myManageHook = (composeAll . concat $
             , className =? "X2goclient"    --> doShift "7"
             , className =? "X2GoAgent"    --> doShift "7"
             , className =? "mpv"    --> doShift "8"
-            , className =? "Vlc"    --> doShift "8"
             , className =? "Hamster-time-tracker" --> doShift "NSP"
             , className =? "Osmo" --> doShift "NSP"
             , className =? "trayer" --> doIgnore
-            , className =? "URxvt" --> insertPosition Below Newer -- (6)
-            , className =? "Termite" --> insertPosition Below Newer -- (6)
+            -- , className =? "Termite" --> insertPosition Below Newer -- (6)
             , className =? "Gtkdialog" --> doFloat
             , className =? "Gimp" --> doFloat
             ]]) <+> manageScratchPad
@@ -173,6 +170,8 @@ myTabConfig = defaultTheme {  activeColor     = "#2d2d2d"
                             , fontName        = "terminus"
                            }
 
+
+
 -------------------------------------------------------------------------------
 --- Layouts ---
 -------------------------------------------------------------------------------
@@ -183,22 +182,39 @@ myWorkspaces = [ "web", "doc", "dev", "term", "5", "6", "7", "8", "im", "NSP"]
 
 --layouts
 myLayout = customLayout
-customLayout =  onWorkspace "web" fsLayout $
+customLayout =  onWorkspace "web" webLayout $
                 onWorkspace "dev" devLayout $
+                onWorkspace "im" imLayout $
                 standardLayouts
     where
     standardLayouts = myTab ||| rmtiled ||| full ||| tiled
 
-    rt = ResizableTall 1 (2/100) (1/2) []
-    mtiled = named "M[]=" $ smartBorders $ Mirror rt
+    -- The default number of windows in the master pane
+    nmaster = 1
+    -- The default proportion of screen occupied by master pane
+    ratio = 2/3
+    -- Percent of screen to increment by when resizing panes
+    delta = 1/100
 
-    myTab = named "Tab" $ tabbed shrinkText myTabConfig -- (8)
-    rmtiled = named "RM[]=" $ smartBorders $ reflectVert mtiled
-    full = named "[]" $ noBorders Full
+    -- <define layouts>
+    rt = ResizableTall nmaster delta ratio []
     tiled = named "[]=" $ smartBorders rt
+    mtiled = named "M[]=" $ smartBorders $ Mirror rt
+    rmtiled = named "RM[]=" $ smartBorders $ reflectVert mtiled
 
-    fsLayout = myTab ||| full
-    devLayout = layoutHints (full ||| tiled)
+    -- <custom layouts>
+    myTab = named "Tab" $ noBorders $ tabbed shrinkText myTabConfig -- (8)
+    full = named "Full" $ noBorders Full
+    combined = named "C[|]" $ (myTab ****|* full) -- (10)
+    combined2 = named "C[/]" $ (myTab */**** full) -- (10)
+
+    -- <layouts per workspace>
+    webLayout = myTab ||| combined ||| full
+    devLayout = full ||| tiled
+    imLayout = myTab ||| combined2
+
+
+
 
 
 -------------------------------------------------------------------------------
@@ -249,7 +265,8 @@ myKeys conf = mkKeymap conf $ [
     , ("M-u o", safeSpawn "okular" [])
     , ("M-u c", safeSpawn "chromium" ["--incognito"])
     , ("M-u s", safeSpawn "spicec" ["--hotkeys", "toggle-fullscreen=shift+f12,release-cursor=win","-h", "127.0.0.1", "-p", "5930"])
-    , ("M-u v", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
+    -- , ("M-u w", safeSpawn "v4l2-ctl" ["-c", "exposure_auto=1", "-c", "exposure_absolute=22"])
+    , ("M-u v", safeSpawn "pavucontrol" [])
 
     --Launching
     , ("M-<Return>", spawnShell) --Launch shell in topic (7)
