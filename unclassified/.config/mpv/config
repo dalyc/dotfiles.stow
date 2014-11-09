@@ -4,3 +4,6 @@ no-cookies
 quiet
 # Use pulseaudio, with alsa as fallback
 # ao=pulse,alsa
+
+# For intel video cards
+hwdec=vaapi
