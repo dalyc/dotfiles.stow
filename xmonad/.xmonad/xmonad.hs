@@ -209,7 +209,7 @@ customLayout =  onWorkspace "web" webLayout $
     combined2 = named "C[/]" $ (myTab */**** full) -- (10)
 
     -- <layouts per workspace>
-    webLayout = myTab ||| combined ||| full
+    webLayout = myTab ||| full ||| combined
     devLayout = full ||| tiled
     imLayout = myTab ||| combined2
 
