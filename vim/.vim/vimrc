@@ -240,9 +240,14 @@ nnoremap <F3> :set hlsearch! hlsearch?<CR>
 " Toggle between buffers (with F5)
 inoremap <F5> <C-O><C-^>
 nnoremap <F5> <C-^>
+" (Un)Fold actions
+inoremap <F7> <C-O>zm
+nnoremap <F7> zm
+inoremap <F8> <C-O>zR
+nnoremap <F8> zR
 " Toggle some bars
-nnoremap <F6> :TagbarToggle<CR>
-nnoremap <F7> :SyntasticToggleMode<CR>
+nnoremap <F9> :TagbarToggle<CR>
+nnoremap <F10> :SyntasticToggleMode<CR>
 
 "Compile the current C program in buffer
 "%<.c is used intentionally to output an error
