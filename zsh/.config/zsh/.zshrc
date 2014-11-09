@@ -117,18 +117,13 @@ setprompt() {
     done
     PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
-
-    # Let us change the color of our username (%n) if we are in SSH
+    # Let us change TERM is we are in SSH
     if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-        eval PR_USER='${PR_RED}%n${PR_NO_COLOR}' #SSH
-        # Also, let us export TERM
+        # eval PR_USER='${PR_RED}%n${PR_NO_COLOR}' #SSH
         export TERM=xterm
-    else
-        eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}' # no SSH
     fi
 
-
-    PROMPT='${PR_USER}${PR_BLUE} in [${PR_DIR}${PR_BLUE}] ${PR_RED}#${PR_NO_COLOR} '
+    PROMPT='${PR_GREEN}%n${PR_BLUE} in [${PR_DIR}${PR_BLUE}] ${PR_RED}#${PR_NO_COLOR} '
     # Print a right prompt with GIT info
     # https://github.com/olivierverdier/zsh-git-prompt
     source $HOME/.config/zsh/git-prompt/zshrc.sh
