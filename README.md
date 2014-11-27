@@ -16,16 +16,9 @@ Dependencies
 ------------
 - xmobar/dev/clipsync requires xclip and dmenu
 
-Notes on ~/.xinitrc
--------------------
-Notice that my xinitrc has some unusual behavior. You should create a folder called startx in $HOME/.config, and there create a set of empty files. For instance, if you create the file $HOME/.config/startx/udiskie, then udiskie will be started when you run startx. I encourage you to check the case statement in xinitrc.
-Lastly, if my hostname is Greno and my $HOME is /home/user, then start xmonad, otherwise start the tiling window manager i3.
-
 
 Notes on zsh
 -------------
-I have heavily personalized zlogin. Just like with xinitrc, zlogin makes use of the $HOME/.config/startx folder. If the file $HOME/.config/startx/startx exists, then when you log in X will be automatically started for you. That is, if you are logging in from tty1, 2, or 3. When you log in from tty3 the stdout and stderr will be redirected to the file $HOME/xlog. If $HOME/xlog already exists it will ask you to delete it to before starting X, so we may only keep the latest output. Also, note that if you log in from tty1 or 2 and your hostname is Greno, and the file $HOME/.config/startx/keychain exists, and you have script /usr/bin/keychain (indicative that you have keychain installed), then make use of this SSH agent. Of course, you will need to modify some lines in this if statement if you wish to make use of this.
-
 I recommend you to check $HOME/.config/zsh/.zprofile to check the configured exports. For instance, I configured my PATH to `${PATH}:${HOME}/dev/bin:${HOME}/.cabal/bin:${HOME}/.gem/ruby/2.0.0/bin`. You may want to modify several settings here.
 
 The last worthwhile thing to mention is that I have configured .zshrc so that it expects the following files:
