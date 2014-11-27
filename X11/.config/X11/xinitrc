@@ -8,7 +8,7 @@ if [[ -z "$DBUS_SESSION_BUS_ADDRESS" ]]; then
 fi
 
 if [[ -d $HOME/.config/startx ]]; then
-    for arguments in $(find $HOME/.config/startx/ -type f)
+    for arguments in $(find $HOME/.config/X11/load/ -type f)
     do
         case $arguments in
             *bell) # Turn the bell off
@@ -52,11 +52,7 @@ ln -sfn $XDG_RUNTIME_DIR/adobe ~/.adobe
 ln -sfn $XDG_RUNTIME_DIR/macromedia ~/.macromedia
 
 # Which WM/DE to launch
-if [[ $(hostname) == "Greno" ]] || [[ $(hostname) == "Edinburgh" ]]; then
-    exec xmonad
-elif [[ $(hostname) == "eee" ]]; then
-    exec openbox-session
-else
-    exec i3
-    # exec startxfce4
-fi
+# exec xmonad
+exec i3
+# exec openbox-session
+# exec startxfce4

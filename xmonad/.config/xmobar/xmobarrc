@@ -15,6 +15,7 @@ Config { font = "-*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*"
                         -- #####################################################################################
                         , Run Battery ["-t","<acstatus> <left>%"] 20
                         , Run CoreTemp ["--ddigits", "0","-L","45","-n","#8dc18d","-H","55","-h","#E64040"] 10
+                        , Run Com "/usr/bin/bash" ["-c", "~/dev/xmobar/gpu"] "gpu" 900
                         , Run TopProc ["-t", "<fc=#7965ac><icon=.config/icons/cpu.xbm/></fc> <name1>"] 10
                         , Run TopMem ["-t", "<fc=#7965ac><icon=.config/icons/mem.xbm/></fc> <name1>"] 10
                         , Run Com "/usr/bin/bash" ["-c", "~/dev/xmobar/netstats"] "netstat" 600
@@ -25,5 +26,5 @@ Config { font = "-*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*"
                         ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ [%coretemp%  %top% %topmem% %netstat%  %multicpu%  %memory% [ %battery% ] <fc=#7965ac>[</fc> %disks% <fc=#7965ac>]</fc> %date% ]"
+       , template = "%StdinReader% }{ [%coretemp% %gpu% %top% %topmem% %netstat%  %multicpu%  %memory% [ %battery% ] <fc=#7965ac>[</fc> %disks% <fc=#7965ac>]</fc> %date% ]"
        }

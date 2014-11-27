@@ -7,3 +7,5 @@ quiet
 
 # For intel video cards
 hwdec=vaapi
+# For nvidia video cards
+# hwdec=vdpau

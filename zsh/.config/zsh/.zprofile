@@ -21,9 +21,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# Colors for grep
-export GREP_OPTIONS='--color=auto'
-
 # Highest compression
 export GZIP=-9 BZIP=-9 XZ_OPT=-9
 
@@ -53,4 +50,7 @@ fi
 # Chromium
 export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=15.0.0.189'
 
-export SDL_AUDIODRIVER=pulse
+# Intel
+export VDPAU_DRIVER=va_gl
+
+#export SDL_AUDIODRIVER=pulse

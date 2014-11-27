@@ -102,7 +102,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-# bindsym $mod+Shift+r reload
+bindsym $mod+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -110,42 +110,48 @@ bindsym $mod+Shift+e exit
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod+Shift
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# # resize window (you can also use the mouse for that)
+# mode "resize" {
+#         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+#         # Pressing left will shrink the window’s width.
+#         # Pressing right will grow the window’s width.
+#         # Pressing up will shrink the window’s height.
+#         # Pressing down will grow the window’s height.
+#         bindsym j resize shrink width 10 px or 10 ppt
+#         bindsym k resize grow height 10 px or 10 ppt
+#         bindsym l resize shrink height 10 px or 10 ppt
+#         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+#         # same bindings, but for the arrow keys
+#         bindsym Left resize shrink width 10 px or 10 ppt
+#         bindsym Down resize grow height 10 px or 10 ppt
+#         bindsym Up resize shrink height 10 px or 10 ppt
+#         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+#         # back to normal: Enter or Escape
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
+################
+# Personalized #
+# keybindings  #
+################
+# start dmenu (a program launcher)
+bindsym $mod+p exec dmenu_run
+# kill focused window
+bindsym $mod+Shift+q kill
+# Toggle between hide state and show state
+bindsym $mod+b bar mode toggle
 
 ################
 # Personalized #
 ################
 # Always wrap, be aware of focus parent
 force_focus_wrapping yes
-# start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
-# kill focused window
-bindsym $mod+Shift+q kill
 # Mode for new containers
 workspace_layout tabbed
 # Custom bindsyms
@@ -166,8 +172,8 @@ new_window 1pixel
 # For hiding vertical borders adjacent to the screen edges
 hide_edge_borders vertical
 # Start always the the following programs on start-up
-# not when restarting i3
 exec chromium --incognito
+exec bimonitors
 # exec nm-applet
 #######################
 # END of Personalized #
@@ -177,7 +183,7 @@ bar {
         font -*terminus-*-*-*-*-*-*-*-*-*-iso10646-*
         position bottom
         colors {
-            background #3f3f3f
+            background #18181F
             statusline #dcdccc
             focused_workspace #dcdccc #506070
             active_workspace #dcdccc #000000
