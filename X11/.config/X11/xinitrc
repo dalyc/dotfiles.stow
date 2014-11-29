@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# Explanation: Let us keep in $HOME/.config/startx empty files, if a file has the same name as the
-# case indicated here, follow appropriate action for that file. I.e. If we have $HOME/.config/startx/xmodmap,
+# Explanation: Let us keep in $HOME/.config/X11/load/ empty files, if a file has the same name as the
+# case indicated here, follow appropriate action for that file. I.e. If we have $HOME/.config/X11/load/xmodmap,
 # then start xmodmap, otherwise do nothing for xmodmap.
 if [[ -z "$DBUS_SESSION_BUS_ADDRESS" ]]; then
       eval "$(dbus-launch --sh-syntax --exit-with-session)"
 fi
 
-if [[ -d $HOME/.config/startx ]]; then
+if [[ -d $HOME/.config/X11/load ]]; then
     for arguments in $(find $HOME/.config/X11/load/ -type f)
     do
         case $arguments in
