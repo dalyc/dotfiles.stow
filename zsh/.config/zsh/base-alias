@@ -11,6 +11,7 @@ alias ls-m="find $1 -type f -exec stat --format '%Y :%y %n' {} \; | sort -n | cu
 alias mv='mv -i'
 alias rm='rm -I'
 alias diff='colordiff'
+alias grep='grep --color=auto'
 alias pacu='sudo pacman -Syu'
 alias pacs="pacman -Ss"
 alias myeip='dig +short myip.opendns.com @resolver1.opendns.com'

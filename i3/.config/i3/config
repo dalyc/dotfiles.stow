@@ -154,7 +154,7 @@ mode "focused" {
 }
 bindsym $mod+f mode "focused"
 
-mode "split" {
+mode "horz/vert split" {
   # split in horizontal orientation
   bindsym h split h
   # split in vertical orientation
@@ -163,7 +163,7 @@ mode "split" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym $mod+Shift+s mode "split"
+bindsym $mod+Shift+s mode "horz/vert split"
 
 # change container layout (stacked, tabbed, toggle split)
 mode "layout container" {
@@ -176,18 +176,33 @@ mode "layout container" {
 }
 bindsym $mod+c mode "layout container"
 
-mode "launcher" {
- bindsym f exec firefox
+mode "app launcher" {
+ bindsym 0 exec firefox -P
+ bindsym 1 exec firefox --no-remote -P Locked
+ bindsym 2 exec firefox --no-remote -P Vimperator
+ bindsym 3 exec firefox --no-remote -P UNI
+ bindsym 4 exec firefox --no-remote -P Social
+ bindsym 5 exec firefox --no-remote -P Peks
  bindsym c exec chromium --incognito
+ bindsym f exec firefox
  bindsym p exec pcmanfm
  bindsym o exec okular
  # back to normal: Enter or Escape
  bindsym Return mode "default"
  bindsym Escape mode "default"
 }
-bindsym $mod+p mode "launcher"
+bindsym $mod+p mode "app launcher"
 # start dmenu (a program launcher)
 bindsym $mod+Shift+p exec dmenu_run
+
+mode "Power modes" {
+  bindsym s exec systemctl suspend
+  bindsym o exec systemctl poweroff
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+m mode "Power modes"
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -228,7 +243,9 @@ exec bimonitors
 # exec nm-applet
 
 bar {
-  font -*terminus-*-*-*-*-*-*-*-*-*-iso10646-*
+  # HDMI2 = Big monitor
+  output HDMI2
+  font pango:Terminus 12px
   position bottom
   colors {
     background #18181F

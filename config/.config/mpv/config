@@ -5,6 +5,8 @@ quiet
 # Use pulseaudio, with alsa as fallback
 # ao=pulse,alsa
 
+# Video
+vo=opengl
 # For intel video cards
 hwdec=vaapi
 # For nvidia video cards

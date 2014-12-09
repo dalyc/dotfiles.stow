@@ -48,7 +48,7 @@ if [[ -r $HOME/dev/bin/startx ]]; then
 fi
 
 # Chromium
-export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=15.0.0.189'
+export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=15.0.0.239'
 
 # Intel
 export VDPAU_DRIVER=va_gl
