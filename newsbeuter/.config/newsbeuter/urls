@@ -1,9 +1,6 @@
 #####
 # 1 #
 #####
-http://www.tomshardware.com/feeds/rss2/tom-s-hardware-us-components,18-1-1.xml 1 tech
-http://www.osnews.com/files/recent.xml 1 tech
-http://www.xbitlabs.com/misc/rss/ 1 tech
 http://feeds.arstechnica.com/arstechnica/askars 1 tech
 # Open Source stuff
 http://0pointer.net/blog/index.rss20 1 "open source"
@@ -51,13 +48,9 @@ http://lowlevelhardware.blogspot.com/feeds/posts/default?alt=rss 2 "sysadmin"
 #http://feeds.feedburner.com/blogspot/laboro 2 random
 #http://historiasdelahistoria.com/feed 2 random
 
-http://aprendeinglessila.com/feed/ 2 fun
-http://feeds2.feedburner.com/braingle/all 2 fun
 http://gdata.youtube.com/feeds/base/users/minutephysics/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile 2 fun
 https://gdata.youtube.com/feeds/base/users/numberphile/uploads?alt=rss&v=2&orderby=published&client=ytapi-youtube-profile 2 fun
 http://mundowdg.com/blog/feed/ 2 fun
-
-
 
 ######
 # CS #
