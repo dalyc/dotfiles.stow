@@ -12,6 +12,7 @@ if [[ $HOST == "Greno" ]]; then
     # Source functions and aliases if our hostname is Greno
     source $HOME/.config/zsh/Greno-alias
     source $HOME/.config/zsh/Greno-functions
+    source $HOME/.config/zsh/marks-function
     # Don't store commands with cd/ls/mirage/mpv in the history
     function zshaddhistory() { [[ $1 != *(cd|ls|mirage|mpv)* ]] }
 else
@@ -30,7 +31,6 @@ fi
 # Load base aliases and functions
 source $HOME/.config/zsh/base-alias
 source $HOME/.config/zsh/base-functions
-source $HOME/.config/zsh/marks-function
 # Load completition settings
 source $HOME/.config/zsh/completition
 

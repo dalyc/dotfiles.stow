@@ -14,6 +14,7 @@ urgent_on_bell = true
 clickable_url = false
 scrollback_lines = 10000
 search_wrap = true
+fullscreen = false
 #icon_name = terminal
 #geometry = 640x480
 

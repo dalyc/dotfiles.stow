@@ -3,13 +3,8 @@ alias cd.notes='cd ~/dev/notes'
 alias cd.bin='cd ~/dev/bin'
 alias cd.build='cd ~/.local/build'
 
-alias bton='systemctl --user start bt.service'
-alias btoff='systemctl --user stop bt.service'
-alias btstatus='systemctl --user status bt.service'
 alias pa-on='systemctl --user start pulse.service'
 alias pa-off='systemctl --user stop pulse.service'
 alias pa-status='systemctl --user status pulse.service'
 
 alias weechat='dtach -A $XDG_RUNTIME_DIR/weechat weechat --dir ~/.config/weechat'
-
-alias skype='ssh docker-skype skype-pulseaudio'

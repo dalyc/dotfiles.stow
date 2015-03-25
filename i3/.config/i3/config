@@ -176,7 +176,7 @@ mode "layout container" {
 }
 bindsym $mod+c mode "layout container"
 
-mode "app launcher" {
+mode "App launcher" {
  bindsym 0 exec firefox -P
  bindsym 1 exec firefox --no-remote -P Locked
  bindsym 2 exec firefox --no-remote -P Vimperator
@@ -191,12 +191,12 @@ mode "app launcher" {
  bindsym Return mode "default"
  bindsym Escape mode "default"
 }
-bindsym $mod+p mode "app launcher"
+bindsym $mod+p mode "App launcher"
 # start dmenu (a program launcher)
 bindsym $mod+Shift+p exec dmenu_run
 
 mode "Power modes" {
-  bindsym s exec systemctl suspend
+  bindsym s exec suspendandlock
   bindsym o exec systemctl poweroff
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -224,9 +224,7 @@ workspace_layout tabbed
 bindsym $mod+Shift+Tab workspace back_and_forth
 bindsym $mod+Tab [class="URxvt" title="VIM"] focus
 # Windows rule
-assign [class="Chromium"]   → 1
-assign [instance="mpv"]     → 2
-assign [instance="tmux"]    → 2
+assign [class="Firefox"]   → 1
 assign [instance="htop"]    → 3
 # actions for certain windows
 for_window [class="urxvt"] border 1pixel
@@ -237,14 +235,14 @@ for_window [class="Firefox" instance="Navigator"] floating disable
 new_window 1pixel
 # For hiding vertical borders adjacent to the screen edges
 hide_edge_borders vertical
-# Start always the the following programs on start-up
-exec chromium --incognito
+# Always start the following programs
+exec pulseaudio --start
+exec rofi -terminal xterm -key Alt-F4
 exec bimonitors
 # exec nm-applet
+# exec chromium --incognito
 
 bar {
-  # HDMI2 = Big monitor
-  output HDMI2
   font pango:Terminus 12px
   position bottom
   colors {

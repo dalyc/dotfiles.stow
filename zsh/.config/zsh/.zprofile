@@ -1,7 +1,7 @@
+export TERMINAL=termite # This setting is for i3-sensible-terminal
 export EDITOR=vim
 export VISUAL=vim
 export BROWSER=firefox
-export TERMINAL=termite
 export PAGER=less
 
 export PATH="${PATH}:${HOME}/dev/bin:${HOME}/.cabal/bin:${HOME}/.gem/ruby/2.1.0/bin"
@@ -53,4 +53,4 @@ export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/P
 # Intel
 export VDPAU_DRIVER=va_gl
 
-#export SDL_AUDIODRIVER=pulse
+export SDL_AUDIODRIVER=pulse

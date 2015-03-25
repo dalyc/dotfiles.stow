@@ -78,3 +78,14 @@ xterm*color12: #477AB3
 xterm*color13: #7E62B3
 xterm*color14: #6096BF
 xterm*color15: #C0C0C0
+
+! --[ rofi Settings  ]-------------------------------------
+rofi.background: #333
+rofi.foreground: #1aa
+rofi.highlightbg: #1aa
+rofi.highlightfg: #111
+rofi.bordercolor: #277
+rofi.font: Inconsolata 12
+rofi.padding: 3
+rofi.lines: 5
+rofi.borderwidth: 3
