@@ -60,6 +60,8 @@ URxvt.color14: #6096BF
 URxvt.color15: #C0C0C0
 
 ! --[ xterm Settings  ]-------------------------------------
+/* xterm*font: *-fixed-*-*-*-18-* */
+xterm*font: -*-terminus-*-*-*-*-18-*-*-*-*-*-*-*
 xterm*foreground: #999999
 xterm*background: #000000
 xterm*color0: #333333

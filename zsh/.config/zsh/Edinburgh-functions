@@ -2,9 +2,9 @@ notes() {
     if (($# > 1 )); then
         echo "Invalid number of arguments were given"
     elif (($# == 0)); then
-        vim ~/dev/UNI/NOTES
+        vim ~/dev.bin/UNI/NOTES
     elif [[ $1 = "-o" ]]; then
-        cat ~/dev/UNI/NOTES
+        cat ~/dev.bin/UNI/NOTES
     else
         echo "Write notes to edit notes"
         echo "Write notes -o to output notes"
