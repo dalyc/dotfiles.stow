@@ -237,7 +237,7 @@ new_window 1pixel
 hide_edge_borders vertical
 # Always start the following programs
 exec pulseaudio --start
-exec rofi -terminal xterm -key Alt-F4
+exec rofi -terminal xterm -key-run Alt-F1 -key-ssh Alt-F2 -key-window Alt-F3
 exec bimonitors
 # exec nm-applet
 # exec chromium --incognito
