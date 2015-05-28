@@ -9,9 +9,18 @@ if [[ $HOST == "Greno" ]]; then
     # http://superuser.com/questions/296256/whats-the-easiest-way-to-add-custom-filename-autocomplete-behavior-for-a-comman
     # Add custom completition
     fpath=($HOME/.config/zsh/autocompletitions $fpath)
-    # Source functions and aliases if our hostname is Greno
+    # Source functions and aliases
     source $HOME/.config/zsh/Greno-alias
     source $HOME/.config/zsh/Greno-functions
+    source $HOME/.config/zsh/marks-function
+    # Don't store commands with cd/ls/mirage/mpv in the history
+    function zshaddhistory() { [[ $1 != *(cd|ls|mirage|mpv)* ]] }
+elif [[ $HOST == "Edinburgh" ]]; then
+    # Add custom completition
+    fpath=($HOME/.config/zsh/autocompletitions $fpath)
+    # Source functions and aliases
+    source $HOME/.config/zsh/Edinburgh-alias
+    source $HOME/.config/zsh/Edinburgh-functions
     source $HOME/.config/zsh/marks-function
     # Don't store commands with cd/ls/mirage/mpv in the history
     function zshaddhistory() { [[ $1 != *(cd|ls|mirage|mpv)* ]] }
@@ -27,6 +36,7 @@ else
         source $HOME/.config/zsh/"$HOST"-functions
     fi
 fi
+
 
 # Load base aliases and functions
 source $HOME/.config/zsh/base-alias
@@ -95,7 +105,7 @@ fi
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 #------------------------------
 precmd() {
-    # Let us change the color of the path if it's not writable
+    # Change the color of the path if it's not writable
     # %3c = Only show last 3 dirs on our PWD
     # %d = Show full path to dir
     if [[ -w "$PWD" ]]; then
@@ -104,6 +114,7 @@ precmd() {
         eval PR_DIR='${PR_RED}%d${PR_NO_COLOR}'
     fi
 }
+
 
 setprompt() {
     # Required for colours

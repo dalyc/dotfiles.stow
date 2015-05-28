@@ -1,6 +1,7 @@
 alias cd.dot='cd ~/.dotfiles'
 alias cd.notes='cd ~/dev/notes'
 alias cd.bin='cd ~/dev/bin'
+alias cd.trash='cd ~/.local/share/Trash'
 
 alias bton='systemctl --user start bt.service'
 alias btoff='systemctl --user stop bt.service'

@@ -6,58 +6,55 @@ Xft.rgba: vrgb
 ! --[Cursor theme ]-----------------------------------------
 Xcursor.theme: Vanilla-DMZ
 
-! --[ URxvt - General ]-------------------------------------
-URxvt.loginShell:false
-URxvt.scrollBar:false
-URxvt.saveLines:5000
-URxvt.dynamicColors: on
-URxvt.internalborder: 0
-URxvt.font: xft:terminus:pixelsize=16
-URxvt.cutchars: "()*,<>[]{}|'"
-URxvt.print-pipe: cat >$(mktemp $HOME/Archives/txt/urxvt.XXXXX)
-URxvt.visualBell: false
-URxvt.urgentOnBell: true
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-URxvt.scrollWithBuffer: true
-URxvt.scrollTtyOutput: false
-URxvt.scrollTtyKeypress: true
-
-! --[ URxvt - Change fonts on the fly ]---------------------
-URxvt.keysym.M-C-1: command:\033]710;xft:terminus:pixelsize=16\007\033]711;xft:terminus:pixelsize=16:bold\007
-URxvt.keysym.M-C-2: command:\033]710;xft:DejaVuSansMono:pixelsize=18\007\033]711;xft:DejaVuSansMono:pixelsize=18:bold\007
-URxvt.keysym.M-C-3: command:\033]710;xft:Inconsolata:pixelsize=18\007\033]711;xft:Inconsolata:pixelsize=18:bold\007
-
-! --[ URxvt - URL/Clipboard Handling ]----------------------
-URxvt.perl-ext-common: default,url-select
-URxvt.keysym.M-u:      perl:url-select:select_next
-URxvt.url-select.launcher: firefox
-URxvt.underlineURLs:   true
-
-! --[ URxvt - colors ]--------------------------------------
-URxvt.depth: 32
-URxvt.cursorColor:  #370074
-URxvt.cursorColor2: #ff00f6
-URxvt.highlightColor:#444444
-URxvt.underlinecolor: #999999
-URxvt.background: #000000
-URxvt.foreground: #999999
-URxvt.color0: #333333
-URxvt.color1: #8C4665
-URxvt.color2: #287373
-URxvt.color3: #7C7C99
-URxvt.color4: #395573
-URxvt.color5: #5E468C
-URxvt.color6: #31658C
-URxvt.color7: #899CA1
-URxvt.color8: #3D3D3D
-URxvt.color9: #BF4D80
-URxvt.color10: #53A6A6
-URxvt.color11: #9E9ECB
-URxvt.color12: #477AB3
-URxvt.color13: #7E62B3
-URxvt.color14: #6096BF
-URxvt.color15: #C0C0C0
+!! --[ URxvt - General ]-------------------------------------
+!URxvt.loginShell:false
+!URxvt.scrollBar:false
+!URxvt.saveLines:5000
+!URxvt.dynamicColors: on
+!URxvt.internalborder: 0
+!URxvt.font: xft:terminus:pixelsize=16
+!URxvt.cutchars: "()*,<>[]{}|'"
+!URxvt.print-pipe: cat >$(mktemp $HOME/Archives/txt/urxvt.XXXXX)
+!URxvt.visualBell: false
+!URxvt.urgentOnBell: true
+!URxvt.iso14755: false
+!URxvt.iso14755_52: false
+!URxvt.scrollWithBuffer: true
+!URxvt.scrollTtyOutput: false
+!URxvt.scrollTtyKeypress: true
+!! --[ URxvt - Change fonts on the fly ]---------------------
+!URxvt.keysym.M-C-1: command:\033]710;xft:terminus:pixelsize=16\007\033]711;xft:terminus:pixelsize=16:bold\007
+!URxvt.keysym.M-C-2: command:\033]710;xft:DejaVuSansMono:pixelsize=18\007\033]711;xft:DejaVuSansMono:pixelsize=18:bold\007
+!URxvt.keysym.M-C-3: command:\033]710;xft:Inconsolata:pixelsize=18\007\033]711;xft:Inconsolata:pixelsize=18:bold\007
+!! --[ URxvt - URL/Clipboard Handling ]----------------------
+!URxvt.perl-ext-common: default,url-select
+!URxvt.keysym.M-u:      perl:url-select:select_next
+!URxvt.url-select.launcher: firefox
+!URxvt.underlineURLs:   true
+!! --[ URxvt - colors ]--------------------------------------
+!URxvt.depth: 32
+!URxvt.cursorColor:  #370074
+!URxvt.cursorColor2: #ff00f6
+!URxvt.highlightColor:#444444
+!URxvt.underlinecolor: #999999
+!URxvt.background: #000000
+!URxvt.foreground: #999999
+!URxvt.color0: #333333
+!URxvt.color1: #8C4665
+!URxvt.color2: #287373
+!URxvt.color3: #7C7C99
+!URxvt.color4: #395573
+!URxvt.color5: #5E468C
+!URxvt.color6: #31658C
+!URxvt.color7: #899CA1
+!URxvt.color8: #3D3D3D
+!URxvt.color9: #BF4D80
+!URxvt.color10: #53A6A6
+!URxvt.color11: #9E9ECB
+!URxvt.color12: #477AB3
+!URxvt.color13: #7E62B3
+!URxvt.color14: #6096BF
+!URxvt.color15: #C0C0C0
 
 ! --[ xterm Settings  ]-------------------------------------
 /* xterm*font: *-fixed-*-*-*-18-* */
@@ -80,6 +77,8 @@ xterm*color12: #477AB3
 xterm*color13: #7E62B3
 xterm*color14: #6096BF
 xterm*color15: #C0C0C0
+! xterm is derpy with the alt key
+xterm*metaSendsEscape: true
 
 ! --[ rofi Settings  ]-------------------------------------
 rofi.background: #333

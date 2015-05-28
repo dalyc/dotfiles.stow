@@ -1,7 +1,7 @@
 alias cd.dot='cd ~/.dotfiles'
 alias cd.notes='cd ~/dev/notes'
 alias cd.bin='cd ~/dev/bin'
-alias cd.build='cd ~/.local/build'
+alias cd.trash='cd ~/.local/share/Trash'
 
 alias pa-on='systemctl --user start pulse.service'
 alias pa-off='systemctl --user stop pulse.service'

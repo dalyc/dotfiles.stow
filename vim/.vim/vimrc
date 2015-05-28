@@ -24,6 +24,7 @@ Plugin 'godlygeek/tabular.git'
 Plugin 'xuhdev/SingleCompile'
 Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
+" Plugin 'Lokaltog/vim-easymotion'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

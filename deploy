@@ -10,8 +10,9 @@ For vim it initializes the git submodules so that all vim plugins are properly i
 For xmonad it installs xmonad and xmonad-contrib through cabal.
 
 Available arguments are:
-    --deploy (Deploy only dotfiles for things I use, e.g. i3 willl not be deployed)
-    --conclude (Conclude only dotfiles for things I use, e.g. i3 will not be concluded)
+    --deploy (Create symlinks for base dotfiles: cower git termite X11 i3 zsh config)
+    --conclude (Delete symlinks for base dotfiles: cower git termite X11 i3 zsh config)
+
     --vim (For creating the necessary folders, installation of plugins, and symlinking)
     --xmonad (For creating the necessary folders, installation of packages, and symlinking)
 EOF
@@ -45,6 +46,7 @@ vim_wrapper() {
     echo "Cloning Vundle..."
     git clone https://github.com/gmarik/Vundle.vim.git vim/.vim/bundle/Vundle.vim
     stow -v vim
+    echo "To install the plugins run, inside of vim, :VundleUpdate"
 }
 
 
@@ -56,11 +58,11 @@ if [[ ! -x /usr/bin/stow ]] || [[ ! -x /bin/stow ]]; then
     exit
 
 elif [[ $1 == "--deploy" ]]; then
-    stow -v cower git newsbeuter termite X11 i3 youtube zsh vimperator config
+    stow -v cower git termite X11 i3 zsh config
     vim_wrapper
 
 elif [[ $1 == "--conclude" ]]; then
-    stow -v --delete cower git newsbeuter termite X11 i3 youtube zsh vimperator config vim
+    stow -v --delete cower git termite X11 i3 zsh config vim
 
 # What to do for when we want to deploy vim
 elif [[ $1 == "--vim" ]]; then
