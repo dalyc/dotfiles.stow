@@ -37,6 +37,7 @@ export PERL_CPANM_HOME=$XDG_CONFIG_HOME/cpanm
 export MPV_HOME=$XDG_CONFIG_HOME/mpv
 export VIMPERATOR_RUNTIME=$XDG_CONFIG_HOME/vimperator
 export PENTADACTYL_RUNTIME=$XDG_CONFIG_HOME/pentadactyl
+export ATOM_HOME=$XDG_CONFIG_HOME/atom
 
 # Xorg and XKB
 if [[ -r $XDG_CONFIG_HOME/X11/xcompose ]]; then
@@ -47,10 +48,7 @@ if [[ -r $HOME/dev/bin/startx ]]; then
   export XAUTHORITY=$XDG_RUNTIME_DIR/X11/xauthority
 fi
 
-# Chromium
-export CHROMIUM_USER_FLAGS='--password-store=gnome --ppapi-flash-path=/usr/lib/PepperFlash/libpepflashplayer.so --ppapi-flash-version=15.0.0.239'
-
 # Intel
 export VDPAU_DRIVER=va_gl
-
+# Pulseaudio
 export SDL_AUDIODRIVER=pulse

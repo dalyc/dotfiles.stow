@@ -25,7 +25,7 @@ cursor_blink = off
 cursor_shape = block
 
 # $BROWSER is used by default
-#browser = firefox
+#browser = chromium
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
