@@ -16,13 +16,13 @@ order += "cpu_usage"
 order += "load"
 order += "disk /"
 # order += "disk /var"
-# order += "wireless wlp2s0"
-# order += "battery 0"
+order += "wireless wlp2s0"
+order += "battery 0"
 order += "tztime local"
 
 cpu_temperature 0 {
   format = "T: %degrees C"
-  path = "/sys/class/thermal/thermal_zone2/temp"
+  path = "/sys/class/thermal/thermal_zone1/temp"
 }
 
 cpu_usage {
@@ -42,16 +42,17 @@ disk "/" {
 #   format = "var: %free"
 # }
 
-# wireless wlp2s0 {
-#   format_up = "W: %essid %quality (%ip)"
-#   format_down = "W: down"
-# }
-# battery 0 {
-#   low_threshold = 30
-#   last_full_capacity = true
-#   integer_battery_capacity = true
-#   format = "%status %percentage (%remaining %consumption)"
-# }
+wireless wlp2s0b1 {
+  format_up = "W: %essid (%ip)"
+  format_down = "W: down"
+}
+
+battery 0 {
+  low_threshold = 30
+  last_full_capacity = true
+  integer_battery_capacity = true
+  format = "%status %percentage (%remaining %consumption)"
+}
 
 tztime local {
   format = "%a %_d %b - %H:%M"
