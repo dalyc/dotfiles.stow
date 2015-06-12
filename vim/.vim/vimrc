@@ -15,16 +15,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " List of plugins handled by vundle
 Plugin 'gmarik/Vundle.vim' "Let vundle manage itself, required
-Plugin 'tpope/vim-commentary'
-Plugin 'SirVer/ultisnips'
-Plugin 'vim-scripts/The-NERD-tree'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'godlygeek/tabular.git'
-Plugin 'xuhdev/SingleCompile'
-Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
-" Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-commentary' "For quickly commenting lines
+Plugin 'SirVer/ultisnips' "For writing snippets of code
+Plugin 'vim-scripts/The-NERD-tree' "NERDtree view
+Plugin 'mattn/gist-vim' "gist
+Plugin 'mattn/webapi-vim' "gist
+Plugin 'xuhdev/SingleCompile' "Make it easier to compile and run a single source file
+Plugin 'scrooloose/syntastic' "Syntax checkingS
+Plugin 'ervandew/supertab' "Use <Tab> for autocompletition
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'godlygeek/tabular.git' "Line up text. Making tables, etc.
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -199,7 +199,7 @@ let g:gist_browser_command = 'firefox %URL% &'
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeIgnore    = ['\~$', '\.swp$', '\.o$', '\.hi$']
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos    = "right"
 
 " SuperTab settings
 "--------------------------
@@ -215,12 +215,12 @@ let g:UltiSnipsSnippetDirectories  = ["my_snippets"]
 
 " Syntastic settings
 "--------------------------
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_auto_jump = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_error_symbol    = '✗'
+let g:syntastic_warning_symbol  = '⚠'
+let g:syntastic_auto_jump       = 1
+let g:syntastic_auto_loc_list   = 1
 let g:syntastic_loc_list_height = 3
-let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map        = { 'mode': 'passive' }
 " Only use active mode for C files
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['c'],'passive_filetypes': [] }
 
@@ -238,24 +238,25 @@ inoremap <F2> <C-O>w
 nnoremap <F2> w
 " Highlight search terms
 nnoremap <F3> :set hlsearch! hlsearch?<CR>
+" Toggle some bars
+nnoremap <F4> :SyntasticToggleMode<CR>
 " Toggle between buffers (with F5)
 inoremap <F5> <C-O><C-^>
 nnoremap <F5> <C-^>
 " (Un)Fold actions
-inoremap <F7> <C-O>zm
-nnoremap <F7> zm
-inoremap <F8> <C-O>zR
-nnoremap <F8> zR
-" Toggle some bars
-nnoremap <F9> :TagbarToggle<CR>
-nnoremap <F10> :SyntasticToggleMode<CR>
-
+inoremap <F9> <C-O>zm
+nnoremap <F9> zm
+inoremap <F10> <C-O>zR
+nnoremap <F10> zR
 "Compile the current C program in buffer
 "%<.c is used intentionally to output an error
 "when we try to compile a file that is not C.
 nmap <F11> :!gcc %<.c -g -o %<.out<cr>
 "run the compiled program
 nmap <F12> :!./%:r.out<cr>
+"Easy motion
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
 
 " Mapleader
 "--------------------------

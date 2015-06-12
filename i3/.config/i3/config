@@ -236,11 +236,10 @@ new_window 1pixel
 # For hiding vertical borders adjacent to the screen edges
 hide_edge_borders vertical
 # Always start the following programs
-exec pulseaudio --start
 exec rofi -terminal xterm -key-run Alt-F1 -key-ssh Alt-F2 -key-window Alt-F3
 exec bimonitors
+exec chromium --incognito
 # exec nm-applet
-# exec chromium --incognito
 
 bar {
   font pango:Terminus 12px
