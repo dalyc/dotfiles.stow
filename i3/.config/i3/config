@@ -216,22 +216,17 @@ bindsym $mod+b bar mode toggle
 ################
 # Personalized #
 ################
-# Always wrap, be aware of focus parent
-# force_focus_wrapping yes
 # Mode for new containers
 workspace_layout tabbed
 # Custom bindsyms
 bindsym $mod+Shift+Tab workspace back_and_forth
 bindsym $mod+Tab [class="URxvt" title="VIM"] focus
-# Windows rule
-assign [class="Firefox"]   → 1
-assign [instance="htop"]    → 3
-# actions for certain windows
+# Actions for certain windows
 for_window [class="urxvt"] border 1pixel
 for_window [class="mpv"] floating enable
 for_window [class="Firefox"] floating enable
 for_window [class="Firefox" instance="Navigator"] floating disable
-# border style for new windows
+# Border style for new windows
 new_window 1pixel
 # For hiding vertical borders adjacent to the screen edges
 hide_edge_borders vertical
