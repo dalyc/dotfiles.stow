@@ -16,7 +16,7 @@ order += "cpu_usage"
 order += "load"
 order += "disk /"
 # order += "disk /var"
-order += "wireless wlp2s0"
+order += "wireless wlp2s0b1"
 order += "battery 0"
 order += "tztime local"
 
