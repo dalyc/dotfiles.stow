@@ -15,4 +15,4 @@ set verbose off
 # Use intel assembly syntax instead of AT&T
 set disassembly-flavor intel
 # Use PEDA
-# source ~/.local/share/gdb/peda.py
+source /usr/share/peda/peda.py
