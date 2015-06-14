@@ -194,8 +194,9 @@ bindsym $mod+p mode "App launcher"
 bindsym $mod+Shift+p exec dmenu_run
 
 mode "Power modes" {
-  bindsym s exec suspendandlock
+  bindsym s exec systemctl suspend
   bindsym o exec systemctl poweroff
+  bindsym l exec suspendandlock
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
