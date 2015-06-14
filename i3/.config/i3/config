@@ -181,7 +181,6 @@ mode "App launcher" {
  bindsym 1 exec firefox --no-remote -P Primary
  bindsym 2 exec firefox --no-remote -P Social
  bindsym 3 exec firefox --no-remote -P UNI
- bindsym 4 exec firefox --no-remote -P Peks
  bindsym c exec chromium --incognito
  bindsym f exec firefox
  bindsym p exec pcmanfm
