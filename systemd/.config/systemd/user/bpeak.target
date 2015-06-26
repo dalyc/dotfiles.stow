@@ -1,6 +1,0 @@
-[Unit]
-Description=Stuff for bpeak
-After=xorg.target
-
-[Install]
-Alias=default.target

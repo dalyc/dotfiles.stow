@@ -25,6 +25,7 @@ Plugin 'scrooloose/syntastic' "Syntax checkingS
 Plugin 'ervandew/supertab' "Use <Tab> for autocompletition
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'godlygeek/tabular.git' "Line up text. Making tables, etc.
+Plugin 'vim-scripts/funprototypes.vim.git' "Managing function prototypes in C
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -179,6 +180,11 @@ autocmd FileType python let python_highlight_all = 1
 autocmd FileType python let python_slow_sync = 1
 autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python set completeopt=preview
+
+" Settings for configuration files
+"--------------------------
+autocmd FileType conf colorscheme neverland2
+
 
 " Invisible chars
 "--------------------------

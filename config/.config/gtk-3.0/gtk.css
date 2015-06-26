@@ -1,1 +1,5 @@
 .window-frame {box-shadow: none; margin: 0}
+
+VteTerminal {
+  padding: 2px;
+}

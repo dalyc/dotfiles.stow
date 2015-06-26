@@ -7,4 +7,4 @@ alias pa-on='systemctl --user start pulse.service'
 alias pa-off='systemctl --user stop pulse.service'
 alias pa-status='systemctl --user status pulse.service'
 
-alias weechat='dtach -A $XDG_RUNTIME_DIR/weechat weechat --dir ~/.config/weechat'
+alias weechat='weechat --dir ~/.config/weechat'
