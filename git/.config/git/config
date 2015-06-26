@@ -1,45 +1,43 @@
 [core]
-    excludesfile = ~/.config/git/ignore_global
+  excludesfile = ~/.config/git/ignore_global
 [user]
-    name = ballmerpeak
-    email = xkcd.ballmer@gmail.com
-    editor = vim
+  name = ballmerpeak
+  email = xkcd.ballmer@gmail.com
+  editor = vim
 [merge]
     ; tool = vimdiff
-    tool = kdiff3
-    conflictstyle = diff3
+  tool = kdiff3
+  conflictstyle = diff3
 [alias]
-    c = commit
-    cm = commit -m
-    cma = commit -a -m
-    co = checkout
-    p = push
-    pom = push -u origin master
-    s = status
-    d = diff
-    br = branch
-    bra = branch -vv
-    l = log --graph --pretty=format:'%Cblue%h%Creset -%C(red bold)%d%Creset %s - %C(green)(%cr)%Creset' --abbrev-commit --date=relative -n 15
-    ll = log -p --pretty=format:'%C(cyan reverse)%h%Creset (%ar - %C(black)%an%Creset), %s%C(red bold)%d%Creset%n'
-    ls = ls-files
-    undo = reset --soft HEAD^
-    uncomit = reset HEAD^
+  c = commit
+  cm = commit -m
+  cma = commit -a -m
+  co = checkout
+  p = push --all origin
+  pom = push -u origin master
+  s = status
+  d = diff
+  br = branch
+  bra = branch -vv
+  l = log --graph --pretty=format:'%Cblue%h%Creset -%C(red bold)%d%Creset %s - %C(green)(%cr)%Creset' --abbrev-commit --date=relative -n 15
+  ll = log -p --pretty=format:'%C(cyan reverse)%h%Creset (%ar - %C(black)%an%Creset), %s%C(red bold)%d%Creset%n'
+  ls = ls-files
+  undo = reset --soft HEAD^
+  uncomit = reset HEAD^
 [color]
-    ui = auto
-    branch = auto
-    diff = auto
-    status = auto
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
 [color "diff"]
-    whitespace = red reverse
+  whitespace = red reverse
 [color "grep"]
-    filename = magenta
-    linenumber = green
+  filename = magenta
+  linenumber = green
 [grep]
-    linenumber = true
-    extendedRegexp = true
+  linenumber = true
+  extendedRegexp = true
 [github]
-	user = ballmerpeak
+  user = ballmerpeak
 [push]
-    ; default = simple
-    default = upstream
-    ; default = current
+  default = upstream
