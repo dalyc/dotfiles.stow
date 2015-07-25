@@ -1,43 +1,27 @@
-[core]
-  excludesfile = ~/.config/git/ignore_global
-[user]
-  name = ballmerpeak
-  email = xkcd.ballmer@gmail.com
-  editor = vim
-[merge]
-    ; tool = vimdiff
-  tool = kdiff3
-  conflictstyle = diff3
-[alias]
-  c = commit
-  cm = commit -m
-  cma = commit -a -m
-  co = checkout
-  p = push --all origin
-  pom = push -u origin master
-  s = status
-  d = diff
-  br = branch
-  bra = branch -vv
-  l = log --graph --pretty=format:'%Cblue%h%Creset -%C(red bold)%d%Creset %s - %C(green)(%cr)%Creset' --abbrev-commit --date=relative -n 15
-  ll = log -p --pretty=format:'%C(cyan reverse)%h%Creset (%ar - %C(black)%an%Creset), %s%C(red bold)%d%Creset%n'
-  ls = ls-files
-  undo = reset --soft HEAD^
-  uncomit = reset HEAD^
-[color]
-  ui = auto
-  branch = auto
-  diff = auto
-  status = auto
-[color "diff"]
-  whitespace = red reverse
-[color "grep"]
-  filename = magenta
-  linenumber = green
-[grep]
-  linenumber = true
-  extendedRegexp = true
 [github]
-  user = ballmerpeak
+    user = dalyc
+    token = a90c81f06d49be566bcca6c9d68bcc10
+[user]
+    name = Colin Daly
+    email = mr.colin.daly@gmail.com
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = auto
+[alias]
+    s = status
+    a = add 
+    c = commit
+    d = diff
+    l = log 
+    co = checkout
+    root = !pwd
+    flog = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    slog = log --pretty=oneline
+    fl = log --graph --pretty=format:'%C(yellow)%h%Creset%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset %C(white)<%an>%Creset' --abbrev-commit --date=relative
+    lsa = log --graph --pretty=format:'%C(yellow)%h%Creset%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset %C(white)<%an>%Creset' --all
+    fla = log --graph --pretty=format:'%C(yellow)%h%Creset%C(cyan)%d%Creset %s %Cgreen(%cr)%Creset %C(white)<%an>%Creset' --abbrev-commit --date=relative --all
+    oldest-ancestor = !zsh -c 'diff --old-line-format= --new-line-format= <(git rev-list --first-parent \"${1:-master}\") <(git rev-list --first-parent \"${2:-HEAD}\") | head -1' -
 [push]
-  default = upstream
+    default = simple

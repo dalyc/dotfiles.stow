@@ -7,35 +7,14 @@ cat <<EOF
 This script is basically just a wrapper for stow. Although for vim and xmonad it does
 some additional work that is needed for them to function properly.
 For vim it initializes the git submodules so that all vim plugins are properly installed.
-For xmonad it installs xmonad and xmonad-contrib through cabal.
 
 Available arguments are:
-    --deploy (Create symlinks for base dotfiles: cower git termite X11 i3 zsh config)
-    --conclude (Delete symlinks for base dotfiles: cower git termite X11 i3 zsh config)
+    --deploy (Create symlinks for base dotfiles: git zsh vim antigen)
+    --conclude (Delete symlinks for base dotfiles: git zsh vim antigen)
 
     --vim (For creating the necessary folders, installation of plugins, and symlinking)
-    --xmonad (For creating the necessary folders, installation of packages, and symlinking)
+    --antigen (For creating the necessary folders, installation of plugins, and symlinking)
 EOF
-}
-
-#+++++++++#
-# XMONAD  #
-#+++++++++#
-xmonad_wrapper() {
-    if [[ ! -x /usr/bin/cabal ]] && [[ ! -x /usr/bin/ghc ]]; then
-        echo "This option needs cabal and ghc to be installed. \
-            Come back after installing them."
-        echo "If you already have them installed, check the source code of \
-            this script to fix the path of their binaries"
-        exit
-    fi
-    # Only run the cabal commands if we do not have $HOME/.cabal already
-    if [[ ! -d $HOME/.cabal ]]; then
-        cabal update && cabal install xmonad && cabal install xmonad-contrib
-    fi
-    mkdir $HOME/.xmonad && stow -v xmonad
-    echo "You also need to add \$HOME/.cabal/bin to your \$PATH. Or deploy zsh, \
-        which already has \$PATH configured appropriately."
 }
 
 #+++++++++#
@@ -49,28 +28,39 @@ vim_wrapper() {
     echo "To install the plugins run, inside of vim, :VundleUpdate"
 }
 
+#+++++++++#
+# ANTIGEN #
+#+++++++++#
+antigen_wrapper() {
+    mkdir -p "$dotfiles_path"/antigen/.antigen
+    echo "Cloning antigen..."
+    git clone https://github.com/zsh-users/antigen.git antigen/.antigen
+    stow -v antigen
+}
+
 
 #+++++++++#
 #   MAIN  #
 #+++++++++#
-if [[ ! -x /usr/bin/stow ]] || [[ ! -x /bin/stow ]]; then
+if [[ ! -x /usr/bin/stow ]] && [[ ! -x /bin/stow ]]; then
     echo "This script needs stow, please install it with your package manager of preference"
     exit
 
 elif [[ $1 == "--deploy" ]]; then
-    stow -v cower git termite X11 i3 zsh config
+    stow -v git zsh
     vim_wrapper
+    antigen_wrapper
 
 elif [[ $1 == "--conclude" ]]; then
-    stow -v --delete cower git termite X11 i3 zsh config vim
+    stow -v --delete git zsh vim antigen
 
 # What to do for when we want to deploy vim
 elif [[ $1 == "--vim" ]]; then
     vim_wrapper
 
-# What to do for when we want to deploy xmonad
-elif [[ $1 == "--xmonad" ]]; then
-    xmonad_wrapper
+# What to do for when we want to deploy antigen
+elif [[ $1 == "--antigen" ]]; then
+    antigen_wrapper
 
 # Display the help
 else

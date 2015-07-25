@@ -16,7 +16,6 @@ PS1='[\u@\h \W]\$ '
 
 # Aliases
 alias ls='ls --color=auto'
-alias mutt='mutt -F $HOME/.config/mutt/muttrc'
 
 # TERM settings
 if [[ -n "$TMUX" ]]; then

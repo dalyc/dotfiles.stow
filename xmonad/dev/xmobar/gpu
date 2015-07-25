@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Only do something if this computer has nvidia-settings
-if [[ -r /usr/bin/nvidia-settings ]]; then
-  temp=$(nvidia-settings -q gpucoretemp -t)
-  echo GPU: $temp
-fi

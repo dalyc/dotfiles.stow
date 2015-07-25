@@ -5,12 +5,4 @@ vim/.vim/.netrwhist
 vim/.vim/backup/*
 vim/.vim/swap/*
 vim/.vim/bundle/*
-
-config/.config/gtk-3.0/bookmarks
-config/.config/gtk-2.0/gtkfilechooser.ini
-
-xmonad/.xmonad/history
-
-vimperator/.config/
-
-cgdb/.cgdb/readline_history.txt
+antigen

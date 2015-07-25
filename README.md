@@ -4,13 +4,13 @@ Feel free to use and modify anything on this repo as you wish.
 
 How to clone the repo
 ---------------------
-`git clone https://github.com/ballmerpeak/dotfiles.git ~/.dotfiles`
+`git clone https://github.com/dalyc/dotfiles.git ~/.dotfiles`
 
 How to deploy?
 --------------
 This is up to each individual, but this repo is structured in a way that allows for the GNU stow utility to be used. Stow allows for very easy creation and deletion of symbolic links.
 For example, if you want to grab use my vim configs you would just need to write `stow -v vim`, and after you get tired of my vim configs you just delete the symbolic links with `stow -v --delete vim`.
-The deploy script on this repo is esentially just an alias for `stow -v cower git mutt newsbeuter termite unclassified vim X xmonad youtube zsh`
+The deploy script on this repo is esentially just an alias for `stow -v git newsbeuter vim zsh`
 
 Dependencies
 ------------

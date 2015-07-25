@@ -1,3 +1,0 @@
-set as=long
-set cgdbmodekey=<ESC>
-unmap <alt>b
