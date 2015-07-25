@@ -1,0 +1,3 @@
+/usr/bin/keychain $HOME/.ssh/id_rsa
+. $HOME/.keychain/hippo-sh
+. $HOME/.keychain/hippo-sh-gpg
